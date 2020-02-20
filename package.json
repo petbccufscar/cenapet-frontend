@@ -11,6 +11,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "bootstrap-vue": "^2.5.0",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {}
