@@ -1,8 +1,12 @@
 :root {
-    --theme-dark: #373A3C;
+    --theme-dark: #343A40;
     --border-dark: #676A6C;
-    --text-light: #FAFAFA;
+    --text-light1: #FAFAFA;
+    --text-light2: #EEEEEE;
     --text-grey: #AAAAAA;
-    --accent: #269490;
+    --accent: #4DC7C3;
     --highlight-dark: #455A64;
+    --deep-purple: #673AB7;
+    --footer-dark: #242A30;
+    --footer-text-dark: #FFFFFF88;
 }

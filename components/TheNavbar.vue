@@ -77,7 +77,7 @@
   padding-right: 0.6rem;
 }
 .navbar-dark .navbar-nav .nav-link {
-  color: var(--text-light);
+  color: var(--text-light1);
 }
 .navbar-dark .navbar-nav .dropdown-menu {
   min-width: 15rem;
@@ -89,11 +89,11 @@
 .navbar-dark .navbar-nav .dropdown-item {
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
-  color: var(--text-light);
+  color: var(--text-light1);
 }
 .navbar-dark .navbar-nav .dropdown-item:hover {
   background-color: var(--highlight-dark);
-  color: var(--text-light);
+  color: var(--text-light1);
 }
 .navbar-dark .navbar-nav .dropdown-header {
   color: var(--text-grey);
