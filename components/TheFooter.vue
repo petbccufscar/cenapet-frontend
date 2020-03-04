@@ -20,7 +20,7 @@
   </footer>
 </template>
 
-<style scoped>
+<style>
 .footer-dark {
   background-color: var(--footer-dark);
   color: var(--text-light2);
