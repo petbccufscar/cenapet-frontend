@@ -24,6 +24,7 @@ export default {
   */
   css: [
     '@assets/css/main.css',
+    '@assets/fonts/roboto.css'
   ],
   /*
   ** Plugins to load before mounting the App

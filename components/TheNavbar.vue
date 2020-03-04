@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" variant="dark">
+  <b-navbar toggleable="xl" type="dark" variant="dark">
     <b-navbar-brand href="#">
       <img src="@/assets/images/logo_claro.png" class="nav-image" />
     </b-navbar-brand>
@@ -68,13 +68,17 @@
   </b-navbar>
 </template>
 
-<style>
+<style scoped>
+.navbar .navbar-dark .navbar-expand-lg {
+  padding: 0.5rem 0.5rem;
+}
 .nav-image {
   max-height: 2.5rem;
 }
 .navbar-dark .navbar-nav .nav-item {
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
+  padding: 0 0.5rem;
+  margin: 0 0.7rem;
+  letter-spacing: 1px;
 }
 .navbar-dark .navbar-nav .nav-link {
   color: var(--text-light1);
