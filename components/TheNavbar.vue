@@ -68,7 +68,7 @@
   </b-navbar>
 </template>
 
-<style scoped>
+<style>
 .navbar .navbar-dark .navbar-expand-lg {
   padding: 0.5rem 0.5rem;
 }
