@@ -42,6 +42,7 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
+    '@nuxtjs/apollo',
     [
       'nuxt-fontawesome', {
         imports: [
@@ -54,9 +55,16 @@ export default {
             icons: ['faFacebookF']
           },
         ],
-      }
+      },
     ],
   ],
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql"
+      }
+    }
+  },
   /*
   ** Build configuration
   */
