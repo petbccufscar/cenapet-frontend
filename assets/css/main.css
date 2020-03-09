@@ -4,9 +4,15 @@
     --text-light1: #FAFAFA;
     --text-light2: #EEEEEE;
     --text-grey: #AAAAAA;
-    --accent: #4DC7C3;
+    --accent: #269490;
     --highlight-dark: #455A64;
     --deep-purple: #673AB7;
     --footer-dark: #242A30;
     --footer-text-dark: #FFFFFF88;
+}
+body {
+    background-color: #FBFCFD;
+}
+a {
+    color: var(--accent);
 }
