@@ -1,7 +1,6 @@
 {
   "name": "cenapet-frontend",
   "version": "1.0.0",
-  "description": "Frontend para o site da CENAPET",
   "author": "PET-BCC",
   "private": true,
   "scripts": {
@@ -16,6 +15,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "@nuxtjs/apollo": "^4.0.0-rc19",
+    "@nuxtjs/markdownit": "^1.2.9",
     "bootstrap-vue": "^2.5.0",
     "graphql": "^14.6.0",
     "nuxt": "^2.0.0",

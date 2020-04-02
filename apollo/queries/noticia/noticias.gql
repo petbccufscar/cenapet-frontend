@@ -1,0 +1,10 @@
+query Noticias {
+  noticias {
+    id
+    titulo
+    conteudo
+    img {
+      url
+    }
+  }
+}
