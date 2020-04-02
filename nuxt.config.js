@@ -23,6 +23,8 @@ export default {
   ** Global CSS
   */
   css: [
+    '@assets/css/main.css',
+    '@assets/fonts/roboto.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -40,7 +42,29 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
+    '@nuxtjs/apollo',
+    [
+      'nuxt-fontawesome', {
+        imports: [
+          {
+            set: '@fortawesome/free-solid-svg-icons',
+            icons: ['fas']
+          },
+          {
+            set: '@fortawesome/free-brands-svg-icons',
+            icons: ['faFacebookF']
+          },
+        ],
+      },
+    ],
   ],
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql"
+      }
+    }
+  },
   /*
   ** Build configuration
   */
@@ -48,7 +72,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   }
 }

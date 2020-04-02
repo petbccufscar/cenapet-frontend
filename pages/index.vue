@@ -1,72 +1,52 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        cenapet-frontend
-      </h1>
-      <h2 class="subtitle">
-        Frontend para o site da CENAPET
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+  <div class="container-fluid">
+    <Carousel />
+    <div class="container intro">
+      <h1 class="intro-title">A CENAPET</h1>
+      <p class="intro-text">
+        A CENAPET é a entidade representativa dos estudantes e professores-tutores no contexto do
+        Programa de Educação Tutorial, sendo que esta tem a função de representar a
+        comunidade petiana e realizar a comunicação com órgãos superiores como o MEC.
+      </p>
+      <p class="intro-text">Confira a atual composição da diretoria neste link!</p>
+    </div>
+    <div class="container noticias mb-4">
+      <h1 class="intro-title text-center mb-5">Últimas notícias</h1>
+      <NoticiaCardDeck />
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Carousel from "@/components/Carousel.vue";
+import NoticiaCardDeck from "@/components/NoticiaCardDeck.vue";
 
 export default {
   components: {
-    Logo
+    Carousel,
+    NoticiaCardDeck
   }
-}
+};
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.container-fluid {
+  padding: 0;
+}
+.intro {
+  margin-top: 1rem;
   text-align: center;
 }
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
+.intro-title {
+  color: var(--accent);
+  margin: 2rem 0 1rem 0;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+.intro-text {
+  font-size: 1.3rem;
   letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+  line-height: 2rem;
+  margin: 1rem 8vw;
 }
 </style>
