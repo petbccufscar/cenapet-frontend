@@ -1,30 +1,55 @@
 <template>
-  <div class="container-fluid">
+  <b-container fluid>
     <Carousel />
-    <div class="container intro">
+    <b-container class="intro">
       <h1 class="intro-title">A CENAPET</h1>
       <p class="intro-text">
-        A CENAPET é a entidade representativa dos estudantes e professores-tutores no contexto do
-        Programa de Educação Tutorial, sendo que esta tem a função de representar a
-        comunidade petiana e realizar a comunicação com órgãos superiores como o MEC.
+        A CENAPET é a entidade representativa dos estudantes e
+        professores-tutores no contexto do Programa de Educação Tutorial, sendo
+        que esta tem a função de representar a comunidade petiana e realizar a
+        comunicação com órgãos superiores como o MEC.
       </p>
-      <p class="intro-text">Confira a atual composição da diretoria neste link!</p>
-    </div>
-    <div class="container noticias mb-4">
-      <h1 class="intro-title text-center mb-5">Últimas notícias</h1>
-      <NoticiaCardDeck />
-    </div>
-  </div>
+      <p class="intro-text">
+        Confira a atual composição da diretoria neste link!
+      </p>
+    </b-container>
+    <b-container class="noticias mb-4">
+      <h1 class="intro-title text-center mb-2">Últimas notícias</h1>
+      <h6 class="text-right mb-1">Ver todas</h6>
+      <b-row no-gutters class="justify-content-center">
+        <NoticiaCard
+          img="https://picsum.photos/300/300/?image=41"
+          titulo="1º Comunicado da Diretoria da CENAPET 2020"
+          data_publicacao="03/08/2019"
+        />
+        <NoticiaCard
+          img="https://picsum.photos/300/300/?image=41"
+          titulo="1º Comunicado da Diretoria da CENAPET 2020"
+          data_publicacao="03/08/2019"
+        />
+        <NoticiaCard
+          img="https://picsum.photos/300/300/?image=41"
+          titulo="1º Comunicado da Diretoria da CENAPET 2020"
+          data_publicacao="03/08/2019"
+        />
+        <NoticiaCard
+          img="https://picsum.photos/300/300/?image=41"
+          titulo="1º Comunicado da Diretoria da CENAPET 2020"
+          data_publicacao="03/08/2019"
+        />
+      </b-row>
+    </b-container>
+  </b-container>
 </template>
 
 <script>
 import Carousel from "@/components/Carousel.vue";
-import NoticiaCardDeck from "@/components/NoticiaCardDeck.vue";
+import NoticiaCard from "@/components/NoticiaCard.vue";
 
 export default {
   components: {
     Carousel,
-    NoticiaCardDeck
+    NoticiaCard
   }
 };
 </script>
