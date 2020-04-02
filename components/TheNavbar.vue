@@ -1,7 +1,9 @@
 <template>
   <b-navbar toggleable="xl" type="dark" variant="dark">
     <b-navbar-brand href="#">
-      <img src="@/assets/images/logo_claro.png" class="nav-image" />
+      <nuxt-link to="/">
+        <img src="@/assets/images/logo_claro.png" class="nav-image" />
+      </nuxt-link>
     </b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -58,7 +60,11 @@
 
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2" placeholder="Buscar"></b-form-input>
+          <b-form-input
+            size="sm"
+            class="mr-sm-2"
+            placeholder="Buscar"
+          ></b-form-input>
           <b-button size="sm" class="my-2 my-sm-0" type="submit">
             <font-awesome-icon :icon="['fas', 'search']" />
           </b-button>

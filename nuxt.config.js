@@ -1,9 +1,10 @@
 
 export default {
   mode: 'universal',
-  /*
-  ** Headers of the page
-  */
+  /*server: {
+    port: 8000, // default: 3000
+    host: '0.0.0.0' // default: localhost
+  },*/
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -43,6 +44,7 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     '@nuxtjs/apollo',
+    '@nuxtjs/markdownit',
     [
       'nuxt-fontawesome', {
         imports: [
@@ -58,12 +60,21 @@ export default {
       },
     ],
   ],
+  env: {
+    baseURL: "http://localhost:1337"
+  },
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql"
+        httpEndpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql",
       }
     }
+  },
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    injected: true
   },
   /*
   ** Build configuration
