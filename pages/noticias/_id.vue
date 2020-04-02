@@ -1,0 +1,93 @@
+<template>
+  <b-container fluid class="noticia">
+    <div
+      class="img-intro"
+      :style="{ backgroundImage: `url(${backgroundURL()})` }"
+    >
+      <h1 class="text-intro">{{ noticia.titulo }}</h1>
+    </div>
+    <font-awesome-icon :icon="['fas', 'arrow-left']" class="icon-arrow" />
+    <b-container>
+      <div
+        v-if="noticia.conteudo"
+        class="conteudo"
+        v-html="$md.render(noticia.conteudo)"
+      ></div>
+      <p v-if="noticia.data_publicacao" class="">
+        Publicado em {{ moment(noticia.data_publicacao).format("DD/MM/YYYY") }}
+      </p>
+    </b-container>
+  </b-container>
+</template>
+
+<style>
+.noticia {
+  margin-bottom: 5rem;
+}
+.img-intro {
+  background-position: center;
+  background-size: cover;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+}
+.img-intro .text-intro {
+  color: var(--text-accent);
+  text-align: center;
+  background-color: #00000088;
+  width: 100%;
+  padding: 7% 1rem;
+  margin: 5% 0;
+}
+.conteudo {
+  text-align: justify;
+  margin: 2rem 3rem 3rem 3rem;
+}
+.icon-arrow {
+  font-size: 2rem;
+  margin: 2rem 0 1rem 3rem;
+  position: absolute;
+}
+@media (max-width: 577px) {
+  #editor {
+    margin: 0.3rem;
+  }
+  .icon-arrow {
+    position: initial;
+    margin: 1.5rem 0 0.5rem 1rem;
+  }
+}
+</style>
+
+<script>
+import noticiaQuery from "~/apollo/queries/noticia/noticia";
+var moment = require("moment");
+
+export default {
+  data() {
+    return {
+      noticia: {},
+      moment: moment
+    };
+  },
+  methods: {
+    // método para retornar a imagem de fundo padrão caso não haja nenhuma
+    backgroundURL: function() {
+      return this.noticia.img_fundo
+        ? process.env.baseURL + this.noticia.img_fundo.url
+        : require("~/assets/images/fundo.png");
+    }
+  },
+  apollo: {
+    noticia: {
+      prefetch: true,
+      query: noticiaQuery,
+      variables() {
+        return {
+          id: parseInt(this.$route.params.id)
+        };
+      }
+    }
+  }
+};
+</script>
