@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="xl" type="dark" variant="dark">
+  <b-navbar toggleable="lg" type="dark" variant="dark">
     <b-navbar-brand href="#">
       <nuxt-link to="/">
         <img src="@/assets/images/logo_claro.png" class="nav-image" />
@@ -11,50 +11,47 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-item-dropdown text="CENAPET" left>
-          <b-dropdown-item href="#">Sobre nós</b-dropdown-item>
+          <b-dropdown-item href="#">Sobre a diretoria</b-dropdown-item>
           <b-dropdown-item href="#">Gestões</b-dropdown-item>
-          <b-dropdown-item href="#">Cartas</b-dropdown-item>
+          <b-dropdown-item href="#">Conselho</b-dropdown-item>
         </b-nav-item-dropdown>
 
         <b-nav-item-dropdown text="DOCUMENTOS" left>
-          <b-dropdown-item href="#">CENAPET</b-dropdown-item>
-          <b-dropdown-item href="#">Diretoria</b-dropdown-item>
+          <b-dropdown-item href="#">Cartas</b-dropdown-item>
+          <b-dropdown-item href="#">Comissão Executiva</b-dropdown-item>
           <b-dropdown-item href="#">Conselho</b-dropdown-item>
-          <b-dropdown-item href="#">PET-MEC</b-dropdown-item>
+          <b-dropdown-item href="#">SESu/MEC</b-dropdown-item>
+          <b-dropdown-item href="#">Outros</b-dropdown-item>
+        </b-nav-item-dropdown>
+
+        <b-nav-item-dropdown text="PET" left>
+          <b-dropdown-item href="#">Grupos</b-dropdown-item>
+          <b-dropdown-item href="#">Orientações gerais</b-dropdown-item>
         </b-nav-item-dropdown>
 
         <b-nav-item-dropdown text="EVENTOS" left>
           <b-dropdown-item href="#">Anais</b-dropdown-item>
-          <b-dropdown-group id="dropdown-group-nacional" header="Nacional">
-            <b-dropdown-item-button>ENAPET</b-dropdown-item-button>
-          </b-dropdown-group>
-          <b-dropdown-divider></b-dropdown-divider>
-          <b-dropdown-group id="dropdown-group-regionais" header="Regionais">
-            <b-dropdown-item-button>ECOPET</b-dropdown-item-button>
-            <b-dropdown-item-button>NORTEPET</b-dropdown-item-button>
-            <b-dropdown-item-button>SUDESTEPET</b-dropdown-item-button>
-            <b-dropdown-item-button>ENEPET</b-dropdown-item-button>
-            <b-dropdown-item-button>SULPET</b-dropdown-item-button>
-          </b-dropdown-group>
+          <b-dropdown-item href="#">Histórico</b-dropdown-item>
+          <b-dropdown-item href="#">Organização</b-dropdown-item>
         </b-nav-item-dropdown>
 
-        <b-nav-item-dropdown text="OUTROS" left>
-          <b-dropdown-item href="#">SIGPET</b-dropdown-item>
-          <b-dropdown-item href="#">Formulários</b-dropdown-item>
-        </b-nav-item-dropdown>
+        <b-nav-item href="#">FORMULÁRIOS</b-nav-item>
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto">
-        <b-nav-form>
-          <b-form-input
-            size="sm"
-            class="mr-sm-2"
-            placeholder="Buscar"
-          ></b-form-input>
-          <b-button size="sm" class="my-2 my-sm-0" type="submit">
-            <font-awesome-icon :icon="['fas', 'search']" />
-          </b-button>
-        </b-nav-form>
+        <b-col sm="6" lg="12">
+          <b-input-group>
+            <b-form-input
+              placeholder="Pesquisar"
+              aria-label="Pesquisar no site"
+            ></b-form-input>
+            <b-input-group-append>
+              <b-button type="submit">
+                <font-awesome-icon :icon="['fas', 'search']" />
+              </b-button>
+            </b-input-group-append>
+          </b-input-group>
+        </b-col>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -96,6 +93,15 @@
 }
 .navbar-dark .navbar-nav .dropdown-divider {
   border-color: var(--border-dark);
+}
+.navbar-nav .input-group input {
+  border: none;
+  box-shadow: none;
+}
+.navbar-nav .input-group .btn {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
 }
 @media (max-width: 991px) {
   .navbar-dark .navbar-nav .dropdown-menu {
