@@ -16,10 +16,15 @@
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "@nuxtjs/apollo": "^4.0.0-rc19",
     "@nuxtjs/markdownit": "^1.2.9",
+    "apollo-cache-inmemory": "^1.6.5",
+    "apollo-client": "^2.6.8",
+    "apollo-link": "^1.2.14",
     "bootstrap-vue": "^2.5.0",
-    "graphql": "^14.6.0",
+    "graphql": "^15.0.0",
+    "graphql-tag": "^2.10.3",
     "nuxt": "^2.0.0",
     "nuxt-fontawesome": "^0.4.0",
+    "remove-markdown": "^0.3.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {}

@@ -15,28 +15,11 @@
     </b-container>
     <b-container class="noticias mb-4">
       <h1 class="intro-title text-center mb-2">Últimas notícias</h1>
-      <h6 class="text-right mb-1">Ver todas</h6>
+      <h6 class="text-right mb-1">
+        <nuxt-link to="noticias">Ver todas</nuxt-link>
+      </h6>
       <b-row no-gutters class="justify-content-center">
-        <NoticiaCard
-          img="https://picsum.photos/300/300/?image=41"
-          titulo="1º Comunicado da Diretoria da CENAPET 2020"
-          data_publicacao="03/08/2019"
-        />
-        <NoticiaCard
-          img="https://picsum.photos/300/300/?image=41"
-          titulo="1º Comunicado da Diretoria da CENAPET 2020"
-          data_publicacao="03/08/2019"
-        />
-        <NoticiaCard
-          img="https://picsum.photos/300/300/?image=41"
-          titulo="1º Comunicado da Diretoria da CENAPET 2020"
-          data_publicacao="03/08/2019"
-        />
-        <NoticiaCard
-          img="https://picsum.photos/300/300/?image=41"
-          titulo="1º Comunicado da Diretoria da CENAPET 2020"
-          data_publicacao="03/08/2019"
-        />
+        <NoticiaCardDeck />
       </b-row>
     </b-container>
   </b-container>
@@ -44,12 +27,12 @@
 
 <script>
 import Carousel from "@/components/Carousel.vue";
-import NoticiaCard from "@/components/NoticiaCard.vue";
+import NoticiaCardDeck from "@/components/NoticiaCardDeck.vue";
 
 export default {
   components: {
     Carousel,
-    NoticiaCard
+    NoticiaCardDeck
   }
 };
 </script>

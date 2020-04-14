@@ -5,6 +5,7 @@
     --text-light2: #EEEEEE;
     --text-accent: #4DC7C3;
     --text-grey: #AAAAAA;
+    --text-grey-darker: #444444;
     --accent: #269490;
     --highlight-dark: #455A64;
     --deep-purple: #673AB7;
@@ -16,4 +17,7 @@ body {
 }
 a {
     color: var(--accent);
+}
+a:hover, a:active {
+    text-decoration: none;
 }

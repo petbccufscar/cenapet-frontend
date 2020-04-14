@@ -6,7 +6,8 @@
       :title="noticia.titulo"
       :img-src="noticia.img"
       img-top
-    >
+      ><b-card-text>{{ noticia.conteudo }}</b-card-text>
+      <b-card-text class="ver-mais">Ver mais</b-card-text>
       <template v-slot:footer>
         <p class="data text-muted">Publicada em {{ noticia.data }}</p>
       </template>
@@ -14,7 +15,7 @@
   </b-card-group>
 </template>
 
-<style>
+<style scoped> 
 .card-deck {
   flex-wrap: wrap;
   justify-content: center;
@@ -24,13 +25,37 @@
   flex: 1 1 100%;
 }
 .card-img-top {
-  max-height: 30vh;
-  width: auto;
+  height: 30vh;
+  max-width: 100%;
   object-fit: cover;
 }
 .card-title {
   color: var(--accent);
-  margin-bottom: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-height: 1.5rem; /* fallback */
+  max-height: calc(1.5rem * 2); /* fallback */
+}
+.card-body {
+  padding-bottom: 0.5rem;
+}
+.card-text {
+  color: var(--text-grey-darker);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-height: 1.3rem; /* fallback */
+  max-height: calc(1.3rem * 2); /* fallback */
+}
+.ver-mais {
+  text-align: right;
+  color: var(--accent);
+  font-weight: 600;
 }
 .card-footer .data {
   margin: 0;
@@ -59,12 +84,16 @@ export default {
           id: 1,
           img: "https://picsum.photos/300/300/?image=41",
           titulo: "1º Comunicado da Diretoria da CENAPET 2020",
+          conteudo:
+            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
           data: "03/08/2019"
         },
         {
           id: 2,
           img: "https://i.picsum.photos/id/1/1024/728.jpg",
           titulo: "Problemas com prestação de contas",
+          conteudo:
+            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
           data: "21/01/2019"
         },
         {
@@ -72,6 +101,8 @@ export default {
           img: "https://picsum.photos/1024/480/?image=52",
           titulo:
             "Formulário para descrição dos problemas com a plataforma SIGPET 2.0",
+          conteudo:
+            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
           data: "02/04/2018"
         }
       ]

@@ -3,7 +3,8 @@ query Noticias {
     id
     titulo
     conteudo
-    img {
+    data_publicacao
+    img_fundo {
       url
     }
   }
