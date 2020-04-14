@@ -7,7 +7,7 @@
       <b-col md="8">
         <div class="card-body">
           <h4 class="card-title">{{ titulo }}</h4>
-          <p class="card-text">{{ conteudo }}</p>
+          <p class="card-text">{{ unformat(conteudo) }}</p>
           <p class="card-text text-muted mt-1">Publicada em {{ data_publicacao }}</p>
         </div>
       </b-col>
@@ -67,6 +67,12 @@
 
 <script>
 export default {
+  methods: {
+    unformat(text) {
+      const removeMd = require('remove-markdown');
+      return removeMd(text);
+    }
+  },
   props: {
     titulo: String,
     conteudo: String,
