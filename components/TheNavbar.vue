@@ -11,34 +11,20 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-item-dropdown text="CENAPET" left>
-          <b-dropdown-item href="#">Apresentação/Histórico</b-dropdown-item>
-          <b-dropdown-item href="#">Estatuto</b-dropdown-item>
-          <b-dropdown-item href="#">Documentos da CENAPET</b-dropdown-item>
+          <b-dropdown-item href="#">Sobre nós</b-dropdown-item>
+          <b-dropdown-item href="#">Gestões</b-dropdown-item>
+          <b-dropdown-item href="#">Cartas</b-dropdown-item>
         </b-nav-item-dropdown>
 
-        <b-nav-item-dropdown text="DIRETORIA" left>
-          <b-dropdown-item href="#">Gestão 2018-2020</b-dropdown-item>
-          <b-dropdown-item href="#">Gestão 2016-2018</b-dropdown-item>
-          <b-dropdown-item href="#">Gestão 2014-2016</b-dropdown-item>
-          <b-dropdown-item href="#">Formulários</b-dropdown-item>
+        <b-nav-item-dropdown text="DOCUMENTOS" left>
+          <b-dropdown-item href="#">CENAPET</b-dropdown-item>
+          <b-dropdown-item href="#">Diretoria</b-dropdown-item>
+          <b-dropdown-item href="#">Conselho</b-dropdown-item>
+          <b-dropdown-item href="#">PET-MEC</b-dropdown-item>
         </b-nav-item-dropdown>
 
-        <b-nav-item-dropdown text="CONSELHO" left>
-          <b-dropdown-item href="#">Gestão 2017-2019</b-dropdown-item>
-          <b-dropdown-item href="#">Documentos do Conselho</b-dropdown-item>
-        </b-nav-item-dropdown>
-
-        <b-nav-item-dropdown text="PET-MEC" left>
-          <b-dropdown-item href="#">Custeio</b-dropdown-item>
-          <b-dropdown-item href="#">Documentos da SESu/MEC</b-dropdown-item>
-          <b-dropdown-item href="#">Grupos PET</b-dropdown-item>
-          <b-dropdown-item href="#">Legislação</b-dropdown-item>
-          <b-dropdown-item href="#">MOB e Avaliação</b-dropdown-item>
-          <b-dropdown-item href="#">Ofícios</b-dropdown-item>
-          <b-dropdown-item href="#">SIGPET</b-dropdown-item>
-        </b-nav-item-dropdown>
-
-        <b-nav-item-dropdown text="EVENTOS PET" left>
+        <b-nav-item-dropdown text="EVENTOS" left>
+          <b-dropdown-item href="#">Anais</b-dropdown-item>
           <b-dropdown-group id="dropdown-group-nacional" header="Nacional">
             <b-dropdown-item-button>ENAPET</b-dropdown-item-button>
           </b-dropdown-group>
@@ -52,9 +38,9 @@
           </b-dropdown-group>
         </b-nav-item-dropdown>
 
-        <b-nav-item-dropdown text="DOCUMENTOS" left>
-          <b-dropdown-item href="#">Cartas</b-dropdown-item>
-          <b-dropdown-item href="#">Outros</b-dropdown-item>
+        <b-nav-item-dropdown text="OUTROS" left>
+          <b-dropdown-item href="#">SIGPET</b-dropdown-item>
+          <b-dropdown-item href="#">Formulários</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
 
