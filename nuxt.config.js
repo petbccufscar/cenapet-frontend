@@ -1,31 +1,31 @@
 
 export default {
-  mode: 'universal',
+  mode: "universal",
   /*server: {
     port: 8000, // default: 3000
-    host: '0.0.0.0' // default: localhost
+    host: "0.0.0.0" // default: localhost
   },*/
   head: {
-    title: process.env.npm_package_name || '',
+    title: process.env.npm_package_name || "",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: process.env.npm_package_description || "" }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }
     ]
   },
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: "#fff" },
   /*
   ** Global CSS
   */
   css: [
-    '@assets/css/main.css',
-    '@assets/fonts/roboto.css'
+    "@assets/css/main.css",
+    "@assets/fonts/roboto.css"
   ],
   /*
   ** Plugins to load before mounting the App
@@ -42,19 +42,19 @@ export default {
   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt',
-    '@nuxtjs/apollo',
-    '@nuxtjs/markdownit',
+    "bootstrap-vue/nuxt",
+    "@nuxtjs/apollo",
+    "@nuxtjs/markdownit",
     [
-      'nuxt-fontawesome', {
+      "nuxt-fontawesome", {
         imports: [
           {
-            set: '@fortawesome/free-solid-svg-icons',
-            icons: ['fas']
+            set: "@fortawesome/free-solid-svg-icons",
+            icons: ["fas"]
           },
           {
-            set: '@fortawesome/free-brands-svg-icons',
-            icons: ['faFacebookF']
+            set: "@fortawesome/free-brands-svg-icons",
+            icons: ["faFacebookF"]
           },
         ],
       },
@@ -71,7 +71,7 @@ export default {
     }
   },
   markdownit: {
-    preset: 'default',
+    preset: "default",
     linkify: true,
     breaks: true,
     injected: true
@@ -86,4 +86,4 @@ export default {
     extend(config, ctx) {
     }
   }
-}
+};
