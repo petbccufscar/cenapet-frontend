@@ -10,6 +10,7 @@
         <NoticiaCard
           v-for="noticia in noticias"
           v-bind:key="noticia.id"
+          :id="noticia.id"
           :img="getImgUrl(noticia.img_fundo)"
           :titulo="noticia.titulo"
           :conteudo="noticia.conteudo"

@@ -6,7 +6,9 @@
     >
       <h1 class="text-intro">{{ noticia.titulo }}</h1>
     </div>
-    <font-awesome-icon :icon="['fas', 'arrow-left']" class="icon-arrow" />
+    <nuxt-link to="/noticias">
+      <font-awesome-icon :icon="['fas', 'arrow-left']" class="icon-arrow" />
+    </nuxt-link>
     <b-container>
       <div
         v-if="noticia.conteudo"
@@ -47,6 +49,10 @@
   font-size: 2rem;
   margin: 2rem 0 1rem 3rem;
   position: absolute;
+  color: var(--theme-dark);
+}
+.icon-arrow:hover, .icon-arrow:focus, .icon-arrow:active {
+  color: var(--accent);
 }
 @media (max-width: 577px) {
   #editor {

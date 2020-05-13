@@ -6,7 +6,9 @@
       </b-col>
       <b-col md="8">
         <div class="card-body">
-          <h4 class="card-title">{{ titulo }}</h4>
+          <nuxt-link :to="'/noticias/' + id">
+            <h4 class="card-title">{{ titulo }}</h4>
+          </nuxt-link>
           <p class="card-text">{{ unformat(conteudo) }}</p>
           <p class="card-text text-muted mt-1">Publicada em {{ data_publicacao }}</p>
         </div>
@@ -74,6 +76,7 @@ export default {
     }
   },
   props: {
+    id: String,
     titulo: String,
     conteudo: String,
     img: String,

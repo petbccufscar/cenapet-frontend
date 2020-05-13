@@ -9,7 +9,7 @@
         <font-awesome-icon :icon="['fas', 'envelope']" />
       </a>
 
-      <a :href="'//' + 'fb.com/ComissaoExecutivadoPET'" target="_blank">
+      <a href="https://fb.com/ComissaoExecutivadoPET" target="_blank">
         <font-awesome-icon :icon="['fab', 'facebook-f']" />
       </a>
     </div>
