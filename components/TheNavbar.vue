@@ -98,18 +98,22 @@
 .navbar .navbar-dark .navbar-expand-lg {
   padding: 0.5rem 0.5rem;
 }
+
 .nav-image {
   max-height: 2.5rem;
 }
+
 .navbar-dark .navbar-nav .nav-item {
   padding: 0 0.5rem;
   margin: 0 0.7rem;
   letter-spacing: 1px;
   cursor: pointer;
 }
+
 .navbar-dark .navbar-nav .nav-link {
   color: var(--text-light1);
 }
+
 .navbar-dark .navbar-nav .dropdown-menu {
   min-width: 15rem;
   background-color: var(--theme-dark);
@@ -117,41 +121,50 @@
   border: none;
   border-radius: 0;
 }
+
 .navbar-dark .navbar-nav .dropdown-item {
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
   color: var(--text-light1);
 }
+
 .navbar-dark .navbar-nav .dropdown-item:hover,
 .navbar-dark .navbar-nav .dropdown-item:focus {
   background-color: var(--highlight-dark);
   color: var(--text-light1);
 }
+
 .navbar-dark .navbar-nav .dropdown-header {
   color: var(--text-grey);
 }
+
 .navbar-dark .navbar-nav .dropdown-divider {
   border-color: var(--border-dark);
 }
+
 .navbar-nav .input-group input {
   border: none;
   box-shadow: none;
 }
+
 .navbar-nav .input-group .btn {
   background-color: transparent;
   border: none;
   box-shadow: none;
 }
+
 @media (max-width: 991px) {
   .navbar-dark .navbar-nav .dropdown-menu {
     border: 1px solid var(--border-dark);
     border-radius: 0.5rem;
     padding-bottom: 0.5rem;
   }
+
   .navbar-dark .navbar-nav .form-inline {
     margin-top: 0.3rem;
     flex-flow: unset;
   }
+
   .navbar-dark .navbar-nav .form-inline .form-control {
     margin-right: 0.5rem;
   }

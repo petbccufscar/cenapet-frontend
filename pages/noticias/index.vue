@@ -38,15 +38,18 @@
   background-color: var(--footer-dark);
   color: var(--text-accent);
 }
+
 .page-title h1 {
   font-size: 3rem;
   margin: 0;
 }
+
 .list-group {
   padding: 1rem;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-radius: 0.5rem;
 }
+
 .list-group-item {
   margin: 0.2rem 0.5rem;
   border: 1px solid rgba(0, 0, 0, 0.125);

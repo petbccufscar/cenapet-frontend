@@ -25,30 +25,38 @@
   background-color: var(--footer-dark);
   color: var(--text-light2);
 }
+
 .footer-text {
   padding-top: 1rem;
 }
+
 .footer-text p {
   letter-spacing: 2px;
   margin: 0;
   font-size: 1rem;
 }
+
 .footer-icons {
   border-bottom: 1px solid var(--border-dark);
 }
+
 .footer-icons a {
   color: var(--text-light2);
 }
+
 .footer-icons a:hover {
   color: var(--accent);
 }
+
 .footer-icons svg {
   margin: 1rem 1rem;
   font-size: 1.5rem;
 }
+
 .footer-end {
   padding: 1rem 0;
 }
+
 .footer-end p {
   margin: 0;
   font-size: 0.9rem;

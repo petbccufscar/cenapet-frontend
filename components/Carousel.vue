@@ -45,6 +45,7 @@
   width: 100%;
   height: 100%;
 }
+
 .carousel-caption h3 {
   max-width: 70%;
   padding: 1rem;
@@ -52,21 +53,25 @@
   text-shadow: 1px 1px 2px #333;
   font-size: 3rem;
 }
+
 .carousel-control-prev,
 .carousel-control-next {
   z-index: 10;
 }
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   width: 4rem;
   height: 4rem;
 }
+
 .carousel-item img {
   width: 100%;
   height: 75vh;
   object-fit: cover;
   filter: blur(5px);
 }
+
 .carousel-indicators li {
   width: 1rem;
   height: 1rem;
@@ -74,6 +79,7 @@
   margin: 0 0.6rem;
   opacity: 0.9;
 }
+
 .carousel-indicators .active {
   background-color: var(--deep-purple);
 }

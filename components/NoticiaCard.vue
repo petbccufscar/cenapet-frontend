@@ -22,12 +22,14 @@
   border-radius: 1rem;
   margin: 1rem;
 }
+
 .card-img {
   object-fit: cover;
   object-position: center;
   height: 100%;
   border-radius: 1rem 0 0 1rem;
 }
+
 .card-title {
   color: var(--accent);
   margin-bottom: 0;
@@ -39,6 +41,7 @@
   line-height: 1.3rem; /* fallback */
   max-height: calc(1.3rem * 4); /* fallback */
 }
+
 .card-text {
   margin-top: 2rem;
   font-size: 0.9rem;
@@ -55,6 +58,7 @@
   .card {
     width: 100%;
   }
+
   .card-img {
     max-height: 30vh;
     border-radius: 1rem 1rem 0 0;
@@ -71,7 +75,7 @@
 export default {
   methods: {
     unformat(text) {
-      const removeMd = require('remove-markdown');
+      const removeMd = require("remove-markdown");
       return removeMd(text);
     }
   },

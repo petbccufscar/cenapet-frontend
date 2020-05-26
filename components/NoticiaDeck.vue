@@ -19,10 +19,12 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .card-deck .card {
   margin: 1rem;
   flex: 1 1 100%;
 }
+
 .card-img-top {
   height: 30vh;
   max-width: 100%;
@@ -30,6 +32,7 @@
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
+
 .card-title {
   color: var(--accent);
   overflow: hidden;
@@ -40,9 +43,11 @@
   line-height: 1.5rem; /* fallback */
   max-height: calc(1.5rem * 2); /* fallback */
 }
+
 .card-body {
   padding-bottom: 0.5rem;
 }
+
 .card-text {
   margin: 1rem 0;
   color: var(--text-grey-darker);
@@ -54,11 +59,13 @@
   line-height: 1.3rem; /* fallback */
   max-height: calc(1.3rem * 2); /* fallback */
 }
+
 .ver-mais {
   text-align: right;
   color: var(--accent);
   font-weight: 600;
 }
+
 .card-footer .data {
   margin: 0;
   font-size: 0.9rem;

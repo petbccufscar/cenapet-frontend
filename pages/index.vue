@@ -9,9 +9,7 @@
         que esta tem a função de representar a comunidade petiana e realizar a
         comunicação com órgãos superiores como o MEC.
       </p>
-      <p class="intro-text">
-        Confira a atual composição da diretoria neste link!
-      </p>
+      <p class="intro-text">Confira a atual composição da diretoria neste link!</p>
     </div>
     <div class="container noticias mb-4">
       <h1 class="intro-title text-center mb-2">Últimas notícias</h1>
@@ -38,19 +36,18 @@ export default {
 </script>
 
 <style>
-.container-fluid {
-  padding: 0;
-}
 .intro {
   margin-top: 1rem;
   text-align: center;
 }
+
 .intro-title {
   color: var(--accent);
   margin: 2rem 0 1rem 0;
   letter-spacing: 2px;
   font-weight: 600;
 }
+
 .intro-text {
   font-size: 1.3rem;
   letter-spacing: 1px;
