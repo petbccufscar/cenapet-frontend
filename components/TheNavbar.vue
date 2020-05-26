@@ -24,9 +24,9 @@
             aria-expanded="false"
           >CENAPET</a>
           <div class="dropdown-menu" aria-labelledby="Menu cenapet">
-            <a class="dropdown-item" href="#">Sobre a diretoria</a>
-            <a class="dropdown-item" href="#">Gestões</a>
-            <a class="dropdown-item" href="#">Conselho</a>
+            <nuxt-link class="dropdown-item" to="#">Sobre a diretoria</nuxt-link>
+            <nuxt-link class="dropdown-item" to="#">Gestões</nuxt-link>
+            <nuxt-link class="dropdown-item" to="#">Conselho</nuxt-link>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -37,11 +37,11 @@
             aria-expanded="false"
           >DOCUMENTOS</a>
           <div class="dropdown-menu" aria-labelledby="Menu documentos">
-            <a class="dropdown-item" href="#">Cartas</a>
-            <a class="dropdown-item" href="#">Comissão Executiva</a>
-            <a class="dropdown-item" href="#">Conselho</a>
-            <a class="dropdown-item" href="#">SESu/MEC</a>
-            <a class="dropdown-item" href="#">Outros</a>
+            <nuxt-link class="dropdown-item" to="#">Cartas</nuxt-link>
+            <nuxt-link class="dropdown-item" to="#">Comissão Executiva</nuxt-link>
+            <nuxt-link class="dropdown-item" to="#">Conselho</nuxt-link>
+            <nuxt-link class="dropdown-item" to="#">SESu/MEC</nuxt-link>
+            <nuxt-link class="dropdown-item" to="#">Outros</nuxt-link>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -52,8 +52,8 @@
             aria-expanded="false"
           >PET</a>
           <div class="dropdown-menu" aria-labelledby="Menu PET">
-            <a class="dropdown-item" href="#">Grupos</a>
-            <a class="dropdown-item" href="#">Orientações gerais</a>
+            <nuxt-link class="dropdown-item" to="#">Grupos</nuxt-link>
+            <nuxt-link class="dropdown-item" to="#">Orientações gerais</nuxt-link>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -64,13 +64,13 @@
             aria-expanded="false"
           >EVENTOS</a>
           <div class="dropdown-menu" aria-labelledby="Menu cenapet">
-            <a class="dropdown-item" href="#">Anais</a>
-            <a class="dropdown-item" href="#">Histórico</a>
-            <a class="dropdown-item" href="#">Organização</a>
+            <nuxt-link class="dropdown-item" to="#">Anais</nuxt-link>
+            <nuxt-link class="dropdown-item" to="#">Histórico</nuxt-link>
+            <nuxt-link class="dropdown-item" to="#">Organização</nuxt-link>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">FORMULÁRIOS</a>
+          <nuxt-link class="nav-link" to="#">FORMULÁRIOS</nuxt-link>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
@@ -122,7 +122,8 @@
   padding-bottom: 0.6rem;
   color: var(--text-light1);
 }
-.navbar-dark .navbar-nav .dropdown-item:hover {
+.navbar-dark .navbar-nav .dropdown-item:hover,
+.navbar-dark .navbar-nav .dropdown-item:focus {
   background-color: var(--highlight-dark);
   color: var(--text-light1);
 }
