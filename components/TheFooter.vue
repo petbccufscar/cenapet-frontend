@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid tag="footer" class="footer-dark">
+  <footer class="container-fluid footer-dark">
     <div class="text-center footer-text">
       <p>Comissão Executiva Nacional</p>
       <p>Programa de Educação Tutorial</p>
@@ -17,7 +17,7 @@
       <p>Gestão 2018-2020</p>
       <p>Todos os direitos reservados</p>
     </div>
-  </b-container>
+  </footer>
 </template>
 
 <style>

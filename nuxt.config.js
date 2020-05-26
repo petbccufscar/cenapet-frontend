@@ -1,4 +1,4 @@
-
+const webpack = require('webpack')
 export default {
   mode: 'universal',
   /*server: {
@@ -24,6 +24,7 @@ export default {
   ** Global CSS
   */
   css: [
+    'bootstrap/dist/css/bootstrap.css',
     '@assets/css/main.css',
     '@assets/fonts/roboto.css'
   ],
@@ -31,6 +32,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@plugins/bootstrap.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -42,7 +44,6 @@ export default {
   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt',
     '@nuxtjs/apollo',
     '@nuxtjs/markdownit',
     [
@@ -80,6 +81,15 @@ export default {
   ** Build configuration
   */
   build: {
+    vendor: ['jquery', 'bootstrap'],
+    plugins: [
+      // set shortcuts as global for bootstrap
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+      })
+    ],
     /*
     ** You can extend webpack config here
     */

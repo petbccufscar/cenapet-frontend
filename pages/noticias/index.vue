@@ -1,12 +1,12 @@
 <template>
-  <b-container fluid>
-    <b-row no-gutters class="page-title" align-content="center">
-      <b-col>
+  <div class="container-fluid">
+    <div class="row no-gutters page-title align-content-center">
+      <div class="col">
         <h1 class="text-center">Notícias</h1>
-      </b-col>
-    </b-row>
-    <b-row no-gutters class="justify-content-around mt-3">
-      <b-col sm="12" md="8" lg="6">
+      </div>
+    </div>
+    <div class="row no-gutters justify-content-around mt-3">
+      <div class ="col-sm-12 col-md-8 col-lg-6">
         <NoticiaCard
           v-for="noticia in noticias"
           v-bind:key="noticia.id"
@@ -16,19 +16,19 @@
           :conteudo="noticia.conteudo"
           :data_publicacao="noticia.data_publicacao"
         />
-      </b-col>
-      <b-col sm="12" md="4" lg="4">
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-4">
         <h4 class="text-right">Assuntos populares</h4>
-        <b-list-group>
-          <b-list-group-item>(10) Cras justo odio</b-list-group-item>
-          <b-list-group-item>(8) Dapibus ac facilisis in</b-list-group-item>
-          <b-list-group-item>(5) Morbi leo risus</b-list-group-item>
-          <b-list-group-item>(4) Porta ac consectetur ac</b-list-group-item>
-          <b-list-group-item>(1) Vestibulum at eros</b-list-group-item>
-        </b-list-group>
-      </b-col>
-    </b-row>
-  </b-container>
+        <ul class="list-group">
+          <li class="list-group-item">(10) Cras justo odio</li>
+          <li class="list-group-item">(8) Dapibus ac facilisis in</li>
+          <li class="list-group-item">(5) Morbi leo risus</li>
+          <li class="list-group-item">(4) Porta ac consectetur ac</li>
+          <li class="list-group-item">(1) Vestibulum at eros</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>

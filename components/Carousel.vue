@@ -1,22 +1,35 @@
 <template>
-  <div>
-    <b-carousel
-      id="carousel"
-      v-model="slide"
-      :interval="0"
-      controls
-      fade
-      indicators
-      background="#666666"
-      style="text-shadow: 1px 1px 2px #333;"
-    >
-      <b-carousel-slide
-        v-for="slide in slides"
+  <div id="carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li
+        v-for="(slide, index) in slides"
+        :key="index"
+        data-target="#carousel"
+        :data-slide-to="index"
+        :class="{ 'active': index === 0 }"
+      ></li>
+    </ol>
+    <div class="carousel-inner">
+      <div
+        v-for="(slide, index) in slides"
         :key="slide.id"
-        :caption="slide.caption"
-        :img-src="slide.img"
-      ></b-carousel-slide>
-    </b-carousel>
+        class="carousel-item"
+        :class="{ 'active': index === 0 }"
+      >
+        <img :src="slide.img" />
+        <div class="carousel-caption">
+          <h3>{{ slide.caption }}</h3>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Próximo</span>
+    </a>
   </div>
 </template>
 
@@ -36,7 +49,12 @@
   max-width: 70%;
   padding: 1rem;
   color: #fff;
+  text-shadow: 1px 1px 2px #333;
   font-size: 3rem;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 10;
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {

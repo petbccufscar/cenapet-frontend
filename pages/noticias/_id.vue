@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="noticia">
+  <div class="container-fluid noticia">
     <div
       class="img-intro"
       :style="{ backgroundImage: `url(${backgroundURL()})` }"
@@ -9,7 +9,7 @@
     <nuxt-link to="/noticias">
       <font-awesome-icon :icon="['fas', 'arrow-left']" class="icon-arrow" />
     </nuxt-link>
-    <b-container>
+    <div class="container">
       <div
         v-if="noticia.conteudo"
         class="conteudo"
@@ -18,8 +18,8 @@
       <p v-if="noticia.data_publicacao" class="">
         Publicado em {{ moment(noticia.data_publicacao).format("DD/MM/YYYY") }}
       </p>
-    </b-container>
-  </b-container>
+    </div>
+  </div>
 </template>
 
 <style>

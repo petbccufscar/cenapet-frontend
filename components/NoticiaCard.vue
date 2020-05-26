@@ -1,10 +1,10 @@
 <template>
   <div class="card">
-    <b-row no-gutters>
-      <b-col md="4">
+    <div class="row no-gutters">
+      <div class="col-md-4">
         <img :src="img" class="card-img" />
-      </b-col>
-      <b-col md="8">
+      </div>
+      <div class="col-md-8">
         <div class="card-body">
           <nuxt-link :to="'/noticias/' + id">
             <h4 class="card-title">{{ titulo }}</h4>
@@ -12,8 +12,8 @@
           <p class="card-text">{{ unformat(conteudo) }}</p>
           <p class="card-text text-muted mt-1">Publicada em {{ data_publicacao }}</p>
         </div>
-      </b-col>
-    </b-row>
+      </div>
+    </div>
   </div>
 </template>
 
