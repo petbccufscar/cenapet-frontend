@@ -25,3 +25,7 @@ a:hover,
 a:active {
   text-decoration: none;
 }
+
+.container-fluid {
+  padding: 0;
+}

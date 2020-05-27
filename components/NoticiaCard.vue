@@ -1,17 +1,19 @@
 <template>
   <div class="card">
-    <b-row no-gutters>
-      <b-col md="4">
+    <div class="row no-gutters">
+      <div class="col-md-4">
         <img :src="img" class="card-img" />
-      </b-col>
-      <b-col md="8">
+      </div>
+      <div class="col-md-8">
         <div class="card-body">
-          <h4 class="card-title">{{ titulo }}</h4>
+          <nuxt-link :to="'/noticias/' + id">
+            <h4 class="card-title">{{ titulo }}</h4>
+          </nuxt-link>
           <p class="card-text">{{ unformat(conteudo) }}</p>
           <p class="card-text text-muted mt-1">Publicada em {{ data_publicacao }}</p>
         </div>
-      </b-col>
-    </b-row>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -20,12 +22,14 @@
   border-radius: 1rem;
   margin: 1rem;
 }
+
 .card-img {
   object-fit: cover;
   object-position: center;
   height: 100%;
   border-radius: 1rem 0 0 1rem;
 }
+
 .card-title {
   color: var(--accent);
   margin-bottom: 0;
@@ -37,6 +41,7 @@
   line-height: 1.3rem; /* fallback */
   max-height: calc(1.3rem * 4); /* fallback */
 }
+
 .card-text {
   margin-top: 2rem;
   font-size: 0.9rem;
@@ -53,6 +58,7 @@
   .card {
     width: 100%;
   }
+
   .card-img {
     max-height: 30vh;
     border-radius: 1rem 1rem 0 0;
@@ -69,11 +75,12 @@
 export default {
   methods: {
     unformat(text) {
-      const removeMd = require('remove-markdown');
+      const removeMd = require("remove-markdown");
       return removeMd(text);
     }
   },
   props: {
+    id: String,
     titulo: String,
     conteudo: String,
     img: String,

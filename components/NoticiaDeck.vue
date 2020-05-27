@@ -1,34 +1,38 @@
 <template>
-  <b-card-group deck>
-    <b-card
-      v-for="noticia in noticias"
-      :key="noticia.id"
-      :title="noticia.titulo"
-      :img-src="noticia.img"
-      img-top
-      ><b-card-text>{{ noticia.conteudo }}</b-card-text>
-      <b-card-text class="ver-mais">Ver mais</b-card-text>
-      <template v-slot:footer>
+  <div class="card-deck">
+    <div class="card" v-for="noticia in noticias" :key="noticia.id">
+      <img class="card-img-top" :src="noticia.img" aria-hidden="true" />
+      <div class="card-body">
+        <h5 class="card-title">{{ noticia.titulo }}</h5>
+        <div class="card-text">{{ noticia.conteudo }}</div>
+        <div class="ver-mais">Ver mais</div>
+      </div>
+      <div class="card-footer">
         <p class="data text-muted">Publicada em {{ noticia.data }}</p>
-      </template>
-    </b-card>
-  </b-card-group>
+      </div>
+    </div>
+  </div>
 </template>
 
-<style scoped> 
+<style scoped>
 .card-deck {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .card-deck .card {
   margin: 1rem;
   flex: 1 1 100%;
 }
+
 .card-img-top {
   height: 30vh;
   max-width: 100%;
   object-fit: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
 }
+
 .card-title {
   color: var(--accent);
   overflow: hidden;
@@ -39,10 +43,13 @@
   line-height: 1.5rem; /* fallback */
   max-height: calc(1.5rem * 2); /* fallback */
 }
+
 .card-body {
   padding-bottom: 0.5rem;
 }
+
 .card-text {
+  margin: 1rem 0;
   color: var(--text-grey-darker);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -52,11 +59,13 @@
   line-height: 1.3rem; /* fallback */
   max-height: calc(1.3rem * 2); /* fallback */
 }
+
 .ver-mais {
   text-align: right;
   color: var(--accent);
   font-weight: 600;
 }
+
 .card-footer .data {
   margin: 0;
   font-size: 0.9rem;
