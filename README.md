@@ -1,4 +1,7 @@
 # cenapet-frontend
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7ec1cc064714402098a26a969407326e)](https://app.codacy.com/gh/petbccufscar/cenapet-frontend?utm_source=github.com&utm_medium=referral&utm_content=petbccufscar/cenapet-frontend&utm_campaign=Badge_Grade_Dashboard)
+
 Frontend para o site da CENAPET
 
 ## Build Setup

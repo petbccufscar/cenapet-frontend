@@ -43,7 +43,6 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://bootstrap-vue.js.org
     "@nuxtjs/apollo",
     "@nuxtjs/markdownit",
     [
@@ -96,4 +95,4 @@ export default {
     extend(config, ctx) {
     }
   }
-}
+};
