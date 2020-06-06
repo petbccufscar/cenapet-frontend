@@ -32,18 +32,6 @@
 </template>
 
 <style scoped>
-.page-title {
-  height: 6rem;
-  width: 100%;
-  background-color: var(--footer-dark);
-  color: var(--text-accent);
-}
-
-.page-title h1 {
-  font-size: 3rem;
-  margin: 0;
-}
-
 .list-group {
   padding: 1rem;
   border: 1px solid #ddd;
