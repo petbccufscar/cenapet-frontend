@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .card {
   border-radius: 1rem;
   margin: 1rem;

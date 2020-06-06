@@ -299,7 +299,7 @@
 </template>
 
 
-<style>
+<style scoped>
 .container-fluid {
   padding: 0;
 }
