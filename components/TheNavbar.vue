@@ -39,9 +39,9 @@
           <div class="dropdown-menu" aria-labelledby="Menu documentos">
             <nuxt-link class="dropdown-item" to="#">Cartas</nuxt-link>
             <nuxt-link class="dropdown-item" to="#">Comissão Executiva</nuxt-link>
-            <nuxt-link class="dropdown-item" to="#">Conselho</nuxt-link>
-            <nuxt-link class="dropdown-item" to="#">SESu/MEC</nuxt-link>
-            <nuxt-link class="dropdown-item" to="#">Outros</nuxt-link>
+            <nuxt-link class="dropdown-item" to="docs-conselho">Conselho</nuxt-link>
+            <nuxt-link class="dropdown-item" to="docs-sesu">SESu/MEC</nuxt-link>
+            <nuxt-link class="dropdown-item" to="docs-outros">Outros</nuxt-link>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -53,7 +53,7 @@
           >PET</a>
           <div class="dropdown-menu" aria-labelledby="Menu PET">
             <nuxt-link class="dropdown-item" to="#">Grupos</nuxt-link>
-            <nuxt-link class="dropdown-item" to="#">Orientações gerais</nuxt-link>
+            <nuxt-link class="dropdown-item" to="orientacoes">Orientações gerais</nuxt-link>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -64,9 +64,9 @@
             aria-expanded="false"
           >EVENTOS</a>
           <div class="dropdown-menu" aria-labelledby="Menu cenapet">
-            <nuxt-link class="dropdown-item" to="#">Anais</nuxt-link>
-            <nuxt-link class="dropdown-item" to="#">Histórico</nuxt-link>
-            <nuxt-link class="dropdown-item" to="#">Organização</nuxt-link>
+            <nuxt-link class="dropdown-item" to="anais-eventos">Anais</nuxt-link>
+            <nuxt-link class="dropdown-item" to="eventos">Histórico</nuxt-link>
+            <nuxt-link class="dropdown-item" to="org-eventos">Organização</nuxt-link>
           </div>
         </li>
         <li class="nav-item">
