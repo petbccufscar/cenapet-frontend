@@ -299,32 +299,7 @@
 </template>
 
 
-<style scoped>
-.container-fluid {
-  padding: 0;
-}
-.intro {
-  margin-top: 1rem;
-  text-align: center;
-}
-.intro-title {
-  color: var(--accent);
-  margin: 2rem 0 1rem 0;
-  letter-spacing: 2px;
-  font-weight: 600;
-}
-.intro-text {
-  font-size: 1.3rem;
-  letter-spacing: 1px;
-  line-height: 2rem;
-  margin: 1rem 8vw;
-}
-.main-title {
-  color: var(--accent);
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-align: center;
-}
+<style>
 .card {
   width: 45%;
   margin: 1rem;

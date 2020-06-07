@@ -37,8 +37,8 @@
             aria-expanded="false"
           >DOCUMENTOS</a>
           <div class="dropdown-menu" aria-labelledby="Menu documentos">
-            <nuxt-link class="dropdown-item" to="#">Cartas</nuxt-link>
-            <nuxt-link class="dropdown-item" to="#">Comissão Executiva</nuxt-link>
+            <nuxt-link class="dropdown-item" to="docs-cartas">Cartas</nuxt-link>
+            <nuxt-link class="dropdown-item" to="docs-comissao">Comissão Executiva</nuxt-link>
             <nuxt-link class="dropdown-item" to="docs-conselho">Conselho</nuxt-link>
             <nuxt-link class="dropdown-item" to="docs-sesu">SESu/MEC</nuxt-link>
             <nuxt-link class="dropdown-item" to="docs-outros">Outros</nuxt-link>
