@@ -1,0 +1,89 @@
+<template>
+    <div class="card">
+      <div class="row no-gutters justify-content-center">
+        <div class="col-6">
+          <img
+            src="https://placekitten.com/300/300"
+            class="card-img"
+            />
+        </div>
+        <div class="col-6">
+            <div class="card-body ">
+                <div class="row justify-content-center">
+                    <p class="card-title">Membro</p>
+                </div>
+                <div class="row nome justify-content-center">
+                        Leonardo Rodrigues
+                </div>
+                <div class="row icons justify-content-center">
+                
+                    <div>
+                    <a class="mr-3"href="`mailto:cenapet@gmail.com`">
+                        <font-awesome-icon :icon="['fas', 'envelope']" />
+                    </a>
+                    <a href="https://fb.com/ComissaoExecutivadoPET" target="_blank">
+                        <font-awesome-icon :icon="['fab', 'facebook-f']" />
+                    </a>
+                    </div>
+                </div>
+                <div class="row justify-content-center text-center card-pet">
+                    <a href="https://petbcc.ufscar.br" target="_blank">PET Ciência da computação</a>UFSCar - São Carlos
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+.card{
+  object-position: left;
+  color:var(--theme-dark);
+  border-color: var(--accent);
+  border-width:medium;
+  width:85%;
+  padding:0.1rem;
+  margin-bottom:0.5rem;
+
+}
+.nome{
+    font-size:1.2rem;
+    font-weight:500;
+    margin-bottom:0.3rem;
+}
+.card-title{
+    color:var(--accent);
+    font-size:1.5rem;
+    height:2rem;
+    font-weight:bolder;
+}
+
+.card-img{
+    padding:10px;
+}
+
+.card-pet{
+    padding-top:1rem;
+    margin: 0 auto;
+    font-size:0.9rem;
+    width: 100%;
+
+}
+.card-h1{
+  height: 1.5rem;
+  font-size:1.8rem;
+  width: 100%;
+  /* text-align: left; */
+  color:var(--accent);
+}
+
+.icons {
+  font-size: 1rem;
+}
+</style>
