@@ -24,8 +24,23 @@ a {
 a:hover,
 a:active {
   text-decoration: none;
+  color: var(--deep-purple);
+  outline: none;
 }
 
 .container-fluid {
   padding: 0;
+}
+
+.page-title {
+  height: 6rem;
+  width: 100%;
+  background-color: var(--footer-dark);
+  color: var(--text-accent);
+}
+
+.page-title h1 {
+  font-size: 2.8rem;
+  line-height: 2.9rem;
+  margin: 0;
 }

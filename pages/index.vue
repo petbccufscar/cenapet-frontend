@@ -16,7 +16,7 @@
       <h6 class="text-right mb-1">
         <nuxt-link to="noticias">Ver todas</nuxt-link>
       </h6>
-      <div class="jrow no-gutters ustify-content-center">
+      <div class="row no-gutters ustify-content-center">
         <NoticiaDeck />
       </div>
     </div>
