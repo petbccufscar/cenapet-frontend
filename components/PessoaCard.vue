@@ -3,7 +3,7 @@
       <div class="row no-gutters justify-content-center">
         <div class="col-6">
           <img
-            src="https://placekitten.com/300/300"
+            src="https://placekitten.com/900/900"
             class="card-img"
             />
         </div>
@@ -18,7 +18,7 @@
                 <div class="row icons justify-content-center">
                 
                     <div>
-                    <a class="mr-3"href="`mailto:cenapet@gmail.com`">
+                    <a class="mr-3" href="`mailto:cenapet@gmail.com`">
                         <font-awesome-icon :icon="['fas', 'envelope']" />
                     </a>
                     <a href="https://fb.com/ComissaoExecutivadoPET" target="_blank">
@@ -55,7 +55,8 @@ export default {
 .nome{
     font-size:1.2rem;
     font-weight:500;
-    margin-bottom:0.3rem;
+    margin-bottom:0.8rem;
+    
 }
 .card-title{
     color:var(--accent);
@@ -70,7 +71,7 @@ export default {
 
 .card-pet{
     padding-top:1rem;
-    margin: 0 auto;
+    margin:0 auto;
     font-size:0.9rem;
     width: 100%;
 
@@ -85,5 +86,7 @@ export default {
 
 .icons {
   font-size: 1rem;
+  height:2.5rem;
 }
+
 </style>

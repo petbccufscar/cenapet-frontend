@@ -19,7 +19,6 @@
       <p class="intro-text">
         (Insira aqui planos e objetivos que a diretoria tem para o ano atual / futuro)
       </p>
-
         <h1 class="intro-title">Pessoas</h1>
         <div class="row">
             <div class="col-lg justify-content-center">
