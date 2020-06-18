@@ -43,7 +43,6 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    "@nuxtjs/apollo",
     "@nuxtjs/markdownit",
     [
       "nuxt-fontawesome", {
@@ -62,13 +61,6 @@ export default {
   ],
   env: {
     baseURL: "http://localhost:1337"
-  },
-  apollo: {
-    clientConfigs: {
-      default: {
-        httpEndpoint: process.env.BACKEND_URL || "http://localhost:1337/graphql",
-      }
-    }
   },
   markdownit: {
     preset: "default",
