@@ -48,13 +48,14 @@
 
 <script>
 import NoticiaCard from "@/components/NoticiaCard.vue";
-import noticiasQuery from "~/apollo/queries/noticia/noticias";
+import axios from 'axios'
 
 export default {
-  data() {
-    return {
-      noticias: []
-    };
+  asyncData ({ params }) {
+    return axios.get(`http://localhost:1337/noticias`)
+      .then((res) => {
+        return { noticias: res.data }
+      })
   },
   components: {
     NoticiaCard
@@ -64,15 +65,6 @@ export default {
       return img
         ? process.env.baseURL + img.url
         : require("~/assets/images/logo_escuro.png");
-    }
-  },
-  apollo: {
-    noticias: {
-      prefetch: true,
-      query: noticiasQuery,
-      variables() {
-        return { id: parseInt(this.$route.params.id) };
-      }
     }
   }
 };

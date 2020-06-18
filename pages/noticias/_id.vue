@@ -69,7 +69,7 @@
 </style>
 
 <script>
-import noticiaQuery from "~/apollo/queries/noticia/noticia";
+import axios from 'axios';
 var moment = require("moment");
 
 export default {
@@ -79,23 +79,18 @@ export default {
       moment: moment
     };
   },
+  asyncData ({ params }) {
+    return axios.get(`http://localhost:1337/noticias/${params.id}`)
+      .then((res) => {
+        return { noticia: res.data }
+      })
+  },
   methods: {
     // método para retornar a imagem de fundo padrão caso não haja nenhuma
     backgroundURL: function() {
       return this.noticia.img_fundo
         ? process.env.baseURL + this.noticia.img_fundo.url
         : require("~/assets/images/fundo.png");
-    }
-  },
-  apollo: {
-    noticia: {
-      prefetch: true,
-      query: noticiaQuery,
-      variables() {
-        return {
-          id: parseInt(this.$route.params.id)
-        };
-      }
     }
   }
 };
