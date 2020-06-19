@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row no-gutters page-title align-content-center">
       <div class="col">
-        <h1 class="text-center">Documentos Comissão</h1>
+        <h1 class="text-center">Comissão Executiva</h1>
       </div>
     </div>
     <div class="row no-gutters text">
