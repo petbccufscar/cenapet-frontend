@@ -80,7 +80,7 @@ export default {
     }
   },
   props: {
-    id: String,
+    id: Number,
     titulo: String,
     conteudo: String,
     img: String,

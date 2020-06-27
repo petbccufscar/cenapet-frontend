@@ -52,7 +52,8 @@ import axios from 'axios'
 
 export default {
   asyncData ({ params }) {
-    return axios.get(`http://localhost:1337/noticias`)
+    axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
+    return axios.get(process.env.baseURL + `/noticias`)
       .then((res) => {
         return { noticias: res.data }
       })
