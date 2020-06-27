@@ -62,8 +62,8 @@ export default {
     "@nuxtjs/proxy"
   ],
   env: {
-    //baseURL: '/api'
-    baseURL: 'http://localhost:1337'
+    //baseURL: "/api"
+    baseURL: "http://localhost:1337"
   },/*
   axios: {
     proxy: true,
@@ -73,8 +73,8 @@ export default {
     retry: { retries: 3 }
   },
   proxy: {
-    '/api/': {
-      target: 'http://localhost:1337', pathRewrite: { '^/api/': '' },
+    "/api/': {
+      target: "http://localhost:1337", pathRewrite: { "^/api/": "" },
       changeOrigin: true
     }
   },*/
