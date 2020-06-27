@@ -39,7 +39,8 @@ import axios from "axios";
 
 export default {
   asyncData({ params }) {
-    return axios.get(`http://localhost:1337/organizacao`).then(res => {
+    axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
+    return axios.get(process.env.baseURL + `/organizacao`).then(res => {
       return { organizacao: res.data };
     });
   }

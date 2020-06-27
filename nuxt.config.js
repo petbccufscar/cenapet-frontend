@@ -58,10 +58,26 @@ export default {
         ],
       },
     ],
+    "@nuxtjs/axios",
+    "@nuxtjs/proxy"
   ],
   env: {
-    baseURL: "http://localhost:1337"
+    //baseURL: '/api'
+    baseURL: 'http://localhost:1337'
+  },/*
+  axios: {
+    proxy: true,
+    proxyHeaders: false,
+    credentials: false,
+    debug: true,
+    retry: { retries: 3 }
   },
+  proxy: {
+    '/api/': {
+      target: 'http://localhost:1337', pathRewrite: { '^/api/': '' },
+      changeOrigin: true
+    }
+  },*/
   markdownit: {
     preset: "default",
     linkify: true,
@@ -72,7 +88,7 @@ export default {
   ** Build configuration
   */
   build: {
-    vendor: ["jquery", "bootstrap"],
+    vendor: ["jquery", "bootstrap", "axios"],
     plugins: [
       // set shortcuts as global for bootstrap
       new webpack.ProvidePlugin({
