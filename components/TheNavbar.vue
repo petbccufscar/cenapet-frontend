@@ -94,7 +94,7 @@
   </nav>
 </template>
 
-<style>
+<style scoped>
 .navbar .navbar-dark .navbar-expand-lg {
   padding: 0.5rem 0.5rem;
 }

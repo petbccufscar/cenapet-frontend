@@ -299,7 +299,7 @@
 </template>
 
 
-<style>
+<style scoped>
 .card {
   width: 45%;
   margin: 1rem;

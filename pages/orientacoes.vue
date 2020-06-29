@@ -262,7 +262,7 @@
 </template>
 
 
-<style>
+<style scoped>
 .card-header {
   padding: 0;
 }

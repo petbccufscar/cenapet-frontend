@@ -25,11 +25,7 @@ export default {
 };
 </script>
 
-<style>
-.container-fluid {
-  padding: 0;
-}
-
+<style scoped>
 .intro-comisexec {
   margin-top: 1rem;
 }
