@@ -45,7 +45,7 @@
 </template> 
 
 
-<style>
+<style scoped>
 .texto-titulo {
   text-align: center;
 }

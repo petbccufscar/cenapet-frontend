@@ -33,7 +33,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .carousel-caption {
   right: 0;
   left: 0;

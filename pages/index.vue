@@ -35,7 +35,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .intro {
   margin-top: 1rem;
   text-align: center;
