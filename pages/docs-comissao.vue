@@ -18,7 +18,7 @@ import axios from 'axios';
 export default {
   asyncData ({ params }) {
      axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
-     return axios.get(process.env.baseURL + `/Doc-comissao`).then(res =>{
+     return axios.get(process.env.baseURL + `/docs-comissao`).then(res =>{
         return { docscomissao: res.data }
       })
   }
