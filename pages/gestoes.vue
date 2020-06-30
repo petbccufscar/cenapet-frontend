@@ -1,34 +1,74 @@
 <template>
   <div class="container-fluid">
       <div class="row" no-gutters>
-        <div class="col">
-          <h1 class="page-title">Gestões</h1>
+        
+          <h1 class="page-title"> </h1>
         </div>
-      </div>
+      
 
        <div class="row ano">
-                <h2>2018 - 2020</h2>
+         <div class="col-12">
+           <div v-for="gestao in gestoes" :key="gestao.id">
+              <h2>{{gestao.anoInicio}} - {{gestao.anoTermino}}</h2> 
+                <div class="col-lg-6" v-for="pessoa in pessoas" :key="pessoa.id">
+                  <div v-if="pessoa.gestao.anoInicio === gestao.anoInicio"> 
+                    <pessoa-card
+                      :id="pessoa.id"
+                      :foto="pessoa.foto.url"
+                      :cargo="pessoa.cargo"
+                      :nome="pessoa.nome"
+                      :facebookLink="pessoa.facebookLink"
+                      :petLink="pessoa.petLink"
+                      :universidadeCampus="pessoa.universidadeCampus"
+                      :email="pessoa.email"
+                      :nomePet="pessoa.nomePet"
+                  /> 
+                  </div>
+                </div> 
+
+           </div>
+         
+            
+              
+                
+
         </div>
-  <div class="container">
-        <div class="row">
-          <div class="col-lg-6 justify-content-center">
-              <pessoa-card></pessoa-card>
-          </div>
-          <div class="col-lg-6">
-              <pessoa-card></pessoa-card>
-          </div>
         </div>
   </div>
-    </div>
 </template>
 
-<script>
+<script>  
 import PessoaCard from "@/components/PessoaCard.vue";
+import axios from 'axios'
+
+
  export default {
-     components:{
+    data() {
+        return {
+        pessoa: [],
+        gestoes: []  
+        };
+    },
+
+    components:{
         'pessoa-card': PessoaCard
-     }
-    };
+    },
+
+   methods: {
+        getImgUrl: function(img) {
+            return img
+            ? process.env.baseURL + img.url
+            : require("~/assets/images/logo_escuro.png");
+        }
+    },
+    async asyncData({ params }) {
+      const pessoas = await axios.get(process.env.baseURL + '/pessoas')
+      const gestoes = await axios.get(process.env.baseURL + '/gestoes');
+      return { pessoas: pessoas.data, gestoes: gestoes.data}; 
+    },
+};
+
+
 </script>
 
 

@@ -7,18 +7,18 @@
       </div>
 
     <div class="container intro">
-     <p class="intro-text" v-html="$md.render(texto1.Sobre)"/>
+    <p class="intro-text" v-html="$md.render(texto1.sobre)"/> 
       
       <h1 class="intro-title">Objetivos da diretoria</h1>
       <p class="intro-text">
-        (Insira aqui planos e objetivos que a diretoria tem para o ano atual / futuro)
-      </p>
+      <p class="intro-text" v-html="$md.render(texto1.objetivos)"/> 
         <h1 class="intro-title">Pessoas</h1>
         <div class="row">
-            <div class="col-lg-6" v-for="pessoa in pessoas" v-bind:key="pessoa.id">
+            <div class="col-lg-6" v-for="pessoa in pessoas" :key="pessoa.id">
+              
                 <pessoa-card
                     :id="pessoa.id"
-                    :foto="getImgUrl(pessoa.foto)"
+                    :foto="pessoa.foto.url"
                     :cargo="pessoa.cargo"
                     :nome="pessoa.nome"
                     :facebookLink="pessoa.facebookLink"
@@ -27,7 +27,7 @@
                     :email="pessoa.email"
                     :nomePet="pessoa.nomePet"
                 />
-            </div>
+            </div> 
       </div>
     </div>
 </div>
@@ -74,7 +74,8 @@ import axios from 'axios'
  export default {
     data() {
         return {
-        pessoa: []
+        pessoa: [],
+        texto1: []  
         };
     },
 
@@ -83,15 +84,15 @@ import axios from 'axios'
     },
 
    methods: {
-        getImgUrl(img) {
+        getImgUrl: function(img) {
             return img
             ? process.env.baseURL + img.url
             : require("~/assets/images/logo_escuro.png");
         }
     },
     async asyncData({ params }) {
-      const pessoas = await axios.get("http://localhost:1337/pessoas");
-      const texto1 = await axios.get("http://localhost:1337/sobre-diretoria");
+      const pessoas = await axios.get(process.env.baseURL + '/pessoas')
+      const texto1 = await axios.get(process.env.baseURL + '/sobre-diretoria');
       return { pessoas: pessoas.data, texto1: texto1.data}; 
     },
 };
