@@ -17,13 +17,14 @@
         <nuxt-link to="noticias">Ver todas</nuxt-link>
       </h6>
       <div class="row no-gutters ustify-content-center">
-        <NoticiaDeck />
+        <NoticiaDeck :noticias="noticias" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 import Carousel from "@/components/Carousel.vue";
 import NoticiaDeck from "@/components/NoticiaDeck.vue";
 
@@ -31,6 +32,15 @@ export default {
   components: {
     Carousel,
     NoticiaDeck
+  },
+  asyncData({ params }) {
+    axios.defaults.headers.post["Content-Type"] =
+      "application/x-www-form-urlencoded";
+    return axios
+      .get(process.env.baseURL + `/noticias?_limit=3&_sort=data_publicacao:DESC`)
+      .then(res => {
+        return { noticias: res.data };
+      });
   }
 };
 </script>
