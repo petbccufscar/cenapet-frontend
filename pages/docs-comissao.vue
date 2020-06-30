@@ -6,35 +6,21 @@
       </div>
     </div>
     <div class="row no-gutters text">
-      <div v-html="$md.render(doccomissao.conteudo)"></div>
+      <div v-html="$md.render(docscomissao.conteudo)"></div>
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-var moment = require("moment");
+
 
 export default {
-  data() {
-    return {
-      doccomissao: {},
-      moment: moment
-    };
-  },
   asyncData ({ params }) {
-    return axios.get(`http://localhost:1337/Doc-Comissao/`)
-      .then((res) => {
-        return { doccomissao: res.data }
+     axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
+     return axios.get(process.env.baseURL + `/Doc-comissao`).then(res =>{
+        return { docscomissao: res.data }
       })
-  },
-  methods: {
-    // método para retornar a imagem de fundo padrão caso não haja nenhuma
-    backgroundURL: function() {
-      return this.noticia.img_fundo
-        ? process.env.baseURL + this.noticia.img_fundo.url
-        : require("~/assets/images/fundo.png");
-    }
   }
 };
 </script>
