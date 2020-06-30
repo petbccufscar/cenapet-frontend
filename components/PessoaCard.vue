@@ -3,31 +3,31 @@
       <div class="row no-gutters justify-content-center">
         <div class="col-6">
           <img
-            src="https://placekitten.com/900/900"
+            :src="foto"
             class="card-img"
             />
         </div>
         <div class="col-6">
             <div class="card-body ">
                 <div class="row justify-content-center">
-                    <p class="card-title">Membro</p>
+                    <p class="card-title">{{ cargo }}</p>
                 </div>
                 <div class="row nome justify-content-center">
-                        Leonardo Rodrigues
+                        {{ nome }}
                 </div>
                 <div class="row icons justify-content-center">
                 
                     <div>
-                    <a class="mr-3" href="`mailto:cenapet@gmail.com`">
+                    <a class="mr-3" :href="email">
                         <font-awesome-icon :icon="['fas', 'envelope']" />
                     </a>
-                    <a href="https://fb.com/ComissaoExecutivadoPET" target="_blank">
+                    <a :href="facebookLink" target="_blank">
                         <font-awesome-icon :icon="['fab', 'facebook-f']" />
                     </a>
                     </div>
                 </div>
                 <div class="row justify-content-center text-center card-pet">
-                    <a href="https://petbcc.ufscar.br" target="_blank">PET Ciência da computação</a>UFSCar - São Carlos
+                    <a :href="petLink" target="_blank">{{ nomePet }}</a>{{ universidadeCampus }}
                 </div>
             </div>
         </div>
@@ -38,7 +38,18 @@
 <script>
 export default {
 
-}
+props: {
+    id: Number,
+    foto:String, 
+    cargo: String,
+    nome: String,
+    facebookLink: String,
+    petLink: String,
+    universidadeCampus: String,
+    email:String,
+    nomePet:String
+  }
+};
 </script>
 
 <style>

@@ -7,36 +7,27 @@
       </div>
 
     <div class="container intro">
-      <p class="intro-text">
-        A CENAPET foi fundada em 2006 durante a realização do ENAPET de Florianópolis, 
-        quando foram aprovados seu estatuto e regimento. A Diretoria eleita foi presidida pelo Prof. Dante Barone.
-        No entanto, antes deste período, existia informalmente um grupo de pessoas, 
-        tutores e alunos reunidos sob uma Executiva Nacional, que foi se formando nos anos de luta contra a extinção do PET,
-        desde 1998. Parte deste grupo compôs a CNAA, Comissão Nacional de Acompanhamento e Avaliação, no MEC-SESu, em 2002, 
-        que recuperou o processo de avaliação, revisão do MANUAL DE ORIENTAÇÕES BÁSICAS, etc.
-      </p>
+     <p class="intro-text" v-html="$md.render(texto1.Sobre)"/>
+      
       <h1 class="intro-title">Objetivos da diretoria</h1>
       <p class="intro-text">
         (Insira aqui planos e objetivos que a diretoria tem para o ano atual / futuro)
       </p>
         <h1 class="intro-title">Pessoas</h1>
         <div class="row">
-            <div class="col-lg justify-content-center">
-                <pessoa-card></pessoa-card>
+            <div class="col-lg-6" v-for="pessoa in pessoas" v-bind:key="pessoa.id">
+                <pessoa-card
+                    :id="pessoa.id"
+                    :foto="getImgUrl(pessoa.foto)"
+                    :cargo="pessoa.cargo"
+                    :nome="pessoa.nome"
+                    :facebookLink="pessoa.facebookLink"
+                    :petLink="pessoa.petLink"
+                    :universidadeCampus="pessoa.universidadeCampus"
+                    :email="pessoa.email"
+                    :nomePet="pessoa.nomePet"
+                />
             </div>
-            <div class="col-lg">
-                <pessoa-card></pessoa-card>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-lg">
-                <pessoa-card></pessoa-card>
-            </div>
-            <div class="col-lg">
-                <pessoa-card></pessoa-card>
-            </div>
-
       </div>
     </div>
 </div>
@@ -77,9 +68,33 @@
 
 <script>  
 import PessoaCard from "@/components/PessoaCard.vue";
+import axios from 'axios'
+
+
  export default {
-     components:{
+    data() {
+        return {
+        pessoa: []
+        };
+    },
+
+    components:{
         'pessoa-card': PessoaCard
-     }
-    };
+    },
+
+   methods: {
+        getImgUrl(img) {
+            return img
+            ? process.env.baseURL + img.url
+            : require("~/assets/images/logo_escuro.png");
+        }
+    },
+    async asyncData({ params }) {
+      const pessoas = await axios.get("http://localhost:1337/pessoas");
+      const texto1 = await axios.get("http://localhost:1337/sobre-diretoria");
+      return { pessoas: pessoas.data, texto1: texto1.data}; 
+    },
+};
+
+
 </script>
