@@ -1,11 +1,11 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid mb-4">
     <div class="row no-gutters page-title align-content-center">
       <div class="col">
-        <h1 class="text-center">Comissão Executiva</h1>
+        <h1 class="text-center">Anais de eventos</h1>
       </div>
     </div>
-    <div class="row no-gutters text">
+    <div class="container mt-3">
       <div v-html="$md.render(docscomissao.conteudo)"></div>
     </div>
   </div>
@@ -13,8 +13,6 @@
 
 <script>
 import axios from 'axios';
-
-
 export default {
   asyncData ({ params }) {
      axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
@@ -25,23 +23,3 @@ export default {
 };
 </script>
 
-<style>
-.container-fluid {
-  padding: 0;
-}
-
-.intro-comisexec {
-  margin-top: 1rem;
-}
-.intro-title{
-  color: var(--accent);
-  margin: 2rem 0 1rem 0;
-  letter-spacing: 2px;
-  font-weight: 600;
-}
-
-.intro-subtitle{
-  font-size: 1.1rem;
-}
-
-</style>
