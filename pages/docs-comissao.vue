@@ -5,7 +5,7 @@
         <h1 class="text-center">Comissão Executiva</h1>
       </div>
     </div>
-    <div class="row no-gutters text">
+    <div class="container mt-3">
       <div v-html="$md.render(docscomissao.conteudo)"></div>
     </div>
   </div>

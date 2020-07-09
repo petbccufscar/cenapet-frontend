@@ -2,11 +2,11 @@
   <div class="container-fluid mb-4">
     <div class="row no-gutters page-title align-content-center">
       <div class="col">
-        <h1 class="text-center">Anais de eventos</h1>
+        <h1 class="text-center">Grupos PET</h1>
       </div>
     </div>
     <div class="container mt-3">
-      <div v-html="$md.render(anaisEventos.conteudo)"></div>
+      <div v-html="$md.render(pets.conteudo)"></div>
     </div>
   </div>
 </template>
@@ -18,8 +18,8 @@ export default {
   asyncData({ params }) {
     axios.defaults.headers.post["Content-Type"] =
       "application/x-www-form-urlencoded";
-    return axios.get(process.env.baseURL + `/anais-eventos`).then(res => {
-      return { anaisEventos: res.data };
+    return axios.get(process.env.baseURL + `/grupos`).then(res => {
+      return { pets: res.data };
     });
   }
 };

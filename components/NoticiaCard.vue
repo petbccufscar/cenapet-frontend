@@ -77,8 +77,8 @@ var moment = require("moment");
 export default {
   data() {
     return {
-      moment: moment     
-    }
+      moment: moment
+    };
   },
   methods: {
     unformat(text) {

@@ -52,7 +52,7 @@
             aria-expanded="false"
           >PET</a>
           <div class="dropdown-menu" aria-labelledby="Menu PET">
-            <nuxt-link class="dropdown-item" to="#">Grupos</nuxt-link>
+            <nuxt-link class="dropdown-item" to="/grupos">Grupos</nuxt-link>
             <nuxt-link class="dropdown-item" to="/orientacoes">Orientações gerais</nuxt-link>
           </div>
         </li>

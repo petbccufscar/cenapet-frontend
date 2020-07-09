@@ -7,15 +7,17 @@
     </div>
     <div class="row no-gutters justify-content-around mt-3">
       <div class ="col-sm-12 col-md-8 col-lg-6">
-        <NoticiaCard
-          v-for="noticia in noticias"
-          v-bind:key="noticia.id"
-          :id="noticia.id"
-          :img="getImgUrl(noticia.img_fundo)"
-          :titulo="noticia.titulo"
-          :conteudo="noticia.conteudo"
-          :data_publicacao="noticia.data_publicacao"
-        />
+        <div class="row no-gutters justify-content-center">
+          <NoticiaCard
+            v-for="noticia in noticias"
+            v-bind:key="noticia.id"
+            :id="noticia.id"
+            :img="getImgUrl(noticia.img_fundo)"
+            :titulo="noticia.titulo"
+            :conteudo="noticia.conteudo"
+            :data_publicacao="noticia.data_publicacao"
+          />
+        </div>
       </div>
       <div class="col-sm-12 col-md-4 col-lg-4">
         <h4 class="text-right">Assuntos populares</h4>
