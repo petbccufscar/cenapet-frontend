@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="row justify-content-center text-center card-pet">
-                    <a :href="petLink" target="_blank">{{ nomePet }}</a>{{ universidadeCampus }}
+                    <a :href="formatURL(petLink)" target="_blank">{{ nomePet }}</a>{{ universidadeCampus }}
                 </div>
             </div>
         </div>
@@ -48,7 +48,14 @@ props: {
     universidadeCampus: String,
     email:String,
     nomePet:String
-  }
+  },
+  methods: {
+        formatURL: function(link) {
+          if (link.indexOf("http://") != -1)
+            return link
+          return ("http://" + link)
+      }
+  },
 };
 </script>
 
@@ -78,6 +85,7 @@ props: {
 
 .card-img{
     padding:10px;
+    object-fit: cover;
 }
 
 .card-pet{
@@ -91,7 +99,6 @@ props: {
   height: 1.5rem;
   font-size:1.8rem;
   width: 100%;
-  /* text-align: left; */
   color:var(--accent);
 }
 

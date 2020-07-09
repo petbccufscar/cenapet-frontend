@@ -11,14 +11,13 @@
       
       <h1 class="intro-title">Objetivos da diretoria</h1>
       <p class="intro-text">
-      <p class="intro-text" v-html="$md.render(texto1.objetivos)"/> 
+      <p class="intro-text" v-html="$md.render(texto1.objetivos)"/>
         <h1 class="intro-title">Pessoas</h1>
         <div class="row">
             <div class="col-lg-6" v-for="pessoa in pessoas" :key="pessoa.id">
-              
                 <pessoa-card
                     :id="pessoa.id"
-                    :foto="pessoa.foto.url"
+                    :foto="getImgUrl(pessoa.foto)"
                     :cargo="pessoa.cargo"
                     :nome="pessoa.nome"
                     :facebookLink="pessoa.facebookLink"
@@ -88,7 +87,7 @@ import axios from 'axios'
             return img
             ? process.env.baseURL + img.url
             : require("~/assets/images/logo_escuro.png");
-        }
+        },
     },
     async asyncData({ params }) {
       const pessoas = await axios.get(process.env.baseURL + '/pessoas')
