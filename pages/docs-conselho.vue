@@ -16,7 +16,6 @@
 <script>
 import axios from 'axios';
 
-
 export default {
   asyncData ({ params }) {
      axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
@@ -26,4 +25,3 @@ export default {
   }
 };
 </script>
-

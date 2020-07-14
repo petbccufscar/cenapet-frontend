@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .noticia {
   margin-bottom: 5rem;
 }

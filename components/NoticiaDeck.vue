@@ -1,14 +1,18 @@
 <template>
   <div class="card-deck">
     <div class="card" v-for="noticia in noticias" :key="noticia.id">
-      <img class="card-img-top" :src="noticia.img" aria-hidden="true" />
+      <img class="card-img-top" :src="backgroundURL(noticia.img_fundo)" aria-hidden="true" />
       <div class="card-body">
-        <h5 class="card-title">{{ noticia.titulo }}</h5>
-        <div class="card-text">{{ noticia.conteudo }}</div>
-        <div class="ver-mais">Ver mais</div>
+        <h5 class="card-title">
+          <nuxt-link :to="'/noticias/' + noticia.id">{{ noticia.titulo }}</nuxt-link>
+        </h5>
+        <div class="card-text">{{ unformat(noticia.conteudo) }}</div>
+        <div class="ver-mais">
+          <nuxt-link :to="'/noticias/' + noticia.id">Ver mais</nuxt-link>
+        </div>
       </div>
       <div class="card-footer">
-        <p class="data text-muted">Publicada em {{ noticia.data }}</p>
+        <p class="data text-muted">Publicada em {{ moment(noticia.data_publicacao).format("DD/MM/YYYY") }}</p>
       </div>
     </div>
   </div>
@@ -83,39 +87,27 @@
 </style>
 
 <script>
+var moment = require("moment");
+
 export default {
   data() {
     return {
-      // DADOS ESTATICOS
-      // ALTERAR PARA DINAMICOS COM BACKEND
-      noticias: [
-        {
-          id: 1,
-          img: "https://picsum.photos/300/300/?image=41",
-          titulo: "1º Comunicado da Diretoria da CENAPET 2020",
-          conteudo:
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-          data: "03/08/2019"
-        },
-        {
-          id: 2,
-          img: "https://i.picsum.photos/id/1/1024/728.jpg",
-          titulo: "Problemas com prestação de contas",
-          conteudo:
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-          data: "21/01/2019"
-        },
-        {
-          id: 3,
-          img: "https://picsum.photos/1024/480/?image=52",
-          titulo:
-            "Formulário para descrição dos problemas com a plataforma SIGPET 2.0",
-          conteudo:
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-          data: "02/04/2018"
-        }
-      ]
+      moment: moment
     };
+  },
+  methods: {
+    unformat(text) {
+      const removeMd = require("remove-markdown");
+      return removeMd(text);
+    },
+    backgroundURL: function(image) {
+      return image
+        ? process.env.baseURL + image.url
+        : require("~/assets/images/fundo.png");
+    }
+  },
+  props: {
+    noticias: Array
   }
 };
 </script>
