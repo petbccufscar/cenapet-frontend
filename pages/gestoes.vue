@@ -1,17 +1,15 @@
 <template>
   <div class="container-fluid">
       <div class="row" no-gutters>
-          <h1 class="page-title"> </h1>
+          <h1 class="page-title"> Gestoes </h1>
       </div>
       
       <div class="container">
         <div class="row ano">
-          <div class="col-12">
-            <div v-for="gestao in gestoes" :key="gestao.ano">
-                <h2>{{gestao.anoInicio}} - {{gestao.anoTermino}}</h2>  
+            <div class="col-12" v-for="gestoe in gestoes" :key="gestoe.id">
+                <h2>{{gestoe.anoInicio}} - {{gestoe.anoTermino}}</h2>
                 <div class="col-lg-6" v-for="pessoa in pessoas" :key="pessoa.id">
-                  <div v-if="pessoa.gestao.anoInicio === gestao.anoInicio"> 
-                    
+                 <div v-if="pessoa.gestao && pessoa.gestao.anoInicio === gestoe.anoInicio">
                     <pessoa-card
                       :id="pessoa.id"
                       :foto="getImgUrl(pessoa.foto)"
@@ -22,14 +20,15 @@
                       :universidadeCampus="pessoa.universidadeCampus"
                       :email="pessoa.email"
                       :nomePet="pessoa.nomePet"
-                    /> 
-                  </div>
+                    />
+                  </div> 
                 </div>
-              </div>   
-            </div>
+              </div>
+            </div>   
           </div>
         </div>
-  </div>
+      </div>
+</div>
 </template>
 
 <script>  

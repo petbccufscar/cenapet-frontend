@@ -1,46 +1,72 @@
 <template>
   <div class="container-fluid">
-        <div class="row" no-gutters>
-            <div class="col ">
-                <h1 class="page-title">Conselho</h1>
-            </div>
-        </div>
-    
-    
-        <div class="row">
-            <div class="col justify-content-center">
-                <h2 class='subtitulo'>Representantes 2017 - 2019</h2>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row regiao justify-content-left">
-                Região Sudeste
-            </div>
-        </div>
-        <div class="container juystify-content-center">
-            <div class="row">
-                <div class="col-lg-6">
-                    <pessoa-card></pessoa-card>
+      <div class="row" no-gutters>
+          <h1 class="page-title"> Conselhos </h1>
+      </div>
+      
+      <div class="container">
+        <div class="row ano">
+            <div class="col-12" v-for="conselho in conselhos" :key="conselho.id">
+                <h2>{{conselho.anoInicio}} - {{conselho.anoTermino}}</h2>
+                <div class="col-lg-6" v-for="pessoa in pessoas" :key="pessoa.id">
+                 <div v-if="pessoa.conselho && pessoa.conselho.anoInicio === conselho.anoInicio">
+                    <pessoa-card
+                      :id="pessoa.id"
+                      :foto="getImgUrl(pessoa.foto)"
+                      :cargo="pessoa.cargo"
+                      :nome="pessoa.nome"
+                      :facebookLink="pessoa.facebookLink"
+                      :petLink="pessoa.petLink"
+                      :universidadeCampus="pessoa.universidadeCampus"
+                      :email="pessoa.email"
+                      :nomePet="pessoa.nomePet"
+                    />
+                  </div> 
                 </div>
-                <div class="col-lg-6">
-                    <pessoa-card></pessoa-card>
-                </div>
-            </div>
+              </div>
+            </div>   
+          </div>
         </div>
-    </div>
+      </div>
+</div>
 </template>
+
+<script>  
+import PessoaCard from "@/components/PessoaCard.vue";
+import axios from 'axios'
+
+
+ export default {
+    data() {
+        return {
+        pessoa: [],
+        conselho: []  
+        };
+    },
+
+    components:{
+        'pessoa-card': PessoaCard
+    },
+
+   methods: {
+        getImgUrl: function(img) {
+            return img
+            ? process.env.baseURL + img.url
+            : require("~/assets/images/logo_escuro.png");
+        }
+    },
+    async asyncData({ params }) {
+      const pessoas = await axios.get(process.env.baseURL + '/pessoas')
+      const conselhos = await axios.get(process.env.baseURL + '/conselhos');
+      return { pessoas: pessoas.data, conselhos: conselhos.data}; 
+    },
+};
+
+
+</script>
 
 
 <style>
-.subtitulo {
-    color: var(--accent);
-    margin:2px auto;
-    letter-spacing: 2px;
-    text-align:center;
-    font-weight:bold;
-    justify-content: center;
-    
-}
 
 .page-title {
   height: 6rem;
@@ -51,24 +77,15 @@
   padding: 15px;
   font-size: 3.5rem;
 }
-.page-title h1 {
-  font-size: 3rem;
+
+.ano{
+    color: var(--accent);
+    margin:2px auto;
+    letter-spacing: 2px;
+    text-align:center;
+    font-weight:bold;
+    justify-content: center;
 }
 
-.regiao{
-   font-size:2rem;
-   margin:10px auto;
-   width:100%;
-   color:var(--text-grey-darker);
-   font-weight:bold; 
-}
+
 </style>
-
-<script>
-import PessoaCard from "@/components/PessoaCard.vue";
- export default {
-     components:{
-        'pessoa-card': PessoaCard
-     }
-    };
-</script>

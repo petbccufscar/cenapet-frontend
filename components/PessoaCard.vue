@@ -18,16 +18,17 @@
                 <div class="row icons justify-content-center">
                 
                     <div>
-                    <a class="mr-3" :href="email">
+                    <a class="mr-3" :href="formatURL(email)">
                         <font-awesome-icon :icon="['fas', 'envelope']" />
                     </a>
-                    <a :href="facebookLink" target="_blank">
+                    <a :href="formatURL(facebookLink)" target="_blank">
                         <font-awesome-icon :icon="['fab', 'facebook-f']" />
                     </a>
                     </div>
                 </div>
                 <div class="row justify-content-center text-center card-pet">
-                    <a :href="formatURL(petLink)" target="_blank">{{ nomePet }}</a>{{ universidadeCampus }}
+                    <a :href="formatURL(petLink)" target="_blank">{{ nomePet }}</a>
+                    <div class="row justify-content-center card-universidade">{{ universidadeCampus }}</div>
                 </div>
             </div>
         </div>
@@ -90,6 +91,12 @@ props: {
 
 .card-pet{
     padding-top:1rem;
+    margin:0 auto;
+    font-size:0.9rem;
+    width: 100%;
+
+}
+.card-universidade{
     margin:0 auto;
     font-size:0.9rem;
     width: 100%;
