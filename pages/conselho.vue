@@ -5,11 +5,11 @@
       </div>
       
       <div class="container">
-        <div class="row ano">
-            <div class="col-12" v-for="conselho in conselhos" :key="conselho.id">
+        <div class="row ano" v-for="conselho in conselhos" :key="conselho.id">
+            <div class="col-12 my-4" >
                 <h2>{{conselho.anoInicio}} - {{conselho.anoTermino}}</h2>
-                <div class="col-lg-6" v-for="pessoa in pessoas" :key="pessoa.id">
-                 <div v-if="pessoa.conselho && pessoa.conselho.anoInicio === conselho.anoInicio">
+              </div>
+                <div class="col-lg-6" v-for="pessoa in conselho.pessoas" :key="pessoa.id">
                     <pessoa-card
                       :id="pessoa.id"
                       :foto="getImgUrl(pessoa.foto)"
@@ -24,11 +24,7 @@
                   </div> 
                 </div>
               </div>
-            </div>   
-          </div>
-        </div>
-      </div>
-</div>
+            </div>  
 </template>
 
 <script>  
@@ -57,7 +53,7 @@ import axios from 'axios'
     },
     async asyncData({ params }) {
       const pessoas = await axios.get(process.env.baseURL + '/pessoas')
-      const conselhos = await axios.get(process.env.baseURL + '/conselhos');
+      const conselhos = await axios.get(process.env.baseURL + '/conselhos?_sort=anoInicio:DESC');
       return { pessoas: pessoas.data, conselhos: conselhos.data}; 
     },
 };
