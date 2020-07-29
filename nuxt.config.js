@@ -63,7 +63,7 @@ export default {
   ],
   env: {
     //baseURL: "/api"
-    baseURL: "http://localhost:1337"
+    baseURL: "http://strapi.petbcc.tech"
   },/*
   axios: {
     proxy: true,
