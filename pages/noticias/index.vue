@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="row no-gutters page-title align-content-center">
+    <div class="row no-gutters page-title">
       <div class="col">
         <h1 class="text-center">Notícias</h1>
       </div>

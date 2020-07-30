@@ -63,7 +63,8 @@ export default {
   ],
   env: {
     //baseURL: "/api"
-    baseURL: "http://strapi.petbcc.tech"
+    baseURL: "https://strapi.petbcc.tech",
+    mbToken: ""
   },/*
   axios: {
     proxy: true,
