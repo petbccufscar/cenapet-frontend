@@ -24,9 +24,9 @@
             aria-expanded="false"
           >CENAPET</a>
           <div class="dropdown-menu" aria-labelledby="Menu cenapet">
-            <nuxt-link class="dropdown-item" to="#">Sobre a diretoria</nuxt-link>
-            <nuxt-link class="dropdown-item" to="#">Gestões</nuxt-link>
-            <nuxt-link class="dropdown-item" to="#">Conselho</nuxt-link>
+            <nuxt-link class="dropdown-item" to="/sobre">Sobre a diretoria</nuxt-link>
+            <nuxt-link class="dropdown-item" to="/gestoes">Gestões</nuxt-link>
+            <nuxt-link class="dropdown-item" to="/conselho">Conselho</nuxt-link>
           </div>
         </li>
         <li class="nav-item dropdown">
