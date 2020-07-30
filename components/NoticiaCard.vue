@@ -21,6 +21,7 @@
 .card {
   border-radius: 1rem;
   margin: 1rem;
+  box-shadow: 0 2px 4px #7778;
 }
 
 .card-img {

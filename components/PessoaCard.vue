@@ -48,7 +48,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .card {
   color: var(--theme-dark);
   box-shadow: 0 5px 5px #7778;

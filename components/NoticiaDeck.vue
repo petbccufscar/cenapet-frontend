@@ -27,6 +27,7 @@
 .card-deck .card {
   margin: 1rem;
   flex: 1 1 100%;
+  box-shadow: 0 3px 5px #7778;
 }
 
 .card-img-top {
