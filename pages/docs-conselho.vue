@@ -2,7 +2,7 @@
 
 <template>
   <div class="container-fluid mb-4">
-    <div class="row no-gutters page-title align-content-center">
+    <div class="row no-gutters page-title">
       <div class="col">
         <h1 class="text-center">Conselho da CENAPET</h1>
       </div>
