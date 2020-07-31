@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid mb-4">
-    <div class="row no-gutters page-title">
+    <div class="row no-gutters align-items-center page-title">
       <div class="col">
         <h1 class="text-center">SESu/MEC</h1>
       </div>
