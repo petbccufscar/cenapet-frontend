@@ -32,6 +32,10 @@ a:active {
   padding: 0;
 }
 
+.min-70 {
+  min-height: 70vh;
+}
+
 .page-title {
   height: 6rem;
   width: 100%;

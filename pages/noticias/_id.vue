@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid noticia">
+  <div class="container-fluid min-70 noticia">
     <div class="img-intro" :style="{ backgroundImage: `url(${backgroundURL()})` }">
       <h1 class="text-intro">{{ noticia.titulo }}</h1>
     </div>

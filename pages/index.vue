@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid min-70 mb-4">
     <Carousel />
     <div class="container intro">
       <h1 class="intro-title">A CENAPET</h1>
