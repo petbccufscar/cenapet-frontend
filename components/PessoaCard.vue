@@ -53,6 +53,9 @@ export default {
   color: var(--theme-dark);
   box-shadow: 0 5px 5px #7778;
   width: 100%;
+
+  min-height: 240px;
+  min-width: 240px;
 }
 
 .card-title {
@@ -61,10 +64,12 @@ export default {
 }
 
 .card-img {
+  object-fit:cover;
+  position:relative;
   padding: 10px;
-  object-fit: cover;
-  max-height: 35vh;
-  width: auto;
+  
+  height:230px;
+  width:230px;
   border-radius: 50%;
 }
 
