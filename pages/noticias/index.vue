@@ -66,7 +66,7 @@ export default {
   methods: {
     getImgUrl(img) {
       return img
-        ? process.env.baseURL + img.url
+        ? process.env.baseURL + img.formats.small.url
         : require("~/assets/images/logo_escuro.png");
     }
   }
