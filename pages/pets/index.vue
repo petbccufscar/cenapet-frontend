@@ -4,17 +4,14 @@
       <div class="row">
         <div class="col-md-4">
           <div class="profile-img">
-            <img
-              src="https://avatars2.githubusercontent.com/u/17068163?s=200&v=4"
-              alt
-            />
+            <img src="https://avatars2.githubusercontent.com/u/17068163?s=200&v=4" alt />
           </div>
         </div>
         <div class="col-md-6">
           <div class="profile-head">
             <h5>Nome do PET</h5>
             <h6>Universidade</h6>
-            <h6> Campus </h6>
+            <h6>Campus</h6>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item">
                 <a
@@ -40,7 +37,7 @@
             <a href>Site do PET</a>
             <br />
             <a href>Site do PET na UFSCar</a>
-  			<br />
+            <br />
             <a href>Instagram</a>
             <br />
             <a href>Facebook</a>
@@ -92,7 +89,7 @@
                 <div class="col-md-6">
                   <p>Numb</p>
                 </div>
-            </div>
+              </div>
             </div>
           </div>
         </div>
@@ -136,7 +133,7 @@ body {
   top: 0;
 }
 .profile-head {
-	margin-top: 30px;
+  margin-top: 30px;
 }
 .profile-head h5 {
   color: #333;

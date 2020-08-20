@@ -53,7 +53,7 @@ export default {
           },
           {
             set: "@fortawesome/free-brands-svg-icons",
-            icons: ["faFacebookF"]
+            icons: ["faFacebookF", "faInstagram", "faTwitter", "faYoutube"]
           },
         ],
       },
