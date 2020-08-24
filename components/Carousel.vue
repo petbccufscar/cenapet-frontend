@@ -2,8 +2,8 @@
   <div id="carousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li
-        v-for="(slide, index) in slides"
-        :key="index"
+        v-for="(carrossel,index) in carrossels"
+        :key="carrossel.id"
         data-target="#carousel"
         :data-slide-to="index"
         :class="{ 'active': index === 0 }"
@@ -11,14 +11,17 @@
     </ol>
     <div class="carousel-inner">
       <div
-        v-for="(slide, index) in slides"
-        :key="slide.id"
+        v-for="(carrossel,index) in carrossels"
+        :key="carrossel.id"
         class="carousel-item"
-        :class="{ 'active': index === 0 }"
+        :class="{'active': index === 0 }"
       >
-        <img :src="slide.img" />
+         <nuxt-link :to="'/noticias/' + carrossel.id">
+           <img :src="getImgUrl(carrossel.img_fundo)" alt="Imagem notícia">
+         </nuxt-link>
         <div class="carousel-caption">
-          <h3>{{ slide.caption }}</h3>
+          
+          <h3> {{carrossel.titulo}} </h3>
         </div>
       </div>
     </div>
@@ -83,39 +86,33 @@
 .carousel-indicators .active {
   background-color: var(--deep-purple);
 }
+
 </style>
 
 <script>
+
+import axios from "axios";
+
 export default {
   data() {
     return {
       slide: 0,
-      sliding: null,
-      // DADOS ESTATICOS
-      // ALTERAR PARA DINAMICOS COM BACKEND
-      slides: [
-        {
-          id: 1,
-          caption: "Slide 1",
-          img: "https://picsum.photos/1024/480/?image=52"
-        },
-        {
-          id: 2,
-          caption: "Slide 2",
-          img: "https://picsum.photos/1024/480/?image=53"
-        },
-        {
-          id: 3,
-          caption: "Slide 3",
-          img: "https://picsum.photos/1024/480/?image=54"
-        },
-        {
-          id: 4,
-          caption: "Slide 4",
-          img: "https://picsum.photos/1024/480/?image=55"
-        }
-      ]
+      sliding: null
     };
+  },
+  methods: {
+    getImgUrl(img) {
+      return img
+        ? process.env.baseURL + img.formats.small.url
+        : require("~/assets/images/fundo.png");
+    },
+    formatLink: function(id){
+      return process.env.dominioURL + "/noticias/" + id
+    },
+  },
+  props: {
+    carrossels: Array
+
   }
 };
 </script>
