@@ -2,7 +2,7 @@
   <div class="container-fluid min-70">
     <div class="row no-gutters align-items-center page-title">
       <div class="col">
-        <h1 class="text-center">Grupos PET</h1>
+        <h1 class="text-center">Mapa PET</h1>
       </div>
     </div>
     <div class="container mt-3">
@@ -147,6 +147,16 @@ export default {
       });
       map.on("mouseleave", "clusters", function () {
         map.getCanvas().style.cursor = "";
+      });
+
+      map.on("wheel", (event) => {
+        if (event.originalEvent.ctrlKey) {
+          // Check if CTRL key is pressed
+          event.originalEvent.preventDefault(); // Prevent chrome/firefox default behavior
+          if (!map.scrollZoom._enabled) map.scrollZoom.enable(); // Enable zoom only if it's disabled
+        } else {
+          if (map.scrollZoom._enabled) map.scrollZoom.disable(); // Disable zoom only if it's enabled
+        }
       });
     });
   },
