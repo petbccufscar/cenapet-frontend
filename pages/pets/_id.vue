@@ -5,14 +5,14 @@
       <div class="row no-gutters justify-content-between align-items-center mt-5">
         <div class="col-md-4">
           <div class="pet-img">
-            <img :src="getImgUrl(pet.Logo)" />
+            <img :src="getImgUrl(pet.logo)" />
           </div>
         </div>
         <div class="col-md-7">
           <div class="header">
-            <h2>{{ pet.Nome }}</h2>
-            <p>{{ pet.universidade.Nome }}</p>
-            <p>{{ pet.campus.Nome }}</p>
+            <h2>{{ pet.nome }}</h2>
+            <p>{{ pet.campus.universidade.nome }}</p>
+            <p>{{ pet.campus.nome }}</p>
           </div>
         </div>
       </div>
@@ -21,8 +21,8 @@
         <div class="col-md-4 order-12 order-md-1">
           <div class="contato">
             <h5>Contatos</h5>
-            <p v-if="pet.Email_pet">
-              <a :href="'mailto:' + pet.Email_pet">
+            <p v-if="pet.email_pet">
+              <a :href="'mailto:' + pet.email_pet">
                 <font-awesome-icon :icon="['fas', 'envelope']" class="mr-2" />Email
               </a>
             </p>
@@ -46,8 +46,8 @@
                 <font-awesome-icon :icon="['fab', 'youtube']" class="mr-2" />YouTube
               </a>
             </p>
-            <p v-if="pet.Outras_midias" class="mt-3 mb-1 font-weight-bold">Outras mídias</p>
-            <div v-if="pet.Outras_midias" v-html=" $md.render(pet.Outras_midias) "></div>
+            <p v-if="pet.outras_midias" class="mt-3 mb-1 font-weight-bold">Outras mídias</p>
+            <div v-if="pet.outras_midias" v-html=" $md.render(pet.outras_midias) "></div>
           </div>
         </div>
         <div class="col-md-7 order-1 order-md-12">
@@ -57,16 +57,16 @@
               <p>Cidade</p>
             </div>
             <div class="col-md-6 conteudo">
-              <p>{{ pet.Cidade }}-{{ pet.Estado}}</p>
+              <p>{{ pet.campus.cidade }} - {{ pet.campus.universidade.estado}}</p>
             </div>
 
-            <div v-if="pet.Email_pet" class="col-md-6 label">
+            <div v-if="pet.email_pet" class="col-md-6 label">
               <p>Email</p>
             </div>
-            <div v-if="pet.Email_pet" class="col-md-6 conteudo">
+            <div v-if="pet.email_pet" class="col-md-6 conteudo">
               <p>
-                <a :href="'mailto:' + pet.Email_pet">
-                  {{ pet.Email_pet }}
+                <a :href="'mailto:' + pet.email_pet">
+                  {{ pet.email_pet }}
                   <font-awesome-icon
                     :icon="['fas', 'external-link-alt']"
                     class="ml-1 fa-xs"
@@ -76,13 +76,13 @@
               </p>
             </div>
 
-            <div v-if="pet.Site_pet" class="col-md-6 label">
+            <div v-if="pet.site_pet" class="col-md-6 label">
               <p>Site</p>
             </div>
-            <div v-if="pet.Site_pet" class="col-md-6 conteudo">
+            <div v-if="pet.site_pet" class="col-md-6 conteudo">
               <p>
-                <a :href="pet.Site_pet">
-                  {{ pet.Site_pet }}
+                <a :href="pet.site_pet">
+                  {{ pet.site_pet }}
                   <font-awesome-icon
                     :icon="['fas', 'external-link-alt']"
                     class="ml-1 fa-xs"
@@ -108,25 +108,25 @@
               </p>
             </div>
 
-            <div v-if="pet.Eixo" class="col-md-6 label">
+            <div v-if="pet.eixo" class="col-md-6 label">
               <p>Eixo</p>
             </div>
-            <div v-if="pet.Eixo" class="col-md-6 conteudo">
-              <p>{{ pet.Eixo }}</p>
+            <div v-if="pet.eixo" class="col-md-6 conteudo">
+              <p>{{ pet.eixo }}</p>
             </div>
 
-            <div v-if="pet.Tematica" class="col-md-6 label">
+            <div v-if="pet.tematica" class="col-md-6 label">
               <p>Temática</p>
             </div>
-            <div v-if="pet.Tematica" class="col-md-6 conteudo">
+            <div v-if="pet.tematica" class="col-md-6 conteudo">
               <p>{{ pet.Tematica }}</p>
             </div>
 
-            <div v-if="pet.Ano_criacao" class="col-md-6 label">
+            <div v-if="pet.ano_criacao" class="col-md-6 label">
               <p>Ano de criação</p>
             </div>
-            <div v-if="pet.Ano_criacao" class="col-md-6 conteudo">
-              <p>{{ pet.Ano_criacao }}</p>
+            <div v-if="pet.ano_criacao" class="col-md-6 conteudo">
+              <p>{{ pet.ano_criacao }}</p>
             </div>
           </div>
         </div>
@@ -159,7 +159,7 @@ export default {
     const mapboxgl = require("mapbox-gl");
 
     let map = this.map;
-    let coord = [this.pet.campus.Longitude, this.pet.campus.Latitude];
+    let coord = [this.pet.campus.longitude, this.pet.campus.latitude];
 
     map = new mapboxgl.Map({
       accessToken: process.env.mbToken,
