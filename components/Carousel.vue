@@ -2,8 +2,8 @@
   <div id="carousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li
-        v-for="(carrossel,index) in carrossels"
-        :key="carrossel.id"
+        v-for="(slide, index) in carrossels"
+        :key="slide.id"
         data-target="#carousel"
         :data-slide-to="index"
         :class="{ 'active': index === 0 }"
@@ -11,17 +11,17 @@
     </ol>
     <div class="carousel-inner">
       <div
-        v-for="(carrossel,index) in carrossels"
-        :key="carrossel.id"
+        v-for="(slide,index) in carrossels"
+        :key="slide.id"
         class="carousel-item"
         :class="{'active': index === 0 }"
       >
-         <nuxt-link :to="'/noticias/' + carrossel.id">
-           <img :src="getImgUrl(carrossel.img_fundo)" alt="Imagem notícia">
+         <nuxt-link :to="'/noticias/' + slide.id">
+           <img :src="getImgUrl(slide.img_fundo)" alt="Imagem notícia">
          </nuxt-link>
         <div class="carousel-caption">
           
-          <h3> {{carrossel.titulo}} </h3>
+          <h3> {{slide.titulo}} </h3>
         </div>
       </div>
     </div>
