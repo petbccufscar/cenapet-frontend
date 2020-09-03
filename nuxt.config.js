@@ -59,12 +59,19 @@ export default {
       },
     ],
     "@nuxtjs/axios",
-    "@nuxtjs/proxy"
+    "@nuxtjs/proxy",
+    "@nuxtjs/recaptcha"
   ],
   env: {
     //baseURL: "/api"
     baseURL: "https://strapi.petbcc.tech",
-    mbToken: "pk.eyJ1IjoiaWdvcmxtZ3giLCJhIjoiY2tjZ3FwN2swMHVscDMzcDhwejVnaGpjYyJ9.9rfaUCaUfsteKZx_Zr7Bbg"
+    mbToken: ""
+  },
+  recaptcha: {
+    siteKey: "",
+    version: 2,
+    size: "invisible",
+    hideBadge: true,
   },/*
   axios: {
     proxy: true,
@@ -74,7 +81,7 @@ export default {
     retry: { retries: 3 }
   },
   proxy: {
-    "/api/': {
+    "/api/": {
       target: "http://localhost:1337", pathRewrite: { "^/api/": "" },
       changeOrigin: true
     }

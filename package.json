@@ -17,6 +17,7 @@
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/markdownit": "^1.2.9",
     "@nuxtjs/proxy": "^2.0.0",
+    "@nuxtjs/recaptcha": "^0.6.2",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",

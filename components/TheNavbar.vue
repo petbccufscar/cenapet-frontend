@@ -71,7 +71,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <nuxt-link class="nav-link" to="#">FORMULÁRIOS</nuxt-link>
+          <nuxt-link class="nav-link" to="/forms">FORMULÁRIO</nuxt-link>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
