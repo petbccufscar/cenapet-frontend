@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid min-70 mb-4">
-      <Carousel :carrossels="carrossels"/>
+      <Carousel :slides="slides"/>
     
     <div class="container intro">
       <h1 class="intro-title">A CENAPET</h1>
@@ -40,11 +40,11 @@ export default {
     const noticias = await axios.get(
       process.env.baseURL + `/noticias?_limit=3&_sort=data_publicacao:DESC`
     );
-    const carrossels = await axios.get(
+    const slides = await axios.get(
       process.env.baseURL + "/noticias?apareceCarrossel=1"
     );
     return { 
-      carrossels: carrossels.data,
+      slides: slides.data,
       noticias: noticias.data 
     };
   }

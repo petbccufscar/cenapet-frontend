@@ -2,7 +2,7 @@
   <div id="carousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li
-        v-for="(slide, index) in carrossels"
+        v-for="(slide,index) in slides"
         :key="slide.id"
         data-target="#carousel"
         :data-slide-to="index"
@@ -11,7 +11,7 @@
     </ol>
     <div class="carousel-inner">
       <div
-        v-for="(slide,index) in carrossels"
+        v-for="(slide,index) in slides"
         :key="slide.id"
         class="carousel-item"
         :class="{'active': index === 0 }"
@@ -96,7 +96,6 @@ import axios from "axios";
 export default {
   data() {
     return {
-      slide: 0,
       sliding: null
     };
   },
@@ -111,7 +110,7 @@ export default {
     },
   },
   props: {
-    carrossels: Array
+    slides: Array
 
   }
 };
