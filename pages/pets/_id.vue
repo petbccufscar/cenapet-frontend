@@ -159,7 +159,7 @@ export default {
     const mapboxgl = require("mapbox-gl");
 
     let map = this.map;
-    let coord = [this.pet.campus.longitude, this.pet.campus.latitude];
+    let coord = [this.pet.longitude, this.pet.latitude];
 
     map = new mapboxgl.Map({
       accessToken: process.env.mbToken,

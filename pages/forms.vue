@@ -21,12 +21,12 @@
             >divulgapetbrasil@gmail.com</a>.
           </p>
           <p class="small">
-              Este site é protegido por reCAPTCHA e Google. Verifique a
-              <a
-                href="https://policies.google.com/privacy"
-              >política de privacidade</a> e os
-              <a href="https://policies.google.com/terms">termos de serviço</a>.
-            </p>
+            Este site é protegido por reCAPTCHA e Google. Verifique a
+            <a
+              href="https://policies.google.com/privacy"
+            >política de privacidade</a> e os
+            <a href="https://policies.google.com/terms">termos de serviço</a>.
+          </p>
         </div>
       </div>
       <div class="row no-gutters justify-content-center mt-2">
@@ -83,6 +83,33 @@
                 <label
                   class="col-sm-10 col-form-label"
                 >{{pet_campus.cidade ? pet_campus.cidade + " - " + pet_uni.estado : ""}}</label>
+              </div>
+
+              <label for="map">Coloque um ponto perto de onde seu PET fica:</label>
+              <div id="map"></div>
+              <p class="small">Pressione CTRL para usar o zoom</p>
+
+              <div class="form-group row no-gutters justify-content-between mt-3">
+                <div class="col-md-5">
+                  <label for="latidude">Latitude</label>
+                  <input
+                    id="latitude"
+                    class="form-control"
+                    type="text"
+                    placeholder="Latitude"
+                    disabled
+                  />
+                </div>
+                <div class="col-md-5">
+                  <label for="latidude">Longitude</label>
+                  <input
+                    id="longitude"
+                    class="form-control"
+                    type="text"
+                    placeholder="Longitude"
+                    disabled
+                  />
+                </div>
               </div>
 
               <div class="form-group">
@@ -311,6 +338,14 @@
 import axios from "axios";
 
 export default {
+  head: {
+    link: [
+      {
+        rel: "stylesheet",
+        href: `https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css`,
+      },
+    ],
+  },
   data() {
     return {
       universidades: [],
@@ -318,6 +353,7 @@ export default {
       pet_uni: [],
       pet_campus: [],
       api_response: {},
+      map: {},
     };
   },
   async asyncData({ params }) {
@@ -339,6 +375,9 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+    getCenter() {
+      return [this.pet_campus.longitude, this.pet_campus.latitude];
     },
     send(token) {
       const formElement = document.querySelector("form");
@@ -403,6 +442,50 @@ export default {
   },
   async mounted() {
     await this.$recaptcha.init();
+    const mapboxgl = require("mapbox-gl");
+
+    let map = this.map;
+    let marker = new mapboxgl.Marker();
+    const gambiarra = this;
+
+    map = new mapboxgl.Map({
+      accessToken: process.env.mbToken,
+      container: "map", // <div id="map"></div>
+      style: "mapbox://styles/mapbox/light-v10",
+      center: [-52.8448484, -15.028203],
+      zoom: 3,
+    });
+
+    map.addControl(new mapboxgl.NavigationControl());
+
+    map.on("load", function () {
+      map.on("click", function (e) {
+        let point = e.lngLat;
+        document.getElementById("latitude").value = point["lat"];
+        document.getElementById("longitude").value = point["lng"];
+        marker.remove();
+        marker.setLngLat([point["lng"], point["lat"]]).addTo(map);
+      });
+
+      map.on("wheel", (event) => {
+        if (event.originalEvent.ctrlKey) {
+          event.originalEvent.preventDefault();
+          if (!map.scrollZoom._enabled) map.scrollZoom.enable();
+        } else {
+          if (map.scrollZoom._enabled) map.scrollZoom.disable();
+        }
+      });
+    });
+
+    document.getElementById("campus").addEventListener("change", function () {
+      map.flyTo({
+        center: gambiarra.getCenter(),
+        zoom: 15,
+        essential: true,
+        speed: 3,
+        curve: 2,
+      });
+    });
   },
 };
 </script>
@@ -414,6 +497,11 @@ export default {
   letter-spacing: 2px;
   font-weight: 600;
   text-align: center;
+}
+
+#map {
+  width: 100%;
+  height: 30rem;
 }
 
 .sucesso {
