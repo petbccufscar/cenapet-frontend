@@ -2,7 +2,7 @@
   <div class="container-fluid min-70 mb-4">
     <div class="row no-gutters align-items-center page-title">
       <div class="col">
-        <h1 class="text-center">Anais de eventos</h1>
+        <h1 class="text-center">Comissão Executiva</h1>
       </div>
     </div>
     <div class="container mt-3">
