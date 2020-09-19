@@ -1,6 +1,7 @@
 <template>
   <div class="container-fluid min-70 mb-4">
-    <Carousel />
+      <Carousel :slides="slides"/>
+    
     <div class="container intro">
       <h1 class="intro-title">A CENAPET</h1>
       <p class="intro-text">
@@ -33,14 +34,19 @@ export default {
     Carousel,
     NoticiaDeck
   },
-  asyncData({ params }) {
+  async asyncData({ params }) {
     axios.defaults.headers.post["Content-Type"] =
       "application/x-www-form-urlencoded";
-    return axios
-      .get(process.env.baseURL + `/noticias?_limit=3&_sort=data_publicacao:DESC`)
-      .then(res => {
-        return { noticias: res.data };
-      });
+    const noticias = await axios.get(
+      process.env.baseURL + `/noticias?_limit=3&_sort=data_publicacao:DESC`
+    );
+    const slides = await axios.get(
+      process.env.baseURL + "/noticias?apareceCarrossel=1"
+    );
+    return { 
+      slides: slides.data,
+      noticias: noticias.data 
+    };
   }
 };
 </script>
