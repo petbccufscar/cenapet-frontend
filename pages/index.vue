@@ -41,7 +41,7 @@ export default {
       process.env.baseURL + `/noticias?_limit=3&_sort=data_publicacao:DESC`
     );
     const slides = await axios.get(
-      process.env.baseURL + "/noticias?apareceCarrossel=1"
+      process.env.baseURL + "/noticias?apareceCarrossel=1&_sort=data_publicacao:DESC"
     );
     return { 
       slides: slides.data,
