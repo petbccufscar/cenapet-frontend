@@ -6,16 +6,17 @@
       </div>
     </div>
     <div class="container mt-3">
+     <p class="small font-weight-bold text-right m-3">página temporária</p>
       <div class="mt-3" v-for="pet in pets" :key="pet.id">
         <h4>
-          <nuxt-link :to="'/pets/' + pet.id">{{pet.Nome}}</nuxt-link>
+          <nuxt-link :to="'/pets/' + pet.id">{{pet.nome}}</nuxt-link>
         </h4>
-        <p class="mb-0">{{pet.universidade.Nome}}</p>
-        <p>{{pet.campus.Nome}}</p>
+        {{pet.campus.universidade}}
+        <p class="mb-0">{{pet.campus.universidade.nome}}</p>
+        <p>{{pet.campus.nome}}</p>
       </div>
      
     </div>
-     <p class="small font-weight-bold text-right m-3">página temporária</p>
   </div>
 </template>
 

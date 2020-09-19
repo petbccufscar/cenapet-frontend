@@ -138,9 +138,11 @@ export default {
         new mapboxgl.Popup()
           .setLngLat(coordinates)
           // setHTML mostra a mensagem quando clicamos no círculo
-          .setHTML(e.features[0].properties.name)
+          .setHTML(e.features[0].properties.nome)
           .addTo(map);
       });
+
+      map.addControl(new mapboxgl.NavigationControl());
 
       map.on("mouseenter", "clusters", function () {
         map.getCanvas().style.cursor = "pointer";
