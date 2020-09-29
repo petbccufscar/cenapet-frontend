@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid min-70">
+  <div class="container-fluid min-75">
     <div class="container my-4">
 
       <div class="row no-gutters justify-content-between align-items-center mt-5">

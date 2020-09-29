@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid min-70 mb-4">
+  <div class="container-fluid min-75 mb-4">
     <div class="row no-gutters align-items-center page-title">
       <div class="col">
         <h1 class="text-center">Formulário</h1>
@@ -358,7 +358,7 @@ export default {
   },
   async asyncData({ params }) {
     const universidades = await axios.get(
-      process.env.baseURL + "/universidades"
+      process.env.baseURL + "/universidades?campi_gt=0&_sort=nome:ASC"
     );
     return {
       universidades: universidades.data,
@@ -368,7 +368,7 @@ export default {
     async updateCampi() {
       this.pet_campus = [];
       await axios
-        .get(process.env.baseURL + "/campi?universidade.id=" + this.pet_uni.id)
+        .get(process.env.baseURL + "/campi?universidade.id=" + this.pet_uni.id + "&_sort=nome:ASC")
         .then((res) => {
           this.campi = [...res.data];
         })

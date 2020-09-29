@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid min-70">
+  <div class="container-fluid min-75">
     <div class="row no-gutters align-items-center page-title">
       <div class="col">
         <h1 class="text-center">Mapa PET</h1>

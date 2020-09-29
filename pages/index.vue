@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid min-70 mb-4">
+  <div class="container-fluid min-75 mb-4">
       <Carousel :slides="slides"/>
     
     <div class="container intro">
