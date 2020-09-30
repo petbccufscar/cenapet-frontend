@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid mb-4">
+  <div class="container-fluid min-75 mb-4">
     <div class="row no-gutters page-title align-content-center">
       <div class="col">
         <h1 class="text-center">Pesquisa</h1>
@@ -7,135 +7,211 @@
     </div>
 
     <div class="container-fluid">
-      <form class="SearchBar">
-        
-          <div class="row no-gutters">
-            <div class="col-md-3 mt-4 ml-4">
-            <div class= "form-group">
-              <input type="text" placeholder="Nome" aria-label="Pesquisar no site" class="form-control">
-            </div>
-        <!-- if(){ -->
-
+      <div class="row no-gutters justify-content-around">
+        <div class="col-md-3 mt-4">
+          <form class="mx-3" @submit.prevent="atualizaPETs()">
             <div class="form-group">
-              <label for="area">Estado:</label>
-                <select name="estado" id="estado" class="form-control">
-                    <option selected value="" disabled="" hidden="">Selecione uma opção</option>
-                    <option class="listapets" v-for="Universidade in Universidades" :key="Universidade.id">
-                          {{Universidade.estado}}
-                    </option>
-                </select> 
+              <label for="nome">Nome</label>
+              <input
+                name="nome"
+                id="nome"
+                type="text"
+                placeholder="Nome"
+                aria-label="Pesquisar no site"
+                class="form-control"
+              />
             </div>
 
             <div class="form-group">
-              <label for="area">Faculdade:</label>
-                <select name="faculdade" id="faculdade" class="form-control">
-                    <option selected value="" disabled="" hidden="">Selecione uma opção</option>
-                    <option class="listapets" v-for="Universidade in Universidades" :key="Universidade.id">
-                          {{Universidade.sigla}}
-                    </option>
-                </select> 
+              <label for="universidade.estado">Estado</label>
+              <select
+                name="universidade.estado"
+                id="universidade.estado"
+                class="form-control"
+                @change="filtraUnis()"
+              >
+                <option selected value="">Todos os estados</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="universidade.nome">IESs</label>
+              <select
+                name="universidade.nome"
+                id="universidade.nome"
+                class="form-control"
+              >
+                <option selected value="">Todas as Instituições</option>
+                <option
+                  class="listapets"
+                  v-for="universidade in universidades_filter"
+                  :key="universidade.id"
+                  :value="universidade.nome"
+                >
+                  {{ universidade.sigla }}
+                </option>
+              </select>
             </div>
 
             <div class="form-group">
               <label for="area">Eixo:</label>
-                <select name="eixo" id="eixo" class="form-control">
-                    <option selected value="" disabled="" hidden="">Selecione uma opção</option>
-                    <option>Ciências Agrárias</option>
-                    <option>Ciências Biológicas</option>
-                    <option>Ciências da Saúde</option>
-                    <option>Ciências Exatas e da Terra</option>
-                    <option>Ciências Sociais Aplicadas</option>
-                    <option>Ciências Humanas</option>
-                    <option>Engenharias</option>
-                    <option>Interdisciplinar</option>
-                    <option>Linguística, Letras e Arte</option>
-                </select> 
+              <select name="eixo" id="eixo" class="form-control">
+                <option selected value="">Todos os eixos</option>
+                <option>Ciências Agrárias</option>
+                <option>Ciências Biológicas</option>
+                <option>Ciências da Saúde</option>
+                <option>Ciências Exatas e da Terra</option>
+                <option>Ciências Sociais Aplicadas</option>
+                <option>Ciências Humanas</option>
+                <option>Engenharias</option>
+                <option>Interdisciplinar</option>
+                <option>Linguística, Letras e Arte</option>
+              </select>
             </div>
-          <!-- } --> 
-                
-              <button type="submit" class="btn btn-secondary">
-                <font-awesome-icon :icon="['fas', 'search']" />
-              </button>
-                
-          
 
-          </div> 
+            <div class="row no-gutters align-items-center">
+              <div class="col-md-6">
+                <p class="mb-0">
+                  {{ this.pets_filter.length }} resultados encontrados
+                </p>
+              </div>
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-secondary float-right">
+                  Pesquisar
+                  <font-awesome-icon class="ml-2" :icon="['fas', 'search']" />
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
+        <div class="col-md-6 offset-md-1 pt-5">
+          <PETCard
+            class="pt-5 pb-3"
+            v-for="pet in pets_filter"
+            :key="pet.id"
+            :pet="pet"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-
 import axios from "axios";
-
-// const searchBar = document.getElementById('searchBar')
-
-// searchBar.addEventListener('keyup', (text) => {
-//   const searchString = text.target.value;
-// const  
-
-// });
-//@submit.prevent listener form 
-// @chance listener select / @click
-// Nome do pet com link da página dele
-
+import PETCard from "@/components/PETCard.vue";
 
 export default {
-  
-    async asyncData({params}){
-        const pets = await axios.get(process.env.baseURL+ "/pets");
-        const Universidades = await axios.get(process.env.baseURL+ "/Universidades");
-        return {  pets: pets.data, 
-                  Universidades: Universidades.data }
-    }
+  data() {
+    return {
+      pets: {},
+      pets_filter: {},
+      universidades: {},
+      universidades_filter: {},
+    };
+  },
+  components: {
+    PETCard,
+  },
+  async asyncData({ params }) {
+    const pets = await axios.get(
+      process.env.baseURL + "/pets?_limit=3&_sort=created_at:DESC"
+    );
+    const universidades = await axios.get(
+      process.env.baseURL + "/universidades?_sort=sigla:ASC"
+    );
+    return {
+      pets: pets.data,
+      pets_filter: pets.data,
+      universidades: universidades.data,
+      universidades_filter: universidades.data,
+    };
+  },
 
-}
+  methods: {
+    montaFiltro() {
+      const nome = document.getElementById("nome");
+      const uni_estado = document.getElementById("universidade.estado");
+      const uni_nome = document.getElementById("universidade.nome");
+      const eixo = document.getElementById("eixo");
 
+      let filtro = "";
 
+      if (nome.value) {
+        filtro += "nome_contains=" + nome.value + "&";
+      }
+
+      if (uni_estado.value) {
+        filtro += "campus.universidade.estado=" + uni_estado.value + "&";
+      }
+
+      if (uni_nome.value) {
+        filtro += "campus.universidade.nome=" + uni_nome.value + "&";
+      }
+
+      if (eixo.value) {
+        filtro += "eixo=" + eixo.value + "&";
+      }
+
+      return filtro.substring(0, filtro.length - 1);
+    },
+    async atualizaPETs() {
+      const filtro = this.montaFiltro();
+      let result = {};
+
+      if (filtro) {
+        result = await axios.get(
+          process.env.baseURL + "/pets?_limit=80&" + filtro
+        );
+      } else {
+        result.data = this.pets;
+      }
+
+      this.pets_filter = result.data;
+    },
+    filtraUnis() {
+      const estado = document.getElementById("universidade.estado").value;
+
+      if (estado) {
+        this.universidades_filter = [];
+
+        for (var i = 0; i < this.universidades.length; i++) {
+
+          if (this.universidades[i].estado === estado) {
+            this.universidades_filter.push(this.universidades[i]);
+          }
+        }
+      } else {
+        this.universidades_filter = this.universidades;
+      }
+    },
+  },
+};
 </script>
-
-
-<style scoped>
-
-.SearchBar{
-  color: var(--theme-dark);
-
-}
-
-
-.SearchBar label{
-  font-size: 1.3rem;
-}
-
-.SearchBar select{
-  color: var(--text-light1);
-  background-color: var(--footer-dark);
-  font-size: 1.3rem;
-  border-radius: 1rem;
-  border: 0;
-  
-}
-
-
-.SearchBar button{ 
-  font-size: 1.5rem;
-  padding: 0.3rem 5rem;
-  border: 0;
-  border-radius: 1rem;
-  cursor: pointer;
-  background-color: var(--border-dark);
-  color: var(--text-light1);
-  text-decoration: none;
-  transition: background 0.2s;
-  justify-content: center;
-  
-}
-
-.SearchBar button:hover{
-  background: var(--text-grey-darker);
-}
-
-</style>
-
