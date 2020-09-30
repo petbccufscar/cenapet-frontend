@@ -60,6 +60,44 @@
             </div>
 
             <div class="form-group">
+              <label for="universidade.estado">Estado</label>
+              <select
+                id="estado"
+                class="form-control"
+                @change="filtraUnis()"
+              >
+                <option selected value="" hidden disabled>Selecione seu estado</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+              </select>
+            </div>
+
+            <div class="form-group">
               <label for="universidade">Instituição de Ensino Superior (IES)</label>
               <select
                 class="form-control"
@@ -356,14 +394,6 @@ export default {
       map: {},
     };
   },
-  async asyncData({ params }) {
-    const universidades = await axios.get(
-      process.env.baseURL + "/universidades?campi_gt=0&_sort=nome:ASC"
-    );
-    return {
-      universidades: universidades.data,
-    };
-  },
   methods: {
     async updateCampi() {
       this.pet_campus = [];
@@ -378,6 +408,17 @@ export default {
     },
     getCenter() {
       return [this.pet_campus.longitude, this.pet_campus.latitude];
+    },
+    async filtraUnis() {
+      const estado = document.getElementById("estado").value;
+
+      if (estado) {
+        const universidades = await axios.get(
+          process.env.baseURL + "/universidades?campi_gt=0&estado=" + estado + "&_sort=nome:ASC"
+        );
+
+        this.universidades = universidades.data;
+      }
     },
     send(token) {
       const formElement = document.querySelector("form");
