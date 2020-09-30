@@ -115,19 +115,21 @@
               <select class="form-control" id="campus" v-model="pet_campus" required>
                 <option v-for="campus in campi" :key="campus.id" :value="campus">{{campus.nome}}</option>
               </select>
+            </div>
 
-              <div class="form-group row mt-2">
-                <label class="col-sm-2 col-form-label">Cidade</label>
-                <label
-                  class="col-sm-10 col-form-label"
-                >{{pet_campus.cidade ? pet_campus.cidade + " - " + pet_uni.estado : ""}}</label>
-              </div>
+            <div class="form-group row mt-2">
+              <label class="col-sm-2 col-form-label">Cidade</label>
+              <label
+                class="col-sm-10 col-form-label"
+              >{{pet_campus.cidade ? pet_campus.cidade + " - " + pet_uni.estado : ""}}</label>
+            </div>
 
+            <div class="form-group">
               <label for="map">Coloque um ponto perto de onde seu PET fica:</label>
               <div id="map"></div>
               <p class="small">Pressione CTRL para usar o zoom</p>
 
-              <div class="form-group row no-gutters justify-content-between mt-3">
+              <div class="row no-gutters justify-content-between mt-3">
                 <div class="col-md-5">
                   <label for="latidude">Latitude</label>
                   <input
@@ -149,184 +151,186 @@
                   />
                 </div>
               </div>
-
-              <div class="form-group">
-                <label for="ano_criacao">Ano de criação</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="ano_criacao"
-                  placeholder="Ex: 2009"
-                  required
-                />
-                <small
-                  id="anoHelp"
-                  class="form-text text-muted"
-                >Ano no qual o edital da criação de seu grupo foi publicado como aprovado.</small>
-              </div>
-
-              <div class="form-group">
-                <label for="eixo">Eixo no qual seu PET se encaixa</label>
-                <select class="form-control" id="eixo" required>
-                  <option>Ciências Agrárias</option>
-                  <option>Ciências Biológicas</option>
-                  <option>Ciências da Saúde</option>
-                  <option>Ciências Exatas e da Terra</option>
-                  <option>Ciências Sociais Aplicadas</option>
-                  <option>Ciências Humanas</option>
-                  <option>Engenharias</option>
-                  <option>Interdisciplinar</option>
-                  <option>Linguística, Letras e Arte</option>
-                </select>
-                <small
-                  id="eixoHelp"
-                  class="form-text text-muted"
-                >Em caso de dúvidas, consulte o Edital em que seu grupo foi aprovado, ou se for o caso, a Portaria que diz respeito a união do Programa de Educação Tutorial e o Conexões de Saberes.</small>
-              </div>
-
-              <div class="form-group">
-                <label for="tematica">Temática do PET</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="tematica"
-                  placeholder="Ex: Desenvolvimento de software"
-                />
-                <small id="eixoHelp" class="form-text text-muted">
-                  Alguns grupos possuem uma Temática, definida em seu edital de criação. Caso seu grupo não possua, deixe o campo
-                  <b>em branco</b>.
-                </small>
-              </div>
-
-              <div class="form-group">
-                <label for="logo">Logo</label>
-                <input type="file" class="form-text" id="logo" ref="logo" />
-                <small
-                  id="logoHelp"
-                  class="form-text text-muted"
-                >Insira uma imagem com o logo do seu PET, preferencialmente transparente, caso seu grupo possua.</small>
-              </div>
-
-              <hr class="my-4" />
-
-              <div class="form-group">
-                <label for="site_pet">Site do seu PET</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="site_pet"
-                  aria-describedby="sitePetHelp"
-                  placeholder="Ex: https://petbcc.ufscar.br/"
-                />
-                <small id="sitePetHelp" class="form-text text-muted">
-                  Link para o site ou blog do seu PET. Caso seu grupo não possua, deixe o campo
-                  <b>em branco</b>.
-                </small>
-              </div>
-
-              <div class="form-group">
-                <label for="site_pet_ies">Site institucional do seu PET</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="site_pet_ies"
-                  aria-describedby="siteInstHelp"
-                  placeholder="Ex: http://icedf.ufam.edu.br/programas-academicos/pet"
-                />
-                <small id="siteInstHelp" class="form-text text-muted">
-                  Link para uma página de sua IES sobre seu PET. Caso seu grupo não possua, deixe o campo
-                  <b>em branco</b>.
-                </small>
-              </div>
-
-              <div class="form-group">
-                <label for="facebook">Facebook</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="facebook"
-                  aria-describedby="faceHelp"
-                  placeholder="Ex: https://www.facebook.com/petbcc/"
-                />
-                <small id="faceHelp" class="form-text text-muted">
-                  Link para uma
-                  <b>página</b> do Facebook sobre seu PET, caso possua. Não inclua perfis.
-                </small>
-              </div>
-
-              <div class="form-group">
-                <label for="instagram">Instagram</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="instaPrepend">@</span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="instagram"
-                    aria-describedby="instaHelp"
-                    placeholder="Ex: petbcc.ufscar"
-                  />
-                </div>
-                <small id="instaHelp" class="form-text text-muted">
-                  Link para um perfil no Instagram, caso seu PET possua. Não inclua o
-                  <b>@</b> no texto.
-                </small>
-              </div>
-
-              <div class="form-group">
-                <label for="twitter">Twitter</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="twitterPrepend">@</span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="twitter"
-                    aria-describedby="twitterHelp"
-                    placeholder="Ex: petbcc"
-                  />
-                </div>
-                <small id="twitterHelp" class="form-text text-muted">
-                  Link para um perfil no Twitter, caso seu PET possua. Não inclua o
-                  <b>@</b> no texto.
-                </small>
-              </div>
-
-              <div class="form-group">
-                <label for="youtube">Canal no YouTube</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="youtube"
-                  aria-describedby="ytHelp"
-                  placeholder="Ex: https://www.youtube.com/channel/UCyoSac6aP0aGWMDw0XnsnqA/"
-                />
-                <small
-                  id="ytHelp"
-                  class="form-text text-muted"
-                >Link para um canal no YouTube, caso seu PET possua.</small>
-              </div>
-
-              <div class="form-group">
-                <label for="outras_midias">Outras redes sociais</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="outras_midias"
-                  aria-describedby="outrosHelp"
-                  placeholder="Ex: LinkedIn: https://www.linkedin.com/company/pet-bcc-ufscar"
-                />
-                <small
-                  id="outrosHelp"
-                  class="form-text text-muted"
-                >Caso seu grupo possua outras redes sociais que não estejam no formulário.</small>
-              </div>
-              <recaptcha @error="onError" @success="onSuccess" />
             </div>
 
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <div class="form-group">
+              <label for="ano_criacao">Ano de criação</label>
+              <input
+                type="text"
+                class="form-control"
+                id="ano_criacao"
+                placeholder="Ex: 2009"
+                required
+              />
+              <small
+                id="anoHelp"
+                class="form-text text-muted"
+              >Ano no qual o edital da criação de seu grupo foi publicado como aprovado.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="eixo">Eixo no qual seu PET se encaixa</label>
+              <select class="form-control" id="eixo" required>
+                <option>Ciências Agrárias</option>
+                <option>Ciências Biológicas</option>
+                <option>Ciências da Saúde</option>
+                <option>Ciências Exatas e da Terra</option>
+                <option>Ciências Sociais Aplicadas</option>
+                <option>Ciências Humanas</option>
+                <option>Engenharias</option>
+                <option>Interdisciplinar</option>
+                <option>Linguística, Letras e Arte</option>
+              </select>
+              <small
+                id="eixoHelp"
+                class="form-text text-muted"
+              >Em caso de dúvidas, consulte o Edital em que seu grupo foi aprovado, ou se for o caso, a Portaria que diz respeito a união do Programa de Educação Tutorial e o Conexões de Saberes.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="tematica">Temática do PET</label>
+              <input
+                type="text"
+                class="form-control"
+                id="tematica"
+                placeholder="Ex: Desenvolvimento de software"
+              />
+              <small id="eixoHelp" class="form-text text-muted">
+                Alguns grupos possuem uma Temática, definida em seu edital de criação. Caso seu grupo não possua, deixe o campo
+                <b>em branco</b>.
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="logo">Logo</label>
+              <input type="file" class="form-text" id="logo" ref="logo" />
+              <small
+                id="logoHelp"
+                class="form-text text-muted"
+              >Insira uma imagem com o logo do seu PET, preferencialmente transparente, caso seu grupo possua.</small>
+            </div>
+
+            <hr class="my-4" />
+
+            <div class="form-group">
+              <label for="site_pet">Site do seu PET</label>
+              <input
+                type="text"
+                class="form-control"
+                id="site_pet"
+                aria-describedby="sitePetHelp"
+                placeholder="Ex: https://petbcc.ufscar.br/"
+              />
+              <small id="sitePetHelp" class="form-text text-muted">
+                Link para o site ou blog do seu PET. Caso seu grupo não possua, deixe o campo
+                <b>em branco</b>.
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="site_pet_ies">Site institucional do seu PET</label>
+              <input
+                type="text"
+                class="form-control"
+                id="site_pet_ies"
+                aria-describedby="siteInstHelp"
+                placeholder="Ex: http://icedf.ufam.edu.br/programas-academicos/pet"
+              />
+              <small id="siteInstHelp" class="form-text text-muted">
+                Link para uma página de sua IES sobre seu PET. Caso seu grupo não possua, deixe o campo
+                <b>em branco</b>.
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="facebook">Facebook</label>
+              <input
+                type="text"
+                class="form-control"
+                id="facebook"
+                aria-describedby="faceHelp"
+                placeholder="Ex: https://www.facebook.com/petbcc/"
+              />
+              <small id="faceHelp" class="form-text text-muted">
+                Link para uma
+                <b>página</b> do Facebook sobre seu PET, caso possua. Não inclua perfis.
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="instagram">Instagram</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="instaPrepend">@</span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="instagram"
+                  aria-describedby="instaHelp"
+                  placeholder="Ex: petbcc.ufscar"
+                />
+              </div>
+              <small id="instaHelp" class="form-text text-muted">
+                Link para um perfil no Instagram, caso seu PET possua. Não inclua o
+                <b>@</b> no texto.
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="twitter">Twitter</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="twitterPrepend">@</span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="twitter"
+                  aria-describedby="twitterHelp"
+                  placeholder="Ex: petbcc"
+                />
+              </div>
+              <small id="twitterHelp" class="form-text text-muted">
+                Link para um perfil no Twitter, caso seu PET possua. Não inclua o
+                <b>@</b> no texto.
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="youtube">Canal no YouTube</label>
+              <input
+                type="text"
+                class="form-control"
+                id="youtube"
+                aria-describedby="ytHelp"
+                placeholder="Ex: https://www.youtube.com/channel/UCyoSac6aP0aGWMDw0XnsnqA/"
+              />
+              <small
+                id="ytHelp"
+                class="form-text text-muted"
+              >Link para um canal no YouTube, caso seu PET possua.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="outras_midias">Outras redes sociais</label>
+              <input
+                type="text"
+                class="form-control"
+                id="outras_midias"
+                aria-describedby="outrosHelp"
+                placeholder="Ex: LinkedIn: https://www.linkedin.com/company/pet-bcc-ufscar"
+              />
+              <small
+                id="outrosHelp"
+                class="form-text text-muted"
+              >Caso seu grupo possua outras redes sociais que não estejam no formulário.</small>
+            </div>
+
+            <div class="form-group">
+              <recaptcha @error="onError" @success="onSuccess" />
+              <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
           </form>
         </div>
       </div>
@@ -398,7 +402,7 @@ export default {
     async updateCampi() {
       this.pet_campus = [];
       await axios
-        .get(process.env.baseURL + "/campi?universidade.id=" + this.pet_uni.id + "&_sort=nome:ASC")
+        .get(process.env.baseURL + "/campi?universidade.id=" + this.pet_uni.id + "&latitude_ne=0&_sort=nome:ASC")
         .then((res) => {
           this.campi = [...res.data];
         })
@@ -414,7 +418,7 @@ export default {
 
       if (estado) {
         const universidades = await axios.get(
-          process.env.baseURL + "/universidades?campi_gt=0&estado=" + estado + "&_sort=nome:ASC"
+          process.env.baseURL + "/universidades?campi_gt=0&campi.latitude_ne=0&estado=" + estado + "&_sort=nome:ASC"
         );
 
         this.universidades = universidades.data;
@@ -538,6 +542,16 @@ export default {
   letter-spacing: 2px;
   font-weight: 600;
   text-align: center;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #aaa;
+}
+.form-control:-moz-placeholder,
+.form-control::-moz-placeholder,
+.form-control::placeholder,
+.form-control:-ms-input-placeholder {
+  color: #aaa;
 }
 
 #map {
