@@ -55,7 +55,6 @@
             <nuxt-link class="dropdown-item" to="/pets">Grupos</nuxt-link>
             <nuxt-link class="dropdown-item" to="/mapa">Mapa</nuxt-link>
             <nuxt-link class="dropdown-item" to="/orientacoes">Orientações gerais</nuxt-link>
-            <nuxt-link class="dropdown-item" to="/pesquisarpet">Pesquisar PET</nuxt-link>
           </div>
         </li>
         <li class="nav-item dropdown">
