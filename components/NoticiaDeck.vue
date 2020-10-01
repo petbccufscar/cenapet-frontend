@@ -104,7 +104,7 @@ export default {
     backgroundURL: function(image) {
       return image
         ? process.env.baseURL + image.formats.small.url
-        : require("~/assets/images/fundo.png");
+        : require("@/assets/images/fundo.png");
     }
   },
   props: {

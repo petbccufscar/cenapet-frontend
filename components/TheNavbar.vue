@@ -50,6 +50,19 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
+          >COMISSÕES</a>
+          <div class="dropdown-menu" aria-labelledby="Menu comissões">
+            <!-- <nuxt-link class="dropdown-item" to="" style="text-decoration: line-through;">DiversificaPET</nuxt-link>
+            <nuxt-link class="dropdown-item" to="" style="text-decoration: line-through;">DivulgaPET</nuxt-link> -->
+            <nuxt-link class="dropdown-item" to="/mobilizapet">MobilizaPET</nuxt-link>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
           >PET</a>
           <div class="dropdown-menu" aria-labelledby="Menu PET">
             <nuxt-link class="dropdown-item" to="/pets">Grupos</nuxt-link>
