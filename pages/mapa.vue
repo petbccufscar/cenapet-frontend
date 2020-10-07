@@ -30,6 +30,11 @@ export default {
       map: {},
     };
   },
+  head() {
+      return {
+        title: "Mapa dos grupos",
+      }
+  },
   asyncData({ params }) {
     axios.defaults.headers.post["Content-Type"] =
       "application/x-www-form-urlencoded";

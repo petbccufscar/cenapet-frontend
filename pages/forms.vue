@@ -381,6 +381,7 @@ import axios from "axios";
 
 export default {
   head: {
+    title: "Formulário",
     link: [
       {
         rel: "stylesheet",

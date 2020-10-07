@@ -14,6 +14,11 @@
 <script>
 import axios from 'axios';
 export default {
+  head() {
+      return {
+        title: "Documentos da Comissão",
+      }
+  },
   asyncData ({ params }) {
      axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
      return axios.get(process.env.baseURL + `/docs-comissao`).then(res =>{

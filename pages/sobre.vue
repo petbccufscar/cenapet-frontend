@@ -71,6 +71,11 @@ export default {
   },
 
   methods: {
+    head() {
+      return {
+        title: "Sobre a Diretoria",
+      }
+  },
     getImgUrl: function (img) {
       return img
         ? process.env.baseURL + img.url

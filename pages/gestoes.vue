@@ -51,7 +51,11 @@ export default {
       gestoes: [],
     };
   },
-
+  head() {
+      return {
+        title: "Gestões",
+      }
+  },
   components: {
     "pessoa-card": PessoaCard,
   },

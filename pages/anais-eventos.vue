@@ -15,6 +15,11 @@
 import axios from "axios";
 
 export default {
+  head() {
+      return {
+        title: "Anais de eventos",
+      }
+  },
   asyncData({ params }) {
     axios.defaults.headers.post["Content-Type"] =
       "application/x-www-form-urlencoded";

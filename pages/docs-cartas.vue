@@ -22,6 +22,11 @@
 import axios from "axios"
 
 export default {
+  head() {
+      return {
+        title: "Cartas",
+      }
+  },
   asyncData({ params }) {
     return axios.get(process.env.baseURL + `/cartas`).then(res => {
       return { carta: res.data};

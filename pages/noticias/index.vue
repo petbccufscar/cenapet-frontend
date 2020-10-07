@@ -63,6 +63,11 @@ export default {
   components: {
     NoticiaCard
   },
+  head() {
+      return {
+        title: "Notícias",
+      }
+  },
   methods: {
     getImgUrl(img) {
       return img

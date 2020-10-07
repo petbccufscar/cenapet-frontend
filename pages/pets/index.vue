@@ -137,6 +137,11 @@ export default {
       universidades_filter: {},
     };
   },
+  head() {
+      return {
+        title: "PETs",
+      }
+  },
   components: {
     PETCard,
   },

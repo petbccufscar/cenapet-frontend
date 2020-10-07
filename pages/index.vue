@@ -34,6 +34,11 @@ export default {
     Carousel,
     NoticiaDeck
   },
+  head() {
+      return {
+        title: "CENAPET",
+      }
+  },
   async asyncData({ params }) {
     axios.defaults.headers.post["Content-Type"] =
       "application/x-www-form-urlencoded";

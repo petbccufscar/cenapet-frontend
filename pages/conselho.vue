@@ -67,6 +67,11 @@ export default {
         : require("~/assets/images/logo_escuro.png");
     },
   },
+  head() {
+      return {
+        title: "Conselho da CENAPET",
+      }
+  },
   async asyncData({ params }) {
     const conselhos = await axios.get(
       process.env.baseURL + "/conselhos?_sort=anoInicio:DESC"

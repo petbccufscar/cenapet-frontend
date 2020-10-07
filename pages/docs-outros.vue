@@ -14,6 +14,11 @@
 <script>
 import axios from 'axios';
 export default {
+  head() {
+      return {
+        title: "Outros documentos",
+      }
+  },
   asyncData ({ params }) {
      axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
      return axios.get(process.env.baseURL + `/outros`).then(res =>{

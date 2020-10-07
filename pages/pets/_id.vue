@@ -176,6 +176,11 @@ export default {
       map: {},
     };
   },
+  head() {
+      return {
+        title: this.pet.nome,
+      }
+  },
   mounted() {
     const mapboxgl = require("mapbox-gl");
 

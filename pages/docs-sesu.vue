@@ -16,6 +16,11 @@ import axios from 'axios';
 
 
 export default {
+  head() {
+      return {
+        title: "Documentos da SESu/MEC",
+      }
+  },
   asyncData ({ params }) {
      axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
      return axios.get(process.env.baseURL + `/Docs-sesu`).then(res =>{

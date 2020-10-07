@@ -79,6 +79,11 @@ export default {
       moment: moment
     };
   },
+  head() {
+      return {
+        title: "Notícia | " + this.noticia.titulo,
+      }
+  },
   asyncData ({ params }) {
     axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
     return axios.get(process.env.baseURL + `/noticias/${params.id}`)
