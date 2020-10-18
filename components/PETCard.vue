@@ -68,9 +68,15 @@ export default {
   },
   methods: {
     logoPET: function (image) {
-      return image
-        ? process.env.baseURL + image.formats.small.url
-        : require("~/assets/images/logo_pet.png");
+      if (image && image.formats) {
+        if (image.formats.small) {
+          return process.env.baseURL + image.formats.small.url;
+        } else {
+          return process.env.baseURL + image.formats.thumbnail.url;
+        }
+      } else {
+        return require("~/assets/images/logo_pet.png");
+      }
     },
   },
   props: {

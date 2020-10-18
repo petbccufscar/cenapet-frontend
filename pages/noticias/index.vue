@@ -55,7 +55,7 @@ import axios from 'axios'
 export default {
   asyncData ({ params }) {
     axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
-    return axios.get(process.env.baseURL + `/noticias`)
+    return axios.get(process.env.baseURL + `/noticias?_sort=data_publicacao:DESC`)
       .then((res) => {
         return { noticias: res.data }
       })
