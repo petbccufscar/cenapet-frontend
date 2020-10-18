@@ -54,7 +54,7 @@
                 type="text"
                 class="form-control"
                 id="email_pet"
-                placeholder="Ex: petbcc.ufscar@gmail.com"
+                placeholder="Ex: petbcc@ufscar.br"
                 required
               />
             </div>
@@ -102,12 +102,17 @@
               <select
                 class="form-control"
                 id="universidade"
+                aria-labelledby="uniHelp"
                 @change="updateCampi();"
                 v-model="pet_uni"
                 required
               >
                 <option v-for="uni in universidades" :key="uni.id" :value="uni">{{uni.nome}}</option>
               </select>
+              <small id="uniHelp" class="form-text text-muted">
+                Caso sua universidade ou campus ainda não estejam cadastrados,
+                envie um email para <a href="mailto:petbcc@ufscar.br">petbcc@ufscar.br</a>
+              </small>
             </div>
 
             <div class="form-group">
@@ -156,7 +161,7 @@
             <div class="form-group">
               <label for="ano_criacao">Ano de criação</label>
               <input
-                type="text"
+                type="number"
                 class="form-control"
                 id="ano_criacao"
                 placeholder="Ex: 2009"
@@ -165,7 +170,7 @@
               <small
                 id="anoHelp"
                 class="form-text text-muted"
-              >Ano no qual o edital da criação de seu grupo foi publicado como aprovado.</small>
+              >Ano no qual o edital da criação de seu grupo foi publicado como aprovado (apenas o ano).</small>
             </div>
 
             <div class="form-group">
@@ -362,9 +367,10 @@
           <div class="modal-body text-center">
             <p>Verifique se seu PET já não está cadastrado e tente novamente mais tarde.</p>
             <p class="small">
+               Erro: {{this.api_response.message}}<br />
               Precisa de ajuda?
               <br />Envie um email para
-              <a href="mailto:petbcc.ufscar@gmail.com">petbcc.ufscar@gmail.com</a>
+              <a href="mailto:petbcc@ufscar.br">petbcc@ufscar.br</a>
             </p>
           </div>
           <div class="modal-footer">
@@ -437,8 +443,12 @@ export default {
       for (let i = 0; i < formElements.length; i++) {
         const currentElement = formElements[i];
 
+        
+
         if (!["submit", "file"].includes(currentElement.type)) {
-          if (currentElement.id === "campus") {
+          if ((currentElement.id === "latitude" || currentElement.id === "longitude") && !currentElement.value) {
+            data[currentElement.id] = this.pet_campus[currentElement.id] + (Math.random() * (0.001) - 0.0005);
+          } else if (currentElement.id === "campus") {
             data[currentElement.id] = this.pet_campus.id;
           } else if (currentElement.id.includes("recaptcha")) {
             data["token"] = currentElement.value;
@@ -497,7 +507,7 @@ export default {
     map = new mapboxgl.Map({
       accessToken: process.env.mbToken,
       container: "map", // <div id="map"></div>
-      style: "mapbox://styles/mapbox/light-v10",
+      style: "mapbox://styles/mapbox/streets-v11",
       center: [-52.8448484, -15.028203],
       zoom: 3,
     });

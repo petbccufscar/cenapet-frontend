@@ -48,7 +48,7 @@ export default {
     map = new mapboxgl.Map({
       accessToken: process.env.mbToken,
       container: "map", // <div id="map"></div>
-      style: "mapbox://styles/mapbox/light-v10",
+      style: "mapbox://styles/mapbox/streets-v11",
       center: [-52.8448484, -15.028203],
       zoom: 3,
     });
