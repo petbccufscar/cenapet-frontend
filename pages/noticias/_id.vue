@@ -30,9 +30,10 @@
 }
 
 .img-intro .text-intro {
-  color: var(--text-accent);
+  color: #fff;
   text-align: center;
   background-color: #0008;
+  text-shadow: 3px 3px 6px #333;
   width: 100%;
   padding: 7% 1rem;
   margin: 5% 0;
