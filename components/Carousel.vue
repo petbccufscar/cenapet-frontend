@@ -2,34 +2,46 @@
   <div id="carousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li
-        v-for="(slide,index) in slides"
+        v-for="(slide, index) in slides"
         :key="slide.id"
         data-target="#carousel"
         :data-slide-to="index"
-        :class="{ 'active': index === 0 }"
+        :class="{ active: index === 0 }"
       ></li>
     </ol>
     <div class="carousel-inner">
       <div
-        v-for="(slide,index) in slides"
+        v-for="(slide, index) in slides"
         :key="slide.id"
         class="carousel-item"
-        :class="{'active': index === 0 }"
+        :class="{ active: index === 0 }"
       >
-         <nuxt-link :to="'/noticias/' + slide.id">
-           <img :src="getImgUrl(slide.img_fundo)" alt="Imagem notícia">
-         </nuxt-link>
+        <img :src="getImgUrl(slide.img_fundo)" alt="Imagem notícia" />
+
         <div class="carousel-caption">
-          
-          <h3> {{slide.titulo}} </h3>
+          <h3>
+            <nuxt-link :to="'/noticias/' + slide.id">{{
+              slide.titulo
+            }}</nuxt-link>
+          </h3>
         </div>
       </div>
     </div>
-    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+    <a
+      class="carousel-control-prev"
+      href="#carousel"
+      role="button"
+      data-slide="prev"
+    >
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Anterior</span>
     </a>
-    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+    <a
+      class="carousel-control-next"
+      href="#carousel"
+      role="button"
+      data-slide="next"
+    >
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Próximo</span>
     </a>
@@ -47,14 +59,23 @@
   justify-content: center;
   width: 100%;
   height: 100%;
+  background-color: #33333319;
 }
 
 .carousel-caption h3 {
   max-width: 70%;
   padding: 1rem;
   color: #fff;
-  text-shadow: 1px 1px 2px #333;
+  text-shadow: 3px 3px 6px #333;
   font-size: 3rem;
+}
+
+.carousel-caption a {
+  color: #fff;
+}
+
+.carousel-caption a:hover {
+  text-shadow: 5px 5px 7px #222;
 }
 
 .carousel-control-prev,
@@ -72,7 +93,7 @@
   width: 100%;
   height: 75vh;
   object-fit: cover;
-  filter: blur(5px);
+  filter: blur(7px);
 }
 
 .carousel-indicators li {
@@ -81,22 +102,21 @@
   border-radius: 50%;
   margin: 0 0.6rem;
   opacity: 0.9;
+  background-color: #fff6;
 }
 
 .carousel-indicators .active {
   background-color: var(--deep-purple);
 }
-
 </style>
 
 <script>
-
 import axios from "axios";
 
 export default {
   data() {
     return {
-      sliding: null
+      sliding: null,
     };
   },
   methods: {
@@ -105,13 +125,12 @@ export default {
         ? process.env.baseURL + img.formats.small.url
         : require("~/assets/images/fundo.png");
     },
-    formatLink: function(id){
-      return process.env.dominioURL + "/noticias/" + id
+    formatLink: function (id) {
+      return process.env.dominioURL + "/noticias/" + id;
     },
   },
   props: {
-    slides: Array
-
-  }
+    slides: Array,
+  },
 };
 </script>
