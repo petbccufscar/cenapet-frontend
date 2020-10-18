@@ -1,9 +1,7 @@
 <template>
   <div class="container-fluid min-75">
     <div class="container my-5">
-      <div
-        class="row no-gutters justify-content-between align-items-center"
-      >
+      <div class="row no-gutters justify-content-between align-items-center">
         <div class="col-md-4">
           <div class="pet-img">
             <img :src="getImgUrl(pet.logo)" />
@@ -39,7 +37,7 @@
               </a>
             </p>
             <p v-if="pet.facebook">
-              <a :href="'https://facebook.com/' + pet.facebook">
+              <a :href="pet.facebook">
                 <font-awesome-icon
                   :icon="['fab', 'facebook-f']"
                   class="mr-2"
@@ -78,7 +76,9 @@
               <p>Cidade</p>
             </div>
             <div class="col-md-6 conteudo">
-              <p>{{ pet.campus.cidade }} - {{ pet.campus.universidade.estado}}</p>
+              <p>
+                {{ pet.campus.cidade }} - {{ pet.campus.universidade.estado }}
+              </p>
             </div>
 
             <div v-if="pet.email_pet" class="col-md-6 label">
@@ -162,24 +162,22 @@
 import axios from "axios";
 
 export default {
-  head: {
-    link: [
-      {
-        rel: "stylesheet",
-        href: `https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css`,
-      },
-    ],
+  head() {
+    return {
+      title: this.pet.nome,
+      link: [
+        {
+          rel: "stylesheet",
+          href: `https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css`,
+        },
+      ],
+    };
   },
   data() {
     return {
       pet: {},
       map: {},
     };
-  },
-  head() {
-      return {
-        title: this.pet.nome,
-      }
   },
   mounted() {
     const mapboxgl = require("mapbox-gl");

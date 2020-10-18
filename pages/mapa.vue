@@ -17,23 +17,21 @@ import axios from "axios";
 import mapboxgl from "mapbox-gl";
 
 export default {
-  head: {
-    link: [
-      {
-        rel: "stylesheet",
-        href: `https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css`,
-      },
-    ],
-  },
   data() {
     return {
       map: {},
     };
   },
   head() {
-      return {
-        title: "Mapa dos grupos",
-      }
+    return {
+      title: "Mapa dos grupos",
+      link: [
+        {
+          rel: "stylesheet",
+          href: `https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css`,
+        },
+      ],
+    };
   },
   asyncData({ params }) {
     axios.defaults.headers.post["Content-Type"] =
