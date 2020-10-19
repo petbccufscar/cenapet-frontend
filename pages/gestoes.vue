@@ -6,16 +6,42 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="row no-gutters justify-content-around align-items-center" v-for="gestao in gestoes" :key="gestao.id">
-        <div class="col-12 my-4 ano">
-          <h2>{{gestao.anoInicio}} - {{gestao.anoTermino}}</h2>
-        </div>
-        <div
-          class="col-sm-12 col-md-8 col-lg-5 my-3"
-          v-for="pessoa in gestao.pessoas"
-          :key="pessoa.id"
-        >
+    <div class="container dropdown">
+        <div class="accordion mt-4" id="accordion">
+          <div v-for="(gestao, index) in gestoes" :key="gestao.id">
+            <div class="bloco">
+              <h5 class="mb-0">
+                <button
+                  class="btn btn-link"
+                  data-toggle="collapse"
+                  :data-target="'#Collapse' + gestao.id"
+                  aria-expanded="true"
+                  :aria-controls="gestao.id"
+                >
+                <div class="row dropdown">
+                  <h2 class="ano">
+                    <font-awesome-icon class="fa" @click="$event.target.classList.toggle('fa-rotate-90')" :icon="['fa', 'chevron-right']" />
+                    {{gestao.anoInicio}} - {{gestao.anoTermino}}
+                  </h2>
+                </div>
+                  
+                </button>
+                <div class="linha"></div>
+              </h5>
+            </div>
+          <div
+            :id="'Collapse' + gestao.id"
+            class="collapse"
+            :class="{ 'show': index === 0 }"
+            :aria-labelledby="headingOne"
+            data-parent="#accordion"
+          >
+        <div class="row content">
+          <div
+            class="col-sm-12 col-md-8 col-lg-5 my-3"
+            v-for="pessoa in gestao.pessoas"
+            :key="pessoa.id"
+          >
           <pessoa-card
             :id="pessoa.id"
             :foto="getImgUrl(pessoa.foto)"
@@ -30,18 +56,61 @@
         </div>
       </div>
     </div>
+      </div>
+    </div>
   </div>
+</div>
 </template>
 
 <style>
+*{
+  text-transform:none !important;
+  text-decoration:none !important;
+}
 .ano {
   color: var(--accent);
   letter-spacing: 2px;
   text-align: center;
+  
 }
+.content{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-decoration: none;
+  margin-bottom:30px;
+  
+}
+
+.bloco{
+  margin-left: 2rem;
+  margin-bottom:26px;
+}
+
+.linha{
+  margin-top:0.3rem;
+  border-bottom:1px solid var(--accent);
+}
+
+.dropdown
+.btn-link.collapsed{
+  display:flex;
+  justify-content: center;
+  text-align:left;
+  position:relative;
+  
+
+}
+
+
+
+
+
+
 </style>
 
 <script>
+
 import PessoaCard from "@/components/PessoaCard.vue";
 import axios from "axios";
 
@@ -51,11 +120,7 @@ export default {
       gestoes: [],
     };
   },
-  head() {
-      return {
-        title: "Gestões",
-      }
-  },
+
   components: {
     "pessoa-card": PessoaCard,
   },
