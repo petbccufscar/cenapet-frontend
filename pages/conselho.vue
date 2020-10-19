@@ -6,20 +6,46 @@
       </div>
     </div>
 
-    <div class="container">
-      <div
-        class="row no-gutters justify-content-around align-items-center"
-        v-for="conselho in conselhos"
-        :key="conselho.id"
-      >
-        <div class="col-12 my-4 ano">
-          <h2>{{conselho.anoInicio}} - {{conselho.anoTermino}}</h2>
-        </div>
-        <div
-          class="col-sm-12 col-md-8 col-lg-5 my-3"
-          v-for="pessoa in conselho.pessoas"
-          :key="pessoa.id"
-        >
+     <div class="container dropdown">
+        <div class="accordion mt-4" id="accordion">
+          <div v-for="(conselho, index) in conselhos" :key="conselho.id">
+            <div class="bloco">
+              <h5 class="mb-0">
+                <button
+                  class="btn btn-link"
+                  data-toggle="collapse"
+                  :data-target="'#Collapse' + conselho.id"
+                  aria-expanded="true"
+                  :aria-controls="conselho.id"
+                >
+                <div class="row dropdown">
+                  <h2 class="seta">
+                  <font-awesome-icon class="mr-2 seta":icon="['fa', 'chevron-right']" />
+                  </h2>
+                  
+                  <h2 class="ano">
+                    
+                    {{conselho.anoInicio}} - {{conselho.anoTermino}}
+                  </h2>
+                </div>
+                  
+                </button>
+                <div class="linha"></div>
+              </h5>
+            </div>
+          <div
+            :id="'Collapse' + conselho.id"
+            class="collapse"
+            :class="{ 'show': index === 0 }"
+            :aria-labelledby="headingOne"
+            data-parent="#accordion"
+          >
+        <div class="row content">
+          <div
+            class="col-sm-12 col-md-8 col-lg-5 my-3"
+            v-for="pessoa in conselho.pessoas"
+            :key="pessoa.id"
+          >
           <pessoa-card
             :id="pessoa.id"
             :foto="getImgUrl(pessoa.foto)"
@@ -34,15 +60,58 @@
         </div>
       </div>
     </div>
+      </div>
+    </div>
+  </div>
   </div>
 </template>
 
 <style>
+*{
+  text-transform:none !important;
+  text-decoration:none !important;
+}
 .ano {
   color: var(--accent);
   letter-spacing: 2px;
   text-align: center;
+
 }
+.content{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-decoration: none;
+  margin-bottom:30px;
+  
+}
+
+.bloco{
+  margin-left: 2rem;
+  margin-bottom:26px;
+}
+
+.linha{
+  border-bottom:1px solid var(--accent);
+}
+
+.dropdown
+.btn-link.collapsed{
+  display:flex;
+  justify-content: center;
+  text-align:left;
+  position:relative;  
+
+}
+
+.seta{
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-align: center;
+  margin-right:15px;
+  
+}
+
 </style>
 
 <script>
@@ -66,11 +135,6 @@ export default {
         ? process.env.baseURL + img.url
         : require("~/assets/images/logo_escuro.png");
     },
-  },
-  head() {
-      return {
-        title: "Conselho da CENAPET",
-      }
   },
   async asyncData({ params }) {
     const conselhos = await axios.get(

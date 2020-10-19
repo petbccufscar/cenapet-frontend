@@ -6,16 +6,19 @@
       </div>
       <div class="col-sm-6">
         <div class="card-body text-center">
+
           <h4 class="card-title">{{ cargo }}</h4>
           <h5 class="mb-3">{{ nome }}</h5>
-          <a class="mr-3" :href="formatURL(email)">
+  
+          <a class="mr-3" v-if="email" :href="`mailto:${email}`" target="_blank">
             <font-awesome-icon :icon="['fas', 'envelope']" />
           </a>
-          <a :href="formatURL(facebookLink)" target="_blank">
+
+          <a v-if="facebookLink" :href="formatURL(facebookLink)" target="_blank">
             <font-awesome-icon :icon="['fab', 'facebook-f']" />
           </a>
           <div class="card-pet">
-            <p>
+            <p >
               <a :href="formatURL(petLink)" target="_blank">{{ nomePet }}</a>
             </p>
             <p>{{ universidadeCampus }}</p>
@@ -41,8 +44,11 @@ export default {
   },
   methods: {
     formatURL: function (link) {
-      if (link.indexOf("http://") != -1 || link.indexOf("https://") != -1) return link;
-      return "http://" + link;
+      if(link){
+        if (link.indexOf("http://") != -1 || link.indexOf("https://") != -1) return link;
+        return "http://" + link;
+      }
+      
     },
   },
 };
@@ -53,6 +59,8 @@ export default {
   color: var(--theme-dark);
   box-shadow: 0 5px 5px #7778;
   width: 100%;
+
+  word-wrap:  normal;
 
   min-height: 240px;
   min-width: 240px;
