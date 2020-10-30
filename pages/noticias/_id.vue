@@ -1,17 +1,26 @@
 <template>
   <div class="container-fluid min-75 noticia">
-    <div class="img-intro" :style="{ backgroundImage: `url(${backgroundURL()})` }">
+    <div
+      class="img-intro"
+      :style="{ backgroundImage: `url(${backgroundURL()})` }"
+    >
       <h1 class="text-intro">{{ noticia.titulo }}</h1>
     </div>
     <nuxt-link to="/noticias">
       <font-awesome-icon :icon="['fas', 'arrow-left']" class="icon-arrow" />
     </nuxt-link>
-    <div class="container">
-      <div v-if="noticia.conteudo" class="conteudo" v-html="$md.render(noticia.conteudo)"></div>
-      <p
-        v-if="noticia.data_publicacao"
-        class
-      >Publicado em {{ moment(noticia.data_publicacao).format("DD/MM/YYYY") }}</p>
+    <div class="container mt-5">
+      <DynamicZone
+        v-for="content in this.noticia.conteudo"
+        :key="content.id"
+        :content="content"
+        class="my-3"
+      />
+
+      <p v-if="noticia.data_publicacao" class="mt-4 small">
+        Publicado em
+        {{ moment(noticia.data_publicacao).format("DD/MM/YYYY") }}
+      </p>
     </div>
   </div>
 </template>
@@ -22,7 +31,8 @@
 }
 
 .img-intro {
-  background-position: center;
+  background-position: center -15vh;
+  background-attachment: fixed;
   background-size: cover;
   min-height: 50vh;
   display: flex;
@@ -30,9 +40,11 @@
 }
 
 .img-intro .text-intro {
-  color: #fff;
+  color: #f4f4f4;
+  font-size: 3rem;
+  line-height: 3.5rem;
   text-align: center;
-  background-color: #0008;
+  background-color: #000a;
   text-shadow: 3px 3px 6px #333;
   width: 100%;
   padding: 7% 1rem;
@@ -41,7 +53,16 @@
 
 .conteudo {
   text-align: justify;
-  margin: 2rem 3rem 3rem 3rem;
+}
+
+.citacao {
+  border-left: 2px solid #ccc;
+  padding-left: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+.citacao .citacao-texto {
+  color: var(--text-grey-darker);
 }
 
 .icon-arrow {
@@ -58,8 +79,9 @@
 }
 
 @media (max-width: 577px) {
-  #editor {
-    margin: 0.3rem;
+  .img-intro .text-intro {
+    font-size: 2rem;
+    line-height: 2.5rem;
   }
 
   .icon-arrow {
@@ -70,35 +92,41 @@
 </style>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
+import DynamicZone from "@/components/DynamicZone.vue";
 var moment = require("moment");
 
 export default {
   data() {
     return {
       noticia: {},
-      moment: moment
+      moment: moment,
     };
   },
   head() {
-      return {
-        title: "Notícia | " + this.noticia.titulo,
-      }
+    return {
+      title: "Notícia | " + this.noticia.titulo,
+    };
   },
-  asyncData ({ params }) {
-    axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
-    return axios.get(process.env.baseURL + `/noticias/${params.id}`)
+  components: {
+    DynamicZone,
+  },
+  asyncData({ params }) {
+    axios.defaults.headers.post["Content-Type"] =
+      "application/x-www-form-urlencoded";
+    return axios
+      .get(process.env.baseURL + `/noticias/${params.id}`)
       .then((res) => {
-        return { noticia: res.data }
-      })
+        return { noticia: res.data };
+      });
   },
   methods: {
     // método para retornar a imagem de fundo padrão caso não haja nenhuma
-    backgroundURL: function() {
+    backgroundURL: function () {
       return this.noticia.img_fundo
         ? process.env.baseURL + this.noticia.img_fundo.url
         : require("~/assets/images/fundo.png");
-    }
-  }
+    },
+  },
 };
 </script>
