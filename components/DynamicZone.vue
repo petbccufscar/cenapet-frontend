@@ -1,20 +1,20 @@
 <template>
   <div class="row no-gutters justify-content-center my-2">
-    <div class="col-md-10" v-if="content.__component === 'noticia.conteudo'">
+    <div class="col-md-10" v-if="content.__component === 'conteudo.conteudo'">
       <div class="conteudo" v-html="$md.render(content.conteudo)"></div>
     </div>
 
     <div
       class="col-md-10 citacao"
-      v-if="content.__component === 'noticia.citacao'"
+      v-if="content.__component === 'conteudo.citacao'"
     >
-      <p class="citacao-texto">{{ content.texto }}</p>
-      <p class="mb-0">— {{ content.autor }}</p>
+      <p v-if="content.texto" class="citacao-texto">{{ content.texto }}</p>
+      <p v-if="content.autor" class="citacao-autor">— {{ content.autor }}</p>
     </div>
 
     <div
       class="col-md-8 text-center my-4"
-      v-if="content.__component === 'noticia.youtube'"
+      v-if="content.__component === 'conteudo.youtube'"
     >
       <iframe
         id="ytplayer"
@@ -28,20 +28,35 @@
 
     <div
       :class="'col-md-' + content.colunas"
-      v-if="content.__component === 'noticia.imagem'"
+      v-if="content.__component === 'conteudo.imagem'"
     >
       <img class="img-fluid" :src="imageURL(content.imagem)" />
-      <p class="img-caption">{{ content.descricao }}</p>
+      <p v-if="content.descricao" class="img-caption">{{ content.descricao }}</p>
     </div>
   </div>
 </template>
 
 <style scoped>
 .img-caption {
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--text-grey-darker);
-    margin-top: 0.2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-grey-darker);
+  margin-top: 0.2rem;
+}
+
+.citacao {
+  margin-left: 2rem;
+  padding-left: 1rem;
+  border-left: 2px solid #ddd;
+}
+
+.citacao-texto {
+  color: var(--text-grey-darker);
+}
+
+.citacao-autor {
+  color: var(--text-grey);
+  margin-bottom: 0;
 }
 </style>
 

@@ -9,7 +9,7 @@
           <nuxt-link :to="'/noticias/' + id">
             <h4 class="card-title">{{ titulo }}</h4>
           </nuxt-link>
-          <p class="card-text">{{ unformat(conteudo) }}</p>
+          <p v-if="primeiroTexto" class="card-text">{{ removeMarkdown(primeiroTexto.conteudo) }}</p>
           <p class="card-text text-muted mt-1">Publicada em {{ moment(data_publicacao).format("DD/MM/YYYY") }}</p>
         </div>
       </div>
@@ -74,6 +74,7 @@
 
 <script>
 var moment = require("moment");
+const removeMd = require("remove-markdown");
 
 export default {
   data() {
@@ -82,17 +83,21 @@ export default {
     };
   },
   methods: {
-    unformat(text) {
-      const removeMd = require("remove-markdown");
+    removeMarkdown(text) {
       return removeMd(text);
     }
   },
   props: {
     id: Number,
     titulo: String,
-    conteudo: String,
+    conteudo: Array,
     img: String,
     data_publicacao: String
+  },
+  computed: {
+    primeiroTexto: function() {
+      return this.conteudo.find(c => c.__component === "conteudo.conteudo");
+    }
   }
 };
 </script>
