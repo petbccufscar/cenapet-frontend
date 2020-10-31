@@ -1,11 +1,11 @@
 <template>
   <div class="row no-gutters justify-content-center my-2">
-    <div class="col-md-10" v-if="content.__component === 'conteudo.conteudo'">
+    <div class="col-12" v-if="content.__component === 'conteudo.conteudo'">
       <div class="conteudo" v-html="$md.render(content.conteudo)"></div>
     </div>
 
     <div
-      class="col-md-10 citacao"
+      class="col-12 citacao"
       v-if="content.__component === 'conteudo.citacao'"
     >
       <p v-if="content.texto" class="citacao-texto">{{ content.texto }}</p>
@@ -13,7 +13,7 @@
     </div>
 
     <div
-      class="col-md-8 text-center my-4"
+      class="col-12 text-center my-4"
       v-if="content.__component === 'conteudo.youtube'"
     >
       <iframe

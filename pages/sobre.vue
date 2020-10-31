@@ -6,17 +6,18 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="row no-gutters mt-3">
-        <div class="col">
-          <div v-html="$md.render(texto1.sobre)"></div>
-        </div>
-      </div>
+    <div class="container mt-3">
+      <DynamicZone
+        v-for="content in sobre_diretoria.conteudo"
+        :key="content.id"
+        :content="content"
+        class="my-3"
+      />
 
       <div class="row no-gutters mt-2">
         <div class="col">
           <h1 class="intro-title">Objetivos</h1>
-          <div v-html="$md.render(texto1.objetivos)"></div>
+          <div v-html="$md.render(sobre_diretoria.objetivos)"></div>
         </div>
       </div>
 
@@ -27,7 +28,7 @@
           v-for="pessoa in gestoes[0].pessoas"
           :key="pessoa.id"
         >
-          <pessoa-card
+          <PessoaCard
             :id="pessoa.id"
             :foto="getImgUrl(pessoa.foto)"
             :cargo="pessoa.cargo"
@@ -55,19 +56,21 @@
 </style>
 
 <script>
+import DynamicZone from "@/components/DynamicZone.vue";
 import PessoaCard from "@/components/PessoaCard.vue";
 import axios from "axios";
 
 export default {
   data() {
     return {
-      texto1: [],
+      sobre_diretoria: {},
       gestoes: [],
     };
   },
 
   components: {
-    "pessoa-card": PessoaCard,
+    DynamicZone,
+    PessoaCard
   },
 
   methods: {
@@ -83,12 +86,12 @@ export default {
     },
   },
   async asyncData({ params }) {
-    const texto1 = await axios.get(process.env.baseURL + "/sobre-diretoria");
+    const sobre_diretoria = await axios.get(process.env.baseURL + "/sobre-diretoria");
     const gestoes = await axios.get(
       process.env.baseURL + "/gestoes?_sort=anoInicio:DESC"
     );
     return {
-      texto1: texto1.data,
+      sobre_diretoria: sobre_diretoria.data,
       gestoes: gestoes.data,
     };
   },

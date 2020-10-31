@@ -10,12 +10,16 @@
       <font-awesome-icon :icon="['fas', 'arrow-left']" class="icon-arrow" />
     </nuxt-link>
     <div class="container mt-5">
-      <DynamicZone
-        v-for="content in this.noticia.conteudo"
-        :key="content.id"
-        :content="content"
-        class="my-3"
-      />
+      <div class="row no-gutters justify-content-center">
+        <div class="col-md-10">
+          <DynamicZone
+            v-for="content in this.noticia.conteudo"
+            :key="content.id"
+            :content="content"
+            class="my-3"
+          />
+        </div>
+      </div>
 
       <p v-if="noticia.data_publicacao" class="mt-4 small">
         Publicado em

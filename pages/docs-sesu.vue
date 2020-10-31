@@ -6,14 +6,19 @@
       </div>
     </div>
     <div class="container mt-3">
-      <div v-html="$md.render(docssesu.conteudo)"></div>
+      <DynamicZone
+        v-for="content in this.documentos.conteudo"
+        :key="content.id"
+        :content="content"
+        class="my-3"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-
+import axios from "axios";
+import DynamicZone from "@/components/DynamicZone.vue";
 
 export default {
   head() {
@@ -21,10 +26,13 @@ export default {
         title: "Documentos da SESu/MEC",
       }
   },
+  components: {
+    DynamicZone
+  },
   asyncData ({ params }) {
      axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
      return axios.get(process.env.baseURL + `/Docs-sesu`).then(res =>{
-        return { docssesu: res.data }
+        return { documentos: res.data }
       })
   }
 };

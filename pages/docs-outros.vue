@@ -5,24 +5,34 @@
         <h1 class="text-center">Outros</h1>
       </div>
     </div>
-    <div class="container mt-3">
-      <div v-html="$md.render(outros.conteudo)"></div>
+        <div class="container mt-3">
+      <DynamicZone
+        v-for="content in this.documentos.conteudo"
+        :key="content.id"
+        :content="content"
+        class="my-3"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
+import DynamicZone from "@/components/DynamicZone.vue";
+
 export default {
   head() {
       return {
         title: "Outros documentos",
       }
   },
+  components: {
+    DynamicZone
+  },
   asyncData ({ params }) {
      axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
      return axios.get(process.env.baseURL + `/outros`).then(res =>{
-        return { outros: res.data }
+        return { documentos: res.data }
       })
   }
 };

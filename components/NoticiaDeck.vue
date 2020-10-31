@@ -6,7 +6,7 @@
         <h5 class="card-title">
           <nuxt-link :to="'/noticias/' + noticia.id">{{ noticia.titulo }}</nuxt-link>
         </h5>
-        <div class="card-text">{{ unformat(noticia.conteudo) }}</div>
+        <div class="card-text">{{ unformat(findPrimeiroTexto(noticia.conteudo)) }}</div>
         <div class="ver-mais">
           <nuxt-link :to="'/noticias/' + noticia.id">Ver mais</nuxt-link>
         </div>
@@ -105,6 +105,9 @@ export default {
       return image
         ? process.env.baseURL + image.formats.small.url
         : require("@/assets/images/fundo.png");
+    },
+    findPrimeiroTexto: function(conteudo) {
+      return conteudo.find(c => c.__component === "conteudo.conteudo").conteudo;
     }
   },
   props: {

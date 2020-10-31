@@ -5,21 +5,20 @@
         <h1 class="text-center">Cartas</h1>
       </div>
     </div>
-    <div class="container">
-      <div class="row no-gutters mt-3">
-        <div class="col">
-
-          <div v-html="$md.render(carta.conteudo)"></div>
-
-        </div>
-      </div>
+    <div class="container mt-3">
+       <DynamicZone
+        v-for="content in this.cartas.conteudo"
+        :key="content.id"
+        :content="content"
+        class="my-3"
+      />
     </div>
   </div>
 </template>
 
-
 <script>
-import axios from "axios"
+import axios from "axios";
+import DynamicZone from "@/components/DynamicZone.vue";
 
 export default {
   head() {
@@ -27,9 +26,12 @@ export default {
         title: "Cartas",
       }
   },
+  components: {
+    DynamicZone
+  },
   asyncData({ params }) {
     return axios.get(process.env.baseURL + `/cartas`).then(res => {
-      return { carta: res.data};
+      return { cartas: res.data};
     });
   }
 };

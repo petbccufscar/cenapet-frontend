@@ -5,16 +5,13 @@
         <h1 class="text-center">Organização de eventos</h1>
       </div>
     </div>
-    <div class="row no-gutters text">
-      <div v-html="$md.render(organizacao.conteudo)"></div>
-    </div>
-    <div class="row no-gutters justify-content-center my-4">
-      <div class="col-md-6 text-center">
-        <iframe
-          src="https://drive.google.com/file/d/1UF6dUTKpeg18qvqXzX_nLWMA5CMSomLq/preview"
-          allowfullscreen="true"
-        ></iframe>
-      </div>
+    <div class="container mt-3">
+      <DynamicZone
+        v-for="content in this.organizacao.conteudo"
+        :key="content.id"
+        :content="content"
+        class="my-3"
+      />
     </div>
   </div>
 </template>
@@ -36,12 +33,16 @@ iframe {
 
 <script>
 import axios from "axios";
+import DynamicZone from "@/components/DynamicZone.vue";
 
 export default {
   head() {
       return {
         title: "Organização de eventos",
       }
+  },
+  components: {
+    DynamicZone
   },
   asyncData({ params }) {
     axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';

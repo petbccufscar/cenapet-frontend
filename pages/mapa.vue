@@ -6,13 +6,19 @@
       </div>
     </div>
     <div class="container mt-3">
-      <div v-html="$md.render(grupos.conteudo)"></div>
+      <DynamicZone
+        v-for="content in grupos.conteudo"
+        :key="content.id"
+        :content="content"
+        class="my-3"
+      />
     </div>
     <div id="map"></div>
   </div>
 </template>
 
 <script>
+import DynamicZone from "@/components/DynamicZone.vue";
 import axios from "axios";
 import mapboxgl from "mapbox-gl";
 
@@ -21,6 +27,9 @@ export default {
     return {
       map: {},
     };
+  },
+  components: {
+    DynamicZone
   },
   head() {
     return {
