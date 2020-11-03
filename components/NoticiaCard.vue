@@ -96,7 +96,7 @@ export default {
   },
   computed: {
     primeiroTexto: function() {
-      return this.conteudo.find(c => c.__component === "conteudo.conteudo");
+      return this.conteudo ? this.conteudo.find(c => c.__component === "conteudo.conteudo") : "";
     }
   }
 };

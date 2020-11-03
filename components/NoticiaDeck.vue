@@ -107,7 +107,7 @@ export default {
         : require("@/assets/images/fundo.png");
     },
     findPrimeiroTexto: function(conteudo) {
-      return conteudo.find(c => c.__component === "conteudo.conteudo").conteudo;
+      return conteudo ? conteudo.find(c => c.__component === "conteudo.conteudo").conteudo : "";
     }
   },
   props: {
