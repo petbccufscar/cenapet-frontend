@@ -11,11 +11,7 @@
           <NoticiaCard
             v-for="noticia in noticias"
             v-bind:key="noticia.id"
-            :id="noticia.id"
-            :img="getImgUrl(noticia.img_fundo)"
-            :titulo="noticia.titulo"
-            :conteudo="noticia.conteudo"
-            :data_publicacao="noticia.data_publicacao"
+            :noticia="noticia"
           />
         </div>
       </div>
@@ -67,13 +63,6 @@ export default {
       return {
         title: "Notícias",
       }
-  },
-  methods: {
-    getImgUrl(img) {
-      return img
-        ? process.env.baseURL + img.formats.small.url
-        : require("~/assets/images/logo_escuro.png");
-    }
   }
 };
 </script>

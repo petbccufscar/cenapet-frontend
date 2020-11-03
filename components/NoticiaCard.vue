@@ -2,15 +2,15 @@
   <div class="card">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <img :src="img" class="card-img" />
+        <img :src="getImgUrl(noticia.img_miniatura)" class="card-img" />
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <nuxt-link :to="'/noticias/' + id">
-            <h4 class="card-title">{{ titulo }}</h4>
+          <nuxt-link :to="'/noticias/' + noticia.id">
+            <h4 class="card-title">{{ noticia.titulo }}</h4>
           </nuxt-link>
           <p v-if="primeiroTexto" class="card-text">{{ removeMarkdown(primeiroTexto.conteudo) }}</p>
-          <p class="card-text text-muted mt-1">Publicada em {{ moment(data_publicacao).format("DD/MM/YYYY") }}</p>
+          <p class="card-text text-muted mt-1">Publicada em {{ moment(noticia.data_publicacao).format("DD/MM/YYYY") }}</p>
         </div>
       </div>
     </div>
@@ -85,18 +85,19 @@ export default {
   methods: {
     removeMarkdown(text) {
       return removeMd(text);
+    },
+    getImgUrl(img) {
+      return img
+        ? process.env.baseURL + img.formats.small.url
+        : require("~/assets/images/logo_escuro.png");
     }
   },
   props: {
-    id: Number,
-    titulo: String,
-    conteudo: Array,
-    img: String,
-    data_publicacao: String
+    noticia: Object
   },
   computed: {
     primeiroTexto: function() {
-      return this.conteudo ? this.conteudo.find(c => c.__component === "conteudo.conteudo") : "";
+      return this.noticia.conteudo ? this.noticia.conteudo.find(c => c.__component === "conteudo.conteudo") : null;
     }
   }
 };
