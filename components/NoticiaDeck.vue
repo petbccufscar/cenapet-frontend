@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <p class="data text-muted">Publicada em {{ moment(noticia.data_publicacao).format("DD/MM/YYYY") }}</p>
+        <p class="data text-muted">Publicada em {{ $formatDate(noticia.data_publicacao) }}</p>
       </div>
     </div>
   </div>
@@ -88,14 +88,7 @@
 </style>
 
 <script>
-var moment = require("moment");
-
 export default {
-  data() {
-    return {
-      moment: moment
-    };
-  },
   methods: {
     unformat(text) {
       const removeMd = require("remove-markdown");

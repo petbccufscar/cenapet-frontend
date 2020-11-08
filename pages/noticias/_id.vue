@@ -23,7 +23,7 @@
 
       <p v-if="noticia.data_publicacao" class="mt-4 small">
         Publicado em
-        {{ moment(noticia.data_publicacao).format("DD/MM/YYYY") }}
+        {{ $formatDate(noticia.data_publicacao) }}
       </p>
     </div>
   </div>
@@ -98,13 +98,11 @@
 <script>
 import axios from "axios";
 import DynamicZone from "@/components/DynamicZone.vue";
-var moment = require("moment");
 
 export default {
   data() {
     return {
       noticia: {},
-      moment: moment,
     };
   },
   head() {

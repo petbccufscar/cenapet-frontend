@@ -20,7 +20,7 @@
                 >
                 <div class="row dropdown">
                   <h2 class="ano">
-                    <font-awesome-icon class="fa" @click="$event.target.classList.toggle('fa-rotate-90')" :icon="['fa', 'chevron-right']" />
+                    <font-awesome-icon class="fa" @click="$event.target.classList.toggle('fa-rotate-90')" :icon="['fas', 'chevron-right']" />
                     {{gestao.anoInicio}} - {{gestao.anoTermino}}
                   </h2>
                 </div>

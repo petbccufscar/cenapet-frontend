@@ -58,14 +58,7 @@ p {
 </style>
 
 <script>
-var moment = require("moment");
-
 export default {
-  data() {
-    return {
-      moment: moment,
-    };
-  },
   methods: {
     logoPET: function (image) {
       if (image && image.formats) {

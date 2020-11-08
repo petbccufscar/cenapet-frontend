@@ -10,7 +10,7 @@
             <h4 class="card-title">{{ noticia.titulo }}</h4>
           </nuxt-link>
           <p v-if="primeiroTexto" class="card-text">{{ removeMarkdown(primeiroTexto.conteudo) }}</p>
-          <p class="card-text text-muted mt-1">Publicada em {{ moment(noticia.data_publicacao).format("DD/MM/YYYY") }}</p>
+          <p class="card-text text-muted mt-1">Publicada em {{ $formatDate(noticia.data_publicacao) }}</p>
         </div>
       </div>
     </div>
@@ -73,15 +73,9 @@
 </style>
 
 <script>
-var moment = require("moment");
 const removeMd = require("remove-markdown");
 
 export default {
-  data() {
-    return {
-      moment: moment
-    };
-  },
   methods: {
     removeMarkdown(text) {
       return removeMd(text);

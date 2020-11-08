@@ -44,20 +44,6 @@ export default {
   */
   modules: [
     "@nuxtjs/markdownit",
-    [
-      "nuxt-fontawesome", {
-        imports: [
-          {
-            set: "@fortawesome/free-solid-svg-icons",
-            icons: ["fas"]
-          },
-          {
-            set: "@fortawesome/free-brands-svg-icons",
-            icons: ["faFacebookF", "faInstagram", "faTwitter", "faYoutube"]
-          },
-        ],
-      },
-    ],
     "@nuxtjs/axios",
     "@nuxtjs/proxy",
     "@nuxtjs/recaptcha"
@@ -72,6 +58,13 @@ export default {
     version: 2,
     size: "invisible",
     hideBadge: true,
+  },
+  fontawesome: {
+    icons: {
+      solid: ["faEnvelope", "faFile", "faSearch", "faChevronUp", "faChevronRight", "faChevronDown", "faChevronLeft", "faCheckCircle", "faExclamationTriangle", "faArrowLeft", "faExternalLinkAlt"],
+      regular: ["faFrownOpen", "faMeh", "faSadCry"],
+      brands: ["faFacebookF", "faYoutube", "faInstagram", "faTwitter"]
+    }
   },/*
   axios: {
     proxy: true,
@@ -96,15 +89,7 @@ export default {
   ** Build configuration
   */
   build: {
-    vendor: ["jquery", "bootstrap", "axios"],
-    plugins: [
-      // set shortcuts as global for bootstrap
-      new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery",
-        "window.jQuery": "jquery"
-      })
-    ],
+    vendor: ["bootstrap", "axios"],
     /*
     ** You can extend webpack config here
     */

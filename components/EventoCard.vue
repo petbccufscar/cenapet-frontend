@@ -11,7 +11,7 @@
           <!--<a class="mr-3" :href="formatURL(links)">{{ links }}</a>-->
           <div class="card-pet">
             <p>
-              <a>{{ moment(data_inicio).format("DD/MM/YYYY") }} - {{ moment(data_fim).format("DD/MM/YYYY") }}</a>
+              <a>{{ $formatDate(data_inicio) }} - {{ $formatDate(data_fim) }}</a>
             </p>
           </div>
         </div>
@@ -21,21 +21,15 @@
 </template>
 
 <script>
-var moment = require("moment");
 export default {
-  data() {
-    return {
-      moment: moment
-    };
-  },
   props: {
     id: Number,
     logo: String,
     titulo: String,
     local: String,
     links: String,
-    data_inicio: Date,
-    data_fim: Date,
+    data_inicio: String,
+    data_fim: String,
   },
   methods: {
     formatURL: function (link) {

@@ -20,7 +20,7 @@
                 >
                 <div class="row dropdown">
                   <h2 class="seta">
-                  <font-awesome-icon class="mr-2 seta":icon="['fa', 'chevron-right']" />
+                  <font-awesome-icon class="mr-2 seta" :icon="['fas', 'chevron-right']" />
                   </h2>
                   
                   <h2 class="ano">
