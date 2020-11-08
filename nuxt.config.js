@@ -1,10 +1,15 @@
 const webpack = require("webpack");
+import path from 'path'
+import fs from 'fs'
+
 export default {
-  mode: "universal",
-  /*server: {
-    port: 8000, // default: 3000
-    host: "0.0.0.0" // default: localhost
-  },*/
+  server: {
+    //port: 8000, // default: 3000
+    //host: "0.0.0.0" // default: localhost
+    //https: {
+
+    //}
+  },
   head: {
     title: process.env.npm_package_name || "",
     meta: [
@@ -32,12 +37,14 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    "@plugins/bootstrap.js"
+    "@plugins/bootstrap.js",
+    "@plugins/formatDate.js"
   ],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/fontawesome',
   ],
   /*
   ** Nuxt.js modules
