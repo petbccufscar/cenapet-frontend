@@ -29,7 +29,7 @@ export default {
     };
   },
   components: {
-    DynamicZone
+    DynamicZone,
   },
   head() {
     return {
@@ -81,21 +81,13 @@ export default {
           "circle-color": [
             "step",
             ["get", "point_count"],
-            "#51bbd6",
-            100,
-            "#f1f075",
-            750,
-            "#f28cb1",
+            "#0288d1",
+            15,
+            "#0277bd",
+            50,
+            "#01579b",
           ],
-          "circle-radius": [
-            "step",
-            ["get", "point_count"],
-            20,
-            100,
-            30,
-            750,
-            40,
-          ],
+          "circle-radius": ["step", ["get", "point_count"], 15, 15, 20, 50, 25],
         },
       });
 
@@ -106,8 +98,10 @@ export default {
         filter: ["has", "point_count"],
         layout: {
           "text-field": "{point_count_abbreviated}",
-          "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
           "text-size": 12,
+        },
+        paint: {
+          "text-color": "#ffffff",
         },
       });
 
@@ -117,8 +111,8 @@ export default {
         source: "grupos",
         filter: ["!", ["has", "point_count"]],
         paint: {
-          "circle-color": "#4dc7c3",
-          "circle-radius": 7,
+          "circle-color": "#039be5",
+          "circle-radius": 10,
         },
       });
 
@@ -147,10 +141,11 @@ export default {
           coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
 
+        const nomePet = `<a href="/pets/${e.features[0].properties.id}">${e.features[0].properties.nome}</a>`;
+
         new mapboxgl.Popup()
           .setLngLat(coordinates)
-          // setHTML mostra a mensagem quando clicamos no círculo
-          .setHTML(e.features[0].properties.nome)
+          .setHTML(nomePet)
           .addTo(map);
       });
 
@@ -177,9 +172,37 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 #map {
   width: 100%;
   height: 70vh;
+}
+
+#map .mapboxgl-popup .mapboxgl-popup-tip {
+  border-top-color: #505659;
+}
+
+#map .mapboxgl-popup .mapboxgl-popup-content {
+  background-color: #2d3031;
+  padding: 1rem 1rem 0.8rem 1rem;
+}
+
+#map .mapboxgl-popup .mapboxgl-popup-content .mapboxgl-popup-close-button {
+  color: #fff;
+}
+
+#map .mapboxgl-popup .mapboxgl-popup-content .mapboxgl-popup-close-button:hover {
+  background-color: #ffffff22;
+  border-bottom-left-radius: 4px;
+}
+
+#map .mapboxgl-popup .mapboxgl-popup-content a {
+  color: #fff;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+#map .mapboxgl-popup .mapboxgl-popup-content a:hover {
+  color: var(--text-accent);
 }
 </style>
