@@ -61,15 +61,16 @@ p {
 export default {
   methods: {
     logoPET: function (image) {
-      if (image && image.formats) {
+      if (image && image.formats != "") {
         if (image.formats.small) {
           return process.env.baseURL + image.formats.small.url;
-        } else {
+        } else if (image.formats.thumbnail) {
           return process.env.baseURL + image.formats.thumbnail.url;
+        } else {
+          return process.env.baseURL + image.url;
         }
-      } else {
-        return require("~/assets/images/logo_pet.png");
       }
+      return require("~/assets/images/logo_pet.png");
     },
   },
   props: {

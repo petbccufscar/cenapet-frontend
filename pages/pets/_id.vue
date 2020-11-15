@@ -101,9 +101,9 @@
               <p>Site</p>
             </div>
             <div v-if="pet.site_pet" class="col-md-6 conteudo">
-              <p>
-                <a :href="pet.site_pet">
-                  {{ pet.site_pet }}
+              <p class="no-overflow">
+                <a :href="pet.site_pet" target="_blank">
+                  {{ formatLink(pet.site_pet) }}
                   <font-awesome-icon
                     :icon="['fas', 'external-link-alt']"
                     class="ml-1 fa-xs"
@@ -117,9 +117,9 @@
               <p>Site na instituição</p>
             </div>
             <div v-if="pet.site_pet_ies" class="col-md-6 conteudo">
-              <p>
-                <a :href="pet.site_pet_ies">
-                  {{ pet.site_pet_ies }}
+              <p class="no-overflow">
+                <a :href="pet.site_pet_ies" target="_blank">
+                  {{ formatLink(pet.site_pet_ies) }}
                   <font-awesome-icon
                     :icon="['fas', 'external-link-alt']"
                     class="ml-1 fa-xs"
@@ -224,6 +224,13 @@ export default {
         ? process.env.baseURL + img.url
         : require("~/assets/images/logo_pet.png");
     },
+    formatLink(link) {
+      if (link && link.includes("://")) {
+        return link.substring(link.indexOf("://") + 3);
+      } else {
+        return link;
+      }
+    },
   },
 };
 </script>
@@ -278,6 +285,12 @@ export default {
 
 .dados .conteudo {
   color: var(--accent);
+}
+
+.dados .no-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media (max-width: 767px) {
