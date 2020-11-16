@@ -38,7 +38,7 @@
           >
         <div class="row content">
           <div
-            class="col-sm-12 col-md-8 col-lg-5 my-3"
+            class="col-sm-12 col-md-6 col-lg-4 my-3"
             v-for="pessoa in gestao.pessoas"
             :key="pessoa.id"
           >
@@ -52,6 +52,7 @@
             :universidadeCampus="pessoa.universidadeCampus"
             :email="pessoa.email"
             :nomePet="pessoa.nomePet"
+            :categoria="pessoa.Categoria"
           />
         </div>
       </div>
