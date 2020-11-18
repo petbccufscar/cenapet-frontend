@@ -16,75 +16,145 @@
     </button>
     <div id="nav-collapse" class="navbar-collapse collapse">
       <ul class="navbar-nav">
+
+        <!-- MENU CENAPET -->
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-          >CENAPET</a>
+            @click="hideSubmenus"
+            >CENAPET</a
+          >
           <div class="dropdown-menu" aria-labelledby="Menu cenapet">
-            <nuxt-link class="dropdown-item" to="/sobre">Sobre a diretoria</nuxt-link>
-            <nuxt-link class="dropdown-item" to="/gestoes">Gestões</nuxt-link>
-            <nuxt-link class="dropdown-item" to="/conselho">Conselho</nuxt-link>
+            <nuxt-link class="dropdown-item" to="/sobre">Quem somos</nuxt-link>
+
+            <!-- SUBMENU AÇÕES -->
+            <div class="dropdown-submenu">
+              <a
+                class="dropdown-item dropdown-toggle"
+                @click.stop.prevent="showSubmenu"
+                >Ações</a
+              >
+              <div class="dropdown-menu">
+                <nuxt-link class="dropdown-item" to="/reunioes">Reuniões</nuxt-link>
+                <nuxt-link class="dropdown-item" to="/docs-cartas">Cartas e Comunicados</nuxt-link>
+              </div>
+            </div>
+
+            <!-- SUBMENU DIRETORIA-->
+            <div class="dropdown-submenu">
+              <a
+                class="dropdown-item dropdown-toggle"
+                @click.stop.prevent="showSubmenu"
+                >Diretoria</a
+              >
+              <div class="dropdown-menu">
+                <nuxt-link class="dropdown-item" to="/sobre-diretoria">Todas as gestões</nuxt-link>
+                <nuxt-link class="dropdown-item" to="/relatorios-gestoes">Relatórios de gestão</nuxt-link>
+              </div>
+            </div>
+
+            <!--SUBMENU CONSELHO -->
+            <div class="dropdown-submenu">
+              <a
+                class="dropdown-item dropdown-toggle"
+                @click.stop.prevent="showSubmenu">Conselho</a>
+              <div class="dropdown-menu">
+                <nuxt-link class="dropdown-item" to="/conselho">Todos os conselhos</nuxt-link>
+                <nuxt-link class="dropdown-item" to="/relatorios-conselho">Relatórios de conselho</nuxt-link>
+              </div>
+            </div>
+            <nuxt-link class="dropdown-item" to="/anuidade">Anuidade</nuxt-link>
           </div>
         </li>
+
+        <!-- MENU DOCUMENTOS -->
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-          >DOCUMENTOS</a>
+            >DOCUMENTOS</a
+          >
           <div class="dropdown-menu" aria-labelledby="Menu documentos">
-            <nuxt-link class="dropdown-item" to="/docs-cartas">Cartas</nuxt-link>
+            <nuxt-link class="dropdown-item" to="/orientacoes">Orientações gerais</nuxt-link>
             <nuxt-link class="dropdown-item" to="/docs-comissao">Comissão Executiva</nuxt-link>
             <nuxt-link class="dropdown-item" to="/docs-conselho">Conselho</nuxt-link>
             <nuxt-link class="dropdown-item" to="/docs-sesu">SESu/MEC</nuxt-link>
             <nuxt-link class="dropdown-item" to="/docs-outros">Outros</nuxt-link>
           </div>
         </li>
+
+        <!-- MENU PET -->
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-          >COMISSÕES</a>
-          <div class="dropdown-menu" aria-labelledby="Menu comissões">
-            <!-- <nuxt-link class="dropdown-item" to="" style="text-decoration: line-through;">DiversificaPET</nuxt-link>
-            <nuxt-link class="dropdown-item" to="" style="text-decoration: line-through;">DivulgaPET</nuxt-link> -->
-            <nuxt-link class="dropdown-item" to="/mobilizapet">MobilizaPET</nuxt-link>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >PET</a>
+            @click="hideSubmenus"
+            >PET</a
+          >
           <div class="dropdown-menu" aria-labelledby="Menu PET">
+            <nuxt-link class="dropdown-item" to="/sobre-pet">O que é</nuxt-link>
             <nuxt-link class="dropdown-item" to="/pets">Grupos</nuxt-link>
             <nuxt-link class="dropdown-item" to="/mapa">Mapa</nuxt-link>
-            <nuxt-link class="dropdown-item" to="/orientacoes">Orientações gerais</nuxt-link>
+
+            <!--SUBMENU COMISSÕES NACIONAIS -->
+            <div class="dropdown-submenu">
+              <a
+                class="dropdown-item dropdown-toggle"
+                @click.stop.prevent="showSubmenu"
+                >Comissões Nacionais</a
+              >
+              <div class="dropdown-menu">
+                <!-- <nuxt-link class="dropdown-item" to="#">DiversificaPET</nuxt-link>
+                <nuxt-link class="dropdown-item" to="#">DivulgaPET</nuxt-link> -->
+                <nuxt-link class="dropdown-item" to="/mobilizapet">MobilizaPET</nuxt-link>
+              </div>
+            </div>
           </div>
         </li>
+
+        <!-- MENU EVENTOS -->
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-          >EVENTOS</a>
-          <div class="dropdown-menu" aria-labelledby="Menu cenapet">
-            <nuxt-link class="dropdown-item" to="/anais-eventos">Anais</nuxt-link>
-            <nuxt-link class="dropdown-item" to="/eventos">Histórico</nuxt-link>
-            <nuxt-link class="dropdown-item" to="/org-eventos">Organização</nuxt-link>
+            @click="hideSubmenus"
+            >EVENTOS</a
+          >
+          <div class="dropdown-menu" aria-labelledby="Menu eventos">
+            <nuxt-link class="dropdown-item" to="/org-eventos">Diretrizes</nuxt-link>
+            <nuxt-link class="dropdown-item" to="/enapet">Nacional</nuxt-link>
+
+            <!-- SUBMENU EVENTOS REGIONAIS -->
+            <div class="dropdown-submenu">
+              <a
+                class="dropdown-item dropdown-toggle"
+                @click.stop.prevent="showSubmenu"
+                >Regionais</a
+              >
+              <div class="dropdown-menu">
+                <nuxt-link class="dropdown-item" to="/econpet">ECONPET</nuxt-link>
+                <nuxt-link class="dropdown-item" to="/ecopet">ECOPET</nuxt-link>
+                <nuxt-link class="dropdown-item" to="/nortepet">NORTEPET</nuxt-link>
+                <nuxt-link class="dropdown-item" to="/sudestepet">SUDESTEPET</nuxt-link>
+                <nuxt-link class="dropdown-item" to="/enepet">ENEPET</nuxt-link>
+                <nuxt-link class="dropdown-item" to="/sulpet">SULPET</nuxt-link>
+              </div>
+            </div>
           </div>
         </li>
+
+        <!-- MENU CONTATO -->
         <li class="nav-item">
-          <nuxt-link class="nav-link" to="/forms">FORMULÁRIO</nuxt-link>
+          <nuxt-link class="nav-link" to="/contato">CONTATO</nuxt-link>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
@@ -108,6 +178,47 @@
   </nav>
 </template>
 
+<script>
+export default {
+  methods: {
+    showSubmenu(event) {
+      const submenu = event.target.nextElementSibling;
+      const parentDropdown = event.target;
+      const rootDropdown = submenu.parentElement.parentElement;
+
+      if (submenu.classList.contains("show")) {
+        parentDropdown.classList.remove("dropdown-submenu-active");
+        submenu.classList.remove("show");
+
+      } else {
+
+        const anotherActiveSubMenu = rootDropdown.querySelector(".show");
+        if (anotherActiveSubMenu) {
+          rootDropdown
+            .querySelector(".dropdown-submenu-active")
+            .classList.remove("dropdown-submenu-active");
+          anotherActiveSubMenu.classList.remove("show");
+        }
+
+        parentDropdown.classList.add("dropdown-submenu-active");
+        submenu.classList.add("show");
+      }
+    },
+    hideSubmenus(event) {
+      const dropdown = event.target.nextElementSibling;
+      const someActiveSubMenu = dropdown.querySelector(".show");
+
+      if (someActiveSubMenu) {
+        dropdown
+          .querySelector(".dropdown-submenu-active")
+          .classList.remove("dropdown-submenu-active");
+        someActiveSubMenu.classList.remove("show");
+      }
+    },
+  },
+};
+</script>
+
 <style scoped>
 .navbar .navbar-dark .navbar-expand-lg {
   padding: 0.5rem 0.5rem;
@@ -129,8 +240,10 @@
 }
 
 .navbar-dark .navbar-nav .dropdown-menu {
-  min-width: 15rem;
   background-color: var(--theme-dark);
+  min-width: 15rem;
+  margin-top: 0.9rem;
+  padding-top: 0;
   padding-bottom: 0;
   border: none;
   border-radius: 0;
@@ -143,7 +256,8 @@
 }
 
 .navbar-dark .navbar-nav .dropdown-item:hover,
-.navbar-dark .navbar-nav .dropdown-item:focus {
+.navbar-dark .navbar-nav .dropdown-item:focus,
+.navbar-dark .navbar-nav .dropdown-submenu-active {
   background-color: var(--highlight-dark);
   color: var(--text-light1);
 }
@@ -154,6 +268,22 @@
 
 .navbar-dark .navbar-nav .dropdown-divider {
   border-color: var(--border-dark);
+}
+
+.navbar-dark .navbar-nav .dropdown-submenu {
+  position: relative;
+}
+
+.navbar-dark .navbar-nav .dropdown-submenu a::after {
+  transform: rotate(-90deg);
+  float: right;
+  margin-top: 0.6rem;
+}
+
+.navbar-dark .navbar-nav .dropdown-submenu .dropdown-menu {
+  left: 100%;
+  top: 0;
+  margin: 0;
 }
 
 .navbar-nav .input-group input {
@@ -172,6 +302,12 @@
     border: 1px solid var(--border-dark);
     border-radius: 0.5rem;
     padding-bottom: 0.5rem;
+  }
+
+  .navbar-dark .navbar-nav .dropdown-submenu .dropdown-menu {
+    border: none;
+    border-radius: 0;
+    padding: 0 1rem;
   }
 
   .navbar-dark .navbar-nav .form-inline {
