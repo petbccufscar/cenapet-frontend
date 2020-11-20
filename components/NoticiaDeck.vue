@@ -6,7 +6,7 @@
         <h5 class="card-title">
           <nuxt-link :to="'/noticias/' + noticia.id">{{ noticia.titulo }}</nuxt-link>
         </h5>
-        <div class="card-text" v-if="noticia.conteudo">{{ unformat(findPrimeiroTexto(noticia.conteudo)) }}</div>
+        <div class="card-text" v-if="noticia.conteudo"><p>{{ unformat(findPrimeiroTexto(noticia.conteudo)) }}</p></div>
         <div class="ver-mais">
           <nuxt-link :to="'/noticias/' + noticia.id">Ver mais</nuxt-link>
         </div>
@@ -27,6 +27,7 @@
 .card-deck .card {
   margin: 1rem;
   flex: 1 1 100%;
+  max-width: 100%;
   box-shadow: 0 3px 5px #7778;
 }
 
@@ -54,6 +55,7 @@
 }
 
 .card-text {
+  max-width: 100%;
   margin: 1rem 0;
   color: var(--text-grey-darker);
   overflow: hidden;
@@ -102,7 +104,7 @@ export default {
     findPrimeiroTexto: function(conteudo) {
       const texto = conteudo.find(c => c.__component === "conteudo.conteudo");
 
-      return texto ? texto.conteudo : "";
+      return texto ? texto.conteudo.substring(0, 500) : "";
     }
   },
   props: {

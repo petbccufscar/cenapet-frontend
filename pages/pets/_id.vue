@@ -29,7 +29,7 @@
               </a>
             </p>
             <p v-if="pet.instagram">
-              <a :href="'https://instagram.com/' + pet.instagram">
+              <a :href="'https://instagram.com/' + pet.instagram" target="_blank">
                 <font-awesome-icon
                   :icon="['fab', 'instagram']"
                   class="mr-2"
@@ -37,7 +37,7 @@
               </a>
             </p>
             <p v-if="pet.facebook">
-              <a :href="pet.facebook">
+              <a :href="pet.facebook" target="_blank">
                 <font-awesome-icon
                   :icon="['fab', 'facebook-f']"
                   class="mr-2"
@@ -45,7 +45,7 @@
               </a>
             </p>
             <p v-if="pet.twitter">
-              <a :href="'https://twitter.com/' + pet.twitter">
+              <a :href="'https://twitter.com/' + pet.twitter" target="_blank">
                 <font-awesome-icon
                   :icon="['fab', 'twitter']"
                   class="mr-2"
@@ -53,7 +53,7 @@
               </a>
             </p>
             <p v-if="pet.youtube">
-              <a :href="pet.youtube">
+              <a :href="pet.youtube" target="_blank">
                 <font-awesome-icon
                   :icon="['fab', 'youtube']"
                   class="mr-2"
