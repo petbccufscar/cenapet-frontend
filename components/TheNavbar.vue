@@ -152,6 +152,11 @@
           </div>
         </li>
 
+        <!-- MENU FORMULÁRIO -->
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/forms">FORMULÁRIO</nuxt-link>
+        </li>
+
         <!-- MENU CONTATO -->
         <li class="nav-item">
           <nuxt-link class="nav-link" to="/contato">CONTATO</nuxt-link>

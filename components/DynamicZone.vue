@@ -48,7 +48,7 @@
       </div>
 
       <div
-        :class="'col-md-' + content.colunas"
+        :class="'text-center col-md-' + content.colunas"
         v-if="content.__component === 'conteudo.imagem'"
       >
         <img class="img-fluid" :src="URL(content.imagem)" />
