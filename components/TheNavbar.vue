@@ -111,8 +111,8 @@
                 >Comissões Nacionais</a
               >
               <div class="dropdown-menu">
-                <!-- <nuxt-link class="dropdown-item" to="#">DiversificaPET</nuxt-link>
-                <nuxt-link class="dropdown-item" to="#">DivulgaPET</nuxt-link> -->
+                <nuxt-link class="dropdown-item" to="/diversificapet">DiversificaPET</nuxt-link>
+                <nuxt-link class="dropdown-item" to="/divulgapet">DivulgaPET</nuxt-link>
                 <nuxt-link class="dropdown-item" to="/mobilizapet">MobilizaPET</nuxt-link>
               </div>
             </div>

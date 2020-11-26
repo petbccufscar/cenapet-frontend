@@ -68,7 +68,7 @@ export default {
   },
   fontawesome: {
     icons: {
-      solid: ["faEnvelope", "faFile", "faSearch", "faChevronUp", "faChevronRight", "faChevronDown", "faChevronLeft", "faCheckCircle", "faExclamationTriangle", "faArrowLeft", "faExternalLinkAlt"],
+      solid: ["faEnvelope", "faFile", "faSearch", "faChevronUp", "faChevronRight", "faChevronDown", "faChevronLeft", "faCheckCircle", "faExclamationTriangle", "faArrowLeft", "faExternalLinkAlt", "faPaintRoller"],
       regular: ["faFrownOpen", "faMeh", "faSadCry"],
       brands: ["faFacebookF", "faYoutube", "faInstagram", "faTwitter"]
     }

@@ -8,10 +8,14 @@
     <div class="container text-center mt-3 p-4">
       <h4 class="mb-5">Página não encontrada!</h4>
       <font-awesome-icon class="fa-6x mb-5" :icon="['far', 'frown-open']" />
-      <h5 class="mb-4">
-        O link para a página selecionada pode estar quebrado ou a página não
-        existe.
+      <h5>
+        Esta página não existe ou ainda não foi publicada.
       </h5>
+      <h6 class="mb-4">
+        Caso acredite que isto seja um erro, envie um email para
+        <a href="mailto:petbcc@ufscar.br">petbcc@ufscar.br</a> relatando o
+        problema.
+      </h6>
       <nuxt-link to="/">Voltar para a página inicial</nuxt-link>
     </div>
   </div>

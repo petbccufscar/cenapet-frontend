@@ -7,7 +7,9 @@
       <nuxt-link :to="'/pets/' + pet.id">
         <h4>{{ pet.nome }}</h4>
       </nuxt-link>
-      <p class="mt-2">{{ pet.campus.universidade.sigla }} - {{ pet.campus.nome }}</p>
+      <p class="mt-2">
+        {{ pet.campus.universidade.sigla }} - {{ pet.campus.nome }}
+      </p>
       <p>{{ pet.campus.cidade }} - {{ pet.campus.universidade.estado }}</p>
       <p><b>Eixo:</b> {{ pet.eixo }}</p>
     </div>
@@ -61,11 +63,13 @@ p {
 export default {
   methods: {
     logoPET: function (image) {
-      if (image && image.formats != "") {
-        if (image.formats.small) {
-          return process.env.baseURL + image.formats.small.url;
-        } else if (image.formats.thumbnail) {
-          return process.env.baseURL + image.formats.thumbnail.url;
+      if (image) {
+        if (image.formats) {
+          if (image.formats.small) {
+            return process.env.baseURL + image.formats.small.url;
+          } else if (image.formats.thumbnail) {
+            return process.env.baseURL + image.formats.thumbnail.url;
+          }
         } else {
           return process.env.baseURL + image.url;
         }
