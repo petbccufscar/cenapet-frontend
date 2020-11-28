@@ -5,7 +5,7 @@
         <h1 class="text-center">Cadastro</h1>
       </div>
     </div>
-    <div class="container" v-if="this.api_response.id">
+    <div class="container" v-if="!this.api_response.id">
       <div class="row no-gutters mt-3">
         <div class="col text-justify">
           <p>A Comissão Divulga PET Brasil, formada no XXII ENAPET em Brasília 2017, ligada diretamente à Diretoria de Comunicação da CENAPET, está colhendo informações dos grupos do Programa de Educação Tutorial para a divulgação neste site, uma plataforma que pretende unir informações de PETs de todo o país.</p>
@@ -340,7 +340,7 @@
         </div>
       </div>
     </div>
-    <div class="container" v-if="!this.api_response.id">
+    <div class="container" v-if="this.api_response.id">
       <div class="row no-gutters justify-content-center align-items-center sucesso">
         <div class="col-md-8 text-center">
           <h1>
