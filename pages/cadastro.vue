@@ -8,7 +8,7 @@
     <div class="container" v-if="!this.api_response.id">
       <div class="row no-gutters mt-3">
         <div class="col text-justify">
-          <p>A Comissão Divulga PET Brasil, formada no XXII ENAPET em Brasília 2017, ligada diretamente à Diretoria de Comunicação da CENAPET, está colhendo informações dos grupos do Programa de Educação Tutorial para a divulgação neste site, uma plataforma que pretende unir informações de PETs de todo o país.</p>
+          <p>A Comissão Divulga PET Brasil, formada no XXII ENAPET em Brasília 2017, ligada diretamente à Diretoria de Comunicação da CENAPET, está ''colhendo'' informações dos grupos do Programa de Educação Tutorial para a divulgação neste site, uma plataforma que pretende unir informações de PETs de todo o país.</p>
 
           <p>Queremos conhecer o seu PET e fazer com que o Brasil inteiro também o conheça!</p>
 
@@ -387,7 +387,7 @@ import axios from "axios";
 
 export default {
   head: {
-    title: "Formulário",
+    title: "Cadastro",
     link: [
       {
         rel: "stylesheet",
@@ -510,7 +510,7 @@ export default {
     map = new mapboxgl.Map({
       accessToken: process.env.mbToken,
       container: "map", // <div id="map"></div>
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/mapbox/streets-v11?optimize=true",
       center: [-52.8448484, -15.028203],
       zoom: 3,
     });

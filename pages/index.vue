@@ -87,4 +87,10 @@ export default {
   background-color: var(--accent);
   color: #fff;
 }
+
+@media (max-width: 883px) {
+  .col-md-11 {
+    width: unset;
+  }
+}
 </style>

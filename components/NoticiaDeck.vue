@@ -28,7 +28,7 @@
 .card-deck .card {
   margin: 0 1rem 2rem 1rem;
   flex: 1 1 100%;
-  max-width: 23rem;
+  max-width: 21rem;
   box-shadow: 0 3px 5px #7778;
 }
 
@@ -81,6 +81,23 @@
 .card-footer .data {
   margin: 0;
   font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .card-deck .card {
+    flex: 0 0 40%;
+  }
+}
+@media (min-width: 1100px) {
+  .card-deck .card {
+    flex: 1 1 0%;
+  }
+}
+
+@media (min-width: 1500px) {
+  .card-deck .card {
+    max-width: 25rem;
+  }
 }
 </style>
 

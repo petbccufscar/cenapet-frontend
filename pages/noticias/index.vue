@@ -10,23 +10,18 @@
       :key="index"
       class="row no-gutters justify-content-center my-2"
     >
-      <NoticiaDeck :noticias="linha" />
+      <div class="col-md-10">
+        <NoticiaDeck :noticias="linha" />
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.list-group {
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
-}
-
-.list-group-item {
-  margin: 0.2rem 0.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.5rem;
-  color: var(--accent);
+@media (max-width: 883px) {
+  .col-md-10 {
+    width: unset;
+  }
 }
 </style>
 
