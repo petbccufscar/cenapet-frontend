@@ -12,12 +12,12 @@
       </p>
       <p class="intro-text">Confira a atual composição da diretoria neste link!</p>
     </div>
-    <div class="container noticias mb-4">
+    <div class="row no-gutters justify-content-center mb-4">
       <h1 class="intro-title text-center mb-2">Últimas notícias</h1>
-      <h6 class="text-right mb-1">
-        <nuxt-link to="noticias">Ver todas</nuxt-link>
-      </h6>
-      <div class="row no-gutters ustify-content-center">
+      <div class="col-md-10 text-right mb-3">
+        <nuxt-link class="btn btn-noticias" to="noticias">Ver todas</nuxt-link>
+      </div>
+      <div class="col-md-11">
         <NoticiaDeck :noticias="noticias" />
       </div>
     </div>
@@ -74,5 +74,17 @@ export default {
   letter-spacing: 1px;
   line-height: 2rem;
   margin: 1rem 8vw;
+}
+
+.btn-noticias {
+  border: 1px solid var(--accent);
+  color: var(--highlight-dark);
+}
+
+.btn-noticias:hover,
+.btn-noticias:focus,
+.btn-noticias:active {
+  background-color: var(--accent);
+  color: #fff;
 }
 </style>

@@ -1,15 +1,15 @@
 <template>
   <div class="card-deck">
     <div class="card" v-for="noticia in noticias" :key="noticia.id">
-      <img class="card-img-top" :src="backgroundURL(noticia.img_fundo)" aria-hidden="true" />
+      <img class="card-img-top" v-if="noticia.img_fundo" :src="backgroundURL(noticia.img_fundo)" aria-hidden="true" />
       <div class="card-body">
         <h5 class="card-title">
           <nuxt-link :to="'/noticias/' + noticia.id">{{ noticia.titulo }}</nuxt-link>
         </h5>
-        <div class="card-text" v-if="noticia.conteudo"><p>{{ unformat(findPrimeiroTexto(noticia.conteudo)) }}</p></div>
-        <div class="ver-mais">
-          <nuxt-link :to="'/noticias/' + noticia.id">Ver mais</nuxt-link>
-        </div>
+        <div class="card-text" :class="noticia.img_fundo ? 'overflow-three-lines' : 'overflow-ten-lines'"><p>{{ unformat(findPrimeiroTexto(noticia.conteudo)) }}</p></div>
+      </div>
+      <div class="ver-mais">
+        <nuxt-link :to="'/noticias/' + noticia.id">Ver mais</nuxt-link>
       </div>
       <div class="card-footer">
         <p class="data text-muted">Publicada em {{ $formatDate(noticia.data_publicacao) }}</p>
@@ -21,18 +21,19 @@
 <style scoped>
 .card-deck {
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+  margin: 0;
 }
 
 .card-deck .card {
-  margin: 1rem;
+  margin: 0 1rem 2rem 1rem;
   flex: 1 1 100%;
-  max-width: 100%;
+  max-width: 23rem;
   box-shadow: 0 3px 5px #7778;
 }
 
 .card-img-top {
-  height: 30vh;
+  height: 16rem;
   max-width: 100%;
   object-fit: cover;
   border-top-left-radius: 0.25rem;
@@ -41,13 +42,7 @@
 
 .card-title {
   color: var(--accent);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; /* number of lines to show */
-  line-height: 1.5rem; /* fallback */
-  max-height: calc(1.5rem * 2); /* fallback */
+  line-height: 1.7rem;
 }
 
 .card-body {
@@ -62,30 +57,30 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; /* number of lines to show */
-  line-height: 1.3rem; /* fallback */
-  max-height: calc(1.3rem * 2); /* fallback */
+}
+
+.overflow-three-lines {
+  -webkit-line-clamp: 3;
+  line-height: 1.5rem;
+  max-height: calc(1.5rem * 3);
+}
+
+.overflow-ten-lines {
+  -webkit-line-clamp: 10;
+  line-height: 1.5rem;
+  max-height: calc(1.5rem * 10);
 }
 
 .ver-mais {
   text-align: right;
   color: var(--accent);
   font-weight: 600;
+  margin: 0 1rem 0.5rem 0;
 }
 
 .card-footer .data {
   margin: 0;
   font-size: 0.9rem;
-}
-@media (min-width: 768px) {
-  .card-deck .card {
-    flex: 0 0 40%;
-  }
-}
-@media (min-width: 1100px) {
-  .card-deck .card {
-    flex: 1 1 0%;
-  }
 }
 </style>
 
