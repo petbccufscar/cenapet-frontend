@@ -2,10 +2,10 @@
   <div class="container-fluid min-75 mb-4">
     <div class="row no-gutters align-items-center page-title">
       <div class="col">
-        <h1 class="text-center">Formulário</h1>
+        <h1 class="text-center">Cadastro</h1>
       </div>
     </div>
-    <div class="container" v-if="!this.api_response.id">
+    <div class="container" v-if="this.api_response.id">
       <div class="row no-gutters mt-3">
         <div class="col text-justify">
           <p>A Comissão Divulga PET Brasil, formada no XXII ENAPET em Brasília 2017, ligada diretamente à Diretoria de Comunicação da CENAPET, está colhendo informações dos grupos do Programa de Educação Tutorial para a divulgação neste site, uma plataforma que pretende unir informações de PETs de todo o país.</p>
@@ -340,15 +340,15 @@
         </div>
       </div>
     </div>
-    <div class="container" v-if="this.api_response.id">
+    <div class="container" v-if="!this.api_response.id">
       <div class="row no-gutters justify-content-center align-items-center sucesso">
         <div class="col-md-8 text-center">
           <h1>
             <font-awesome-icon class="mr-2" :icon="['fas', 'check-circle']" />Sucesso!
           </h1>
-          <h5 class="mt-4">{{this.api_response.nome}} cadastrado e disponível para visualização!</h5>
+          <h5 class="mt-4">O grupo {{this.api_response.nome}} foi cadastrado!</h5>
           <h5 class="mt-4">
-            <nuxt-link class="mr-1" :to="'/pets/' + this.api_response.id">Clique aqui</nuxt-link>para acessar sua página (:
+            Os dados estarão disponíveis <nuxt-link class="mr-1" :to="'/pets/' + this.api_response.id">neste link</nuxt-link>assim que forem verificados! (:
           </h5>
         </div>
       </div>
@@ -462,6 +462,9 @@ export default {
           }
         }
       }
+
+      // salva o pet como rascunho
+      data["published_at"] = null;
 
       request.onreadystatechange = function () {
         if (this.readyState == XMLHttpRequest.DONE) {

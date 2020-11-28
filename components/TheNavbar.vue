@@ -39,7 +39,7 @@
               >
               <div class="dropdown-menu">
                 <nuxt-link class="dropdown-item" to="/reunioes">Reuniões</nuxt-link>
-                <nuxt-link class="dropdown-item" to="/docs-cartas">Cartas e Comunicados</nuxt-link>
+                <nuxt-link class="dropdown-item" to="/docs-cartas">Cartas e comunicados</nuxt-link>
               </div>
             </div>
 
@@ -51,8 +51,8 @@
                 >Diretoria</a
               >
               <div class="dropdown-menu">
-                <nuxt-link class="dropdown-item" to="/sobre-diretoria">Todas as gestões</nuxt-link>
-                <nuxt-link class="dropdown-item" to="/relatorios-gestoes">Relatórios de gestão</nuxt-link>
+                <nuxt-link class="dropdown-item" to="/sobre">Todas as gestões</nuxt-link>
+                <nuxt-link class="dropdown-item" to="/relatorios-gestoes">Relatórios da gestão</nuxt-link>
               </div>
             </div>
 
@@ -63,7 +63,8 @@
                 @click.stop.prevent="showSubmenu">Conselho</a>
               <div class="dropdown-menu">
                 <nuxt-link class="dropdown-item" to="/conselho">Todos os conselhos</nuxt-link>
-                <nuxt-link class="dropdown-item" to="/relatorios-conselho">Relatórios de conselho</nuxt-link>
+            <nuxt-link class="dropdown-item" to="/docs-conselho">Documentos</nuxt-link>
+                <nuxt-link class="dropdown-item" to="/relatorios-conselho">Relatórios</nuxt-link>
               </div>
             </div>
             <nuxt-link class="dropdown-item" to="/anuidade">Anuidade</nuxt-link>
@@ -81,8 +82,6 @@
           >
           <div class="dropdown-menu" aria-labelledby="Menu documentos">
             <nuxt-link class="dropdown-item" to="/orientacoes">Orientações gerais</nuxt-link>
-            <nuxt-link class="dropdown-item" to="/docs-comissao">Comissão Executiva</nuxt-link>
-            <nuxt-link class="dropdown-item" to="/docs-conselho">Conselho</nuxt-link>
             <nuxt-link class="dropdown-item" to="/docs-sesu">SESu/MEC</nuxt-link>
             <nuxt-link class="dropdown-item" to="/docs-outros">Outros</nuxt-link>
           </div>
@@ -154,7 +153,7 @@
 
         <!-- MENU FORMULÁRIO -->
         <li class="nav-item">
-          <nuxt-link class="nav-link" to="/forms">FORMULÁRIO</nuxt-link>
+          <nuxt-link class="nav-link" to="/cadastro">CADASTRO</nuxt-link>
         </li>
 
         <!-- MENU CONTATO -->

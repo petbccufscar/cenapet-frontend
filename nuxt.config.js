@@ -38,7 +38,7 @@ export default {
   */
   plugins: [
     "@plugins/bootstrap.js",
-    "@plugins/formatDate.js"
+    "@plugins/utils.js"
   ],
   /*
   ** Nuxt.js dev-modules
