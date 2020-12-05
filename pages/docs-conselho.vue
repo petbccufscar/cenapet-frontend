@@ -24,18 +24,17 @@ import DynamicZone from "@/components/DynamicZone.vue";
 
 export default {
   head() {
-      return {
-        title: "Documentos do Conselho",
-      }
+    return {
+      title: "Documentos do Conselho",
+    };
   },
   components: {
-    DynamicZone
+    DynamicZone,
   },
-  asyncData ({ params }) {
-     axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
-     return axios.get(process.env.baseURL + `/Docs-conselho`).then(res =>{
-        return { documentos: res.data }
-      })
-  }
+  asyncData({ params }) {
+    return axios.get(process.env.baseURL + `/Docs-conselho`).then((res) => {
+      return { documentos: res.data };
+    });
+  },
 };
 </script>

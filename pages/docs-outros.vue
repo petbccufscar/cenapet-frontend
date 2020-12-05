@@ -5,7 +5,7 @@
         <h1 class="text-center">Outros</h1>
       </div>
     </div>
-        <div class="container mt-3">
+    <div class="container mt-3">
       <DynamicZone
         v-for="content in this.documentos.conteudo"
         :key="content.id"
@@ -22,18 +22,17 @@ import DynamicZone from "@/components/DynamicZone.vue";
 
 export default {
   head() {
-      return {
-        title: "Outros documentos",
-      }
+    return {
+      title: "Outros documentos",
+    };
   },
   components: {
-    DynamicZone
+    DynamicZone,
   },
-  asyncData ({ params }) {
-     axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
-     return axios.get(process.env.baseURL + `/outros`).then(res =>{
-        return { documentos: res.data }
-      })
-  }
+  asyncData({ params }) {
+    return axios.get(process.env.baseURL + `/outros`).then((res) => {
+      return { documentos: res.data };
+    });
+  },
 };
 </script>

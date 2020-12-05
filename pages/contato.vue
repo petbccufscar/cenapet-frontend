@@ -7,7 +7,7 @@
     </div>
     <div class="container mt-3">
       <DynamicZone
-        v-for="content in this.Contato_.conteudo"
+        v-for="content in this.contato.conteudo"
         :key="content.id"
         :content="content"
         class="my-3"
@@ -30,10 +30,8 @@ export default {
     DynamicZone
   },
   asyncData({ params }) {
-    axios.defaults.headers.post["Content-Type"] =
-      "application/x-www-form-urlencoded";
     return axios.get(process.env.baseURL + `/contato`).then(res => {
-      return { Contato_: res.data };
+      return { contato: res.data };
     });
   }
 };

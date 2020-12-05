@@ -37,18 +37,17 @@ import DynamicZone from "@/components/DynamicZone.vue";
 
 export default {
   head() {
-      return {
-        title: "Organização de eventos",
-      }
+    return {
+      title: "Organização de eventos",
+    };
   },
   components: {
-    DynamicZone
+    DynamicZone,
   },
   asyncData({ params }) {
-    axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
-    return axios.get(process.env.baseURL + `/org-eventos`).then(res => {
+    return axios.get(process.env.baseURL + `/org-eventos`).then((res) => {
       return { organizacao: res.data };
     });
-  }
+  },
 };
 </script>

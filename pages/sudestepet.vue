@@ -6,25 +6,25 @@
       </div>
     </div>
     <div class="container">
-        <div class="card">
-            <div
-              class="col-sm-12 col-md-8 col-lg-6 my-3"
-              v-for="evento in sudestepets"
-              :key="evento.id"
-            >
-                <EventoCard
-                  :id="evento.id"
-                  :logo="getImgUrl(evento.logo)"
-                  :titulo="evento.titulo"
-                  :local="evento.local"
-                  :data_inicio="evento.data_inicio"
-                  :data_fim="evento.data_fim"
-                  :links="evento.links"
-                />
-            </div>
-          </div>
+      <div class="card">
+        <div
+          class="col-sm-12 col-md-8 col-lg-6 my-3"
+          v-for="evento in sudestepets"
+          :key="evento.id"
+        >
+          <EventoCard
+            :id="evento.id"
+            :logo="getImgUrl(evento.logo)"
+            :titulo="evento.titulo"
+            :local="evento.local"
+            :data_inicio="evento.data_inicio"
+            :data_fim="evento.data_fim"
+            :links="evento.links"
+          />
         </div>
       </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -48,16 +48,14 @@ import EventoCard from "@/components/EventoCard.vue";
 import axios from "axios";
 
 export default {
-  data() {
+  head() {
     return {
-      evento: [],
+      title: "SUDESTEPET",
     };
   },
-
   components: {
     EventoCard: EventoCard,
   },
-
   methods: {
     getImgUrl: function (img) {
       return img

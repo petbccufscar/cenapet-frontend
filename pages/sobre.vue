@@ -22,7 +22,9 @@
       </div>
 
       <h1 class="intro-title">Pessoas</h1>
-      <div class="row no-gutters justify-content-around align-items-center mt-4">
+      <div
+        class="row no-gutters justify-content-around align-items-center mt-4"
+      >
         <div
           class="col-sm-12 col-md-8 col-lg-5 my-3"
           v-for="pessoa in gestoes[0].pessoas"
@@ -70,31 +72,31 @@ export default {
 
   components: {
     DynamicZone,
-    PessoaCard
+    PessoaCard,
   },
 
   methods: {
     head() {
       return {
         title: "Sobre a Diretoria",
-      }
+      };
     },
     getImgUrl: function (image) {
       if (image && image.formats) {
         if (image.formats.small) {
           return process.env.baseURL + image.formats.small.url;
-        }
-        else {
+        } else {
           return process.env.baseURL + image.formats.thumbnail.url;
         }
-      } 
-      else {
+      } else {
         return require("~/assets/images/logo_escuro.png");
       }
-    }
+    },
   },
   async asyncData({ params }) {
-    const sobre_diretoria = await axios.get(process.env.baseURL + "/sobre-diretoria");
+    const sobre_diretoria = await axios.get(
+      process.env.baseURL + "/sobre-diretoria"
+    );
     const gestoes = await axios.get(
       process.env.baseURL + "/gestoes?_sort=anoInicio:DESC"
     );

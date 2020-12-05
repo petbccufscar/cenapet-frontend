@@ -22,19 +22,17 @@ import DynamicZone from "@/components/DynamicZone.vue";
 
 export default {
   head() {
-      return {
-        title: "Anais de eventos",
-      }
+    return {
+      title: "Anais de eventos",
+    };
   },
   components: {
-    DynamicZone
+    DynamicZone,
   },
   asyncData({ params }) {
-    axios.defaults.headers.post["Content-Type"] =
-      "application/x-www-form-urlencoded";
-    return axios.get(process.env.baseURL + `/anais-eventos`).then(res => {
+    return axios.get(process.env.baseURL + `/anais-eventos`).then((res) => {
       return { anaisEventos: res.data };
     });
-  }
+  },
 };
 </script>

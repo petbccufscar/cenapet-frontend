@@ -29,6 +29,7 @@
           >
           <div class="dropdown-menu" aria-labelledby="Menu cenapet">
             <nuxt-link class="dropdown-item" to="/sobre">Quem somos</nuxt-link>
+            <nuxt-link class="dropdown-item" to="/estatuto">Estatuto</nuxt-link>
 
             <!-- SUBMENU AÇÕES -->
             <div class="dropdown-submenu">

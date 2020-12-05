@@ -22,19 +22,17 @@ import DynamicZone from "@/components/DynamicZone.vue";
 
 export default {
   head() {
-      return {
-        title: "Reuniões",
-      }
+    return {
+      title: "Reuniões",
+    };
   },
   components: {
-    DynamicZone
+    DynamicZone,
   },
   asyncData({ params }) {
-    axios.defaults.headers.post["Content-Type"] =
-      "application/x-www-form-urlencoded";
-    return axios.get(process.env.baseURL + `/reunioes`).then(res => {
+    return axios.get(process.env.baseURL + `/reunioes`).then((res) => {
       return { atasReunioes: res.data };
     });
-  }
+  },
 };
 </script>

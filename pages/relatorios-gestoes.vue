@@ -22,19 +22,19 @@ import DynamicZone from "@/components/DynamicZone.vue";
 
 export default {
   head() {
-      return {
-        title: "Relatórios das Gestões",
-      }
+    return {
+      title: "Relatórios das Gestões",
+    };
   },
   components: {
-    DynamicZone
+    DynamicZone,
   },
   asyncData({ params }) {
-    axios.defaults.headers.post["Content-Type"] =
-      "application/x-www-form-urlencoded";
-    return axios.get(process.env.baseURL + `/relatorios-gestoes`).then(res => {
-      return { relatoriosGestoes: res.data };
-    });
-  }
+    return axios
+      .get(process.env.baseURL + `/relatorios-gestoes`)
+      .then((res) => {
+        return { relatoriosGestoes: res.data };
+      });
+  },
 };
 </script>

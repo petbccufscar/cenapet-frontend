@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="container mt-3">
-       <DynamicZone
+      <DynamicZone
         v-for="content in this.cartas.conteudo"
         :key="content.id"
         :content="content"
@@ -22,17 +22,17 @@ import DynamicZone from "@/components/DynamicZone.vue";
 
 export default {
   head() {
-      return {
-        title: "Cartas",
-      }
+    return {
+      title: "Cartas",
+    };
   },
   components: {
-    DynamicZone
+    DynamicZone,
   },
   asyncData({ params }) {
-    return axios.get(process.env.baseURL + `/cartas`).then(res => {
-      return { cartas: res.data};
+    return axios.get(process.env.baseURL + `/cartas`).then((res) => {
+      return { cartas: res.data };
     });
-  }
+  },
 };
 </script>

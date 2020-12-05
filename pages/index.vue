@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid min-75 mb-4">
-      <Carousel :slides="slides"/>
-    
+    <Carousel :slides="slides" />
+
     <div class="container intro">
       <h1 class="intro-title">A CENAPET</h1>
       <p class="intro-text">
@@ -10,7 +10,9 @@
         que esta tem a função de representar a comunidade petiana e realizar a
         comunicação com órgãos superiores como o MEC.
       </p>
-      <p class="intro-text">Confira a atual composição da diretoria neste link!</p>
+      <p class="intro-text">
+        Confira a atual composição da diretoria neste link!
+      </p>
     </div>
     <div class="row no-gutters justify-content-center mb-4">
       <h1 class="intro-title text-center mb-2">Últimas notícias</h1>
@@ -32,12 +34,7 @@ import NoticiaDeck from "@/components/NoticiaDeck.vue";
 export default {
   components: {
     Carousel,
-    NoticiaDeck
-  },
-  head() {
-      return {
-        title: "CENAPET",
-      }
+    NoticiaDeck,
   },
   async asyncData({ params }) {
     axios.defaults.headers.post["Content-Type"] =
@@ -46,13 +43,14 @@ export default {
       process.env.baseURL + `/noticias?_limit=3&_sort=data_publicacao:DESC`
     );
     const slides = await axios.get(
-      process.env.baseURL + "/noticias?apareceCarrossel=1&_sort=data_publicacao:DESC"
+      process.env.baseURL +
+        "/noticias?apareceCarrossel=1&_sort=data_publicacao:DESC"
     );
-    return { 
+    return {
       slides: slides.data,
-      noticias: noticias.data 
+      noticias: noticias.data,
     };
-  }
+  },
 };
 </script>
 

@@ -22,19 +22,19 @@ import DynamicZone from "@/components/DynamicZone.vue";
 
 export default {
   head() {
-      return {
-        title: "Relatórios do Conselho",
-      }
+    return {
+      title: "Relatórios do Conselho",
+    };
   },
   components: {
-    DynamicZone
+    DynamicZone,
   },
   asyncData({ params }) {
-    axios.defaults.headers.post["Content-Type"] =
-      "application/x-www-form-urlencoded";
-    return axios.get(process.env.baseURL + `/relatorios-conselho`).then(res => {
-      return { relatoriosConselho: res.data };
-    });
-  }
+    return axios
+      .get(process.env.baseURL + `/relatorios-conselho`)
+      .then((res) => {
+        return { relatoriosConselho: res.data };
+      });
+  },
 };
 </script>
