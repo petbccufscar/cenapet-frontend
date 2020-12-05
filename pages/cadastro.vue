@@ -463,8 +463,6 @@ export default {
       for (let i = 0; i < formElements.length; i++) {
         const currentElement = formElements[i];
 
-        
-
         if (!["submit", "file"].includes(currentElement.type)) {
           if ((currentElement.id === "latitude" || currentElement.id === "longitude") && !currentElement.value) {
             data[currentElement.id] = this.pet_campus[currentElement.id] + (Math.random() * (0.001) - 0.0005);

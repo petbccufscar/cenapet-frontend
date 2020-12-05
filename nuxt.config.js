@@ -1,14 +1,31 @@
 const webpack = require("webpack");
 import path from 'path'
 import fs from 'fs'
+import axios from 'axios'
 
 export default {
+  target: 'static',
   server: {
-    //port: 8000, // default: 3000
-    //host: "0.0.0.0" // default: localhost
-    //https: {
+    /*port: 8000, // default: 3000
+    host: "0.0.0.0" // default: localhost
+    https: {
 
-    //}
+    }*/
+  },
+  generate: {
+    fallback: true,
+    interval: 50,
+    routes(callback) {
+      axios
+        .get('https://strapi.cenapet.org/pets')
+        .then(res => {
+          const routes = res.data.map(pet => {
+            return '/pets/' + pet.id
+          })
+          callback(null, routes)
+        })
+        .catch(callback)
+    }
   },
   head: {
     title: process.env.npm_package_name || "",
@@ -53,12 +70,19 @@ export default {
     "@nuxtjs/markdownit",
     "@nuxtjs/axios",
     "@nuxtjs/proxy",
-    "@nuxtjs/recaptcha"
+    "@nuxtjs/recaptcha",
+    [
+      'nuxt-image-extractor',
+      {
+        baseUrl: "https://strapi.cenapet.org",
+        path: '/_images',
+        extensions: ['jpg', 'jpeg', 'gif', 'png', 'webp', 'svg'],
+      }
+    ]
   ],
   env: {
     //baseURL: "/api"
-    baseURL: "https://strapi.petbcc.tech",
-    mbToken: ""
+    baseURL: "https://strapi.cenapet.org",
   },
   recaptcha: {
     siteKey: "",
@@ -96,6 +120,7 @@ export default {
   ** Build configuration
   */
   build: {
+    //analyze: true,
     vendor: ["bootstrap", "axios"],
     /*
     ** You can extend webpack config here
