@@ -38,7 +38,7 @@
           >
         <div class="row content">
           <div
-            class="col-sm-12 col-md-8 col-lg-5 my-3"
+            class="col-sm-12 col-md-6 col-lg-4 my-3"
             v-for="pessoa in gestao.pessoas"
             :key="pessoa.id"
           >
@@ -52,6 +52,7 @@
             :universidadeCampus="pessoa.universidadeCampus"
             :email="pessoa.email"
             :nomePet="pessoa.nomePet"
+            :categoria="pessoa.Categoria"
           />
         </div>
       </div>
@@ -102,11 +103,6 @@
 
 }
 
-
-
-
-
-
 </style>
 
 <script>
@@ -126,10 +122,18 @@ export default {
   },
 
   methods: {
-    getImgUrl: function (img) {
-      return img
-        ? process.env.baseURL + img.url
-        : require("~/assets/images/logo_escuro.png");
+    getImgUrl: function (image) {
+      if (image && image.formats) {
+        if (image.formats.small) {
+          return process.env.baseURL + image.formats.small.url;
+        }
+        else {
+          return process.env.baseURL + image.formats.thumbnail.url;
+        }
+      } 
+      else {
+        return require("~/assets/images/logo_escuro.png");
+      }
     },
   },
   async asyncData({ params }) {

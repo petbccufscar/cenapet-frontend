@@ -78,12 +78,20 @@ export default {
       return {
         title: "Sobre a Diretoria",
       }
-  },
-    getImgUrl: function (img) {
-      return img
-        ? process.env.baseURL + img.url
-        : require("~/assets/images/logo_escuro.png");
     },
+    getImgUrl: function (image) {
+      if (image && image.formats) {
+        if (image.formats.small) {
+          return process.env.baseURL + image.formats.small.url;
+        }
+        else {
+          return process.env.baseURL + image.formats.thumbnail.url;
+        }
+      } 
+      else {
+        return require("~/assets/images/logo_escuro.png");
+      }
+    }
   },
   async asyncData({ params }) {
     const sobre_diretoria = await axios.get(process.env.baseURL + "/sobre-diretoria");
