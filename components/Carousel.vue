@@ -1,14 +1,6 @@
 <template>
-  <div id="carousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li
-        v-for="(slide, index) in slides"
-        :key="slide.id"
-        data-target="#carousel"
-        :data-slide-to="index"
-        :class="{ active: index === 0 }"
-      ></li>
-    </ol>
+  <div class = "container mt-3">
+  <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">
       <div
         v-for="(slide, index) in slides"
@@ -46,28 +38,30 @@
       <span class="sr-only">Próximo</span>
     </a>
   </div>
+</div>
 </template>
 
 <style scoped>
+
 .carousel-caption {
-  right: 0;
+  right: 0rem;
   left: 0;
-  top: 0;
+  top: 17.5rem;
   bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
-  background-color: #33333319;
+  background-color: #222222;
+  opacity: 0.8;
 }
 
 .carousel-caption h3 {
   max-width: 70%;
   padding: 1rem;
   color: #fff;
-  text-shadow: 3px 3px 6px #333;
-  font-size: 3rem;
+  text-shadow: 3px 3px 6px #424242;
+  font-size: 1.5rem;
 }
 
 .carousel-caption a {
@@ -85,25 +79,16 @@
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  width: 4rem;
+  width: 1.5rem;
   height: 4rem;
 }
 
 .carousel-item img {
   width: 100%;
-  height: 75vh;
+  height: 22rem;
   object-fit: cover;
-  filter: blur(7px);
 }
 
-.carousel-indicators li {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  margin: 0 0.6rem;
-  opacity: 0.9;
-  background-color: #fff6;
-}
 
 .carousel-indicators .active {
   background-color: var(--deep-purple);
