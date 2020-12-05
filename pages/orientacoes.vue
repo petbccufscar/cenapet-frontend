@@ -1,5 +1,5 @@
 <template lang = "md">
-  <div class="container-fluid orientacoes">
+  <div class="container-fluid orientacoes min-75">
     <div class="row no-gutters align-items-center page-title">
       <div class="col">
         <h1 class="text-center">Orientações gerais</h1>
@@ -7,27 +7,26 @@
     </div>
     <div class="container my-4">
       <div class="accordion mt-4" id="accordion">
-        <div v-for="Orientacao in Orientacoes" :key="Orientacao.id" class="card">
+        <div v-for="(orientacao, index) in orientacoes" :key="orientacao.id" class="card">
           <div class="card-header">
             <h5 class="mb-0">
               <button
-                class="btn btn-link"
+                class="btn btn-link w-100"
                 data-toggle="collapse"
-                :data-target="'#Collapse' + Orientacao.id"
+                :data-target="'#Collapse' + orientacao.id"
                 aria-expanded="true"
-                :aria-controls="Orientacao.id"
-              >{{Orientacao.titulo}}</button>
+                :aria-controls="orientacao.id"
+              >{{orientacao.titulo}}</button>
             </h5>
           </div>
           <div
-            :id="'Collapse' + Orientacao.id"
+            :id="'Collapse' + orientacao.id"
             class="collapse"
             :class="{ 'show': index === 0 }"
-            :aria-labelledby="headingOne"
             data-parent="#accordion"
           >
             <div class="card-body">
-              <div v-html="$md.render(Orientacao.conteudo)"></div>
+              <div v-html="$md.render(orientacao.conteudo)"></div>
             </div>
           </div>
         </div>
@@ -39,6 +38,10 @@
 <style>
 .card-header {
   text-align: center;
+}
+
+.card hr {
+  margin: 2rem 0;
 }
 
 h5 .btn-link:hover,
@@ -59,8 +62,8 @@ export default {
   asyncData({ params }) {
     axios.defaults.headers.post["Content-Type"] =
       "application/x-www-form-urlencoded";
-    return axios.get(process.env.baseURL + `/Orientacoes`).then((res) => {
-      return { Orientacoes: res.data };
+    return axios.get(process.env.baseURL + `/orientacoes`).then((res) => {
+      return { orientacoes: res.data };
     });
   },
 };
