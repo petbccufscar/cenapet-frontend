@@ -246,7 +246,7 @@ export default {
 .navbar-dark .navbar-nav .dropdown-menu {
   background-color: var(--theme-dark);
   min-width: 15rem;
-  margin-top: 0.9rem;
+  margin-top: 0.8rem;
   padding-top: 0;
   padding-bottom: 0;
   border: none;

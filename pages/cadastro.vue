@@ -59,6 +59,26 @@
               />
             </div>
 
+            <div class="form-check my-2">
+              <input
+                type="checkbox"
+                value="false"
+                class="form-check-input"
+                id="grupo_institucional"
+              />
+              <label for="grupo_institucional">Meu grupo é um <b>grupo institucional (GET/PETi)</b></label>
+            </div>
+
+            <div class="form-check my-2">
+              <input
+                type="checkbox"
+                value="false"
+                class="form-check-input"
+                id="grupo_conexoes"
+              />
+              <label for="grupo_conexoes">Meu grupo é um <b>PET Conexões de Saberes</b></label>
+            </div>
+
             <div class="form-group">
               <label for="universidade.estado">Estado</label>
               <select
@@ -452,6 +472,10 @@ export default {
             data[currentElement.id] = this.pet_campus.id;
           } else if (currentElement.id.includes("recaptcha")) {
             data["token"] = currentElement.value;
+          } else if (currentElement.id === "grupo_institucional") {
+            data[currentElement.id] = currentElement.checked ? "true" : "false";
+          } else if (currentElement.id === "grupo_conexoes") {
+            data[currentElement.id] = currentElement.checked ? "true" : "false";
           } else {
             data[currentElement.id] = currentElement.value;
           }
