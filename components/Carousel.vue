@@ -1,5 +1,4 @@
 <template>
-  <div class = "container mt-3">
   <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">
       <div
@@ -12,9 +11,14 @@
 
         <div class="carousel-caption">
           <h3>
-            <nuxt-link :to="'/noticias/' + slide.id">{{
-              slide.titulo
-            }}</nuxt-link>
+            <nuxt-link :to="'/noticias/' + slide.id">
+              {{ slide.titulo }}
+              <font-awesome-icon
+                :icon="['fas', 'external-link-alt']"
+                class="ml-1 fa-xs"
+                style="vertical-align: inherit"
+              />
+            </nuxt-link>
           </h3>
         </div>
       </div>
@@ -38,22 +42,20 @@
       <span class="sr-only">Próximo</span>
     </a>
   </div>
-</div>
 </template>
 
 <style scoped>
-
 .carousel-caption {
-  right: 0rem;
+  right: 0;
   left: 0;
-  top: 17.5rem;
+  top: 20rem;
   bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   background-color: #222222;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .carousel-caption h3 {
@@ -64,12 +66,18 @@
   font-size: 1.5rem;
 }
 
+@media (max-width: 767px) {
+  .carousel-caption h3 {
+    font-size: 1rem;
+  }
+}
+
 .carousel-caption a {
   color: #fff;
 }
 
 .carousel-caption a:hover {
-  text-shadow: 5px 5px 7px #222;
+  color: var(--text-accent);
 }
 
 .carousel-control-prev,
@@ -85,13 +93,9 @@
 
 .carousel-item img {
   width: 100%;
-  height: 22rem;
+  height: 25rem;
   object-fit: cover;
-}
-
-
-.carousel-indicators .active {
-  background-color: var(--deep-purple);
+  object-position: center;
 }
 </style>
 
@@ -107,7 +111,7 @@ export default {
   methods: {
     getImgUrl(img) {
       return img
-        ? process.env.baseURL + img.formats.small.url
+        ? process.env.baseURL + img.url
         : require("~/assets/images/fundo.png");
     },
     formatLink: function (id) {
