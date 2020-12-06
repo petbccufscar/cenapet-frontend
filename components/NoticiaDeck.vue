@@ -28,7 +28,7 @@
 .card-deck .card {
   margin: 0 1rem 2rem 1rem;
   flex: 1 1 100%;
-  max-width: 21rem;
+  max-width: 100%;
   box-shadow: 0 3px 5px #7778;
 }
 
@@ -83,20 +83,23 @@
   font-size: 0.9rem;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   .card-deck .card {
-    flex: 0 0 40%;
-  }
-}
-@media (min-width: 1100px) {
-  .card-deck .card {
-    flex: 1 1 0%;
+    margin-left: 10vw;
+    margin-right: 10vw;
   }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 768px) {
   .card-deck .card {
+    flex: 0 0 40%;
     max-width: 25rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .card-deck .card {
+    flex: 1 1 0%;
   }
 }
 </style>

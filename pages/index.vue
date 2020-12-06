@@ -87,8 +87,14 @@ export default {
 }
 
 @media (max-width: 883px) {
-  .col-md-11 {
+  .col-lg-11 {
     width: unset;
+  }
+}
+
+@media (max-width: 991px) {
+  .btn-noticias {
+    margin-right: 2rem;
   }
 }
 </style>
