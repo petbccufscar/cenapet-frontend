@@ -83,6 +83,7 @@ export default {
   env: {
     //baseURL: "/api"
     baseURL: "https://strapi.cenapet.org",
+    mbToken: ""
   },
   recaptcha: {
     siteKey: "",

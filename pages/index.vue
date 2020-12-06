@@ -14,12 +14,12 @@
         Confira a atual composição da diretoria neste link!
       </p>
     </div>
-    <div class="row no-gutters justify-content-center mb-4">
-      <h1 class="intro-title text-center mb-2">Últimas notícias</h1>
-      <div class="col-md-10 text-right mb-3">
+    <div class="row no-gutters justify-content-center text-center mb-4">
+      <h1 class="intro-title mb-2">Últimas notícias</h1>
+      <div class="col-lg-10 text-right mb-3">
         <nuxt-link class="btn btn-noticias" to="noticias">Ver todas</nuxt-link>
       </div>
-      <div class="col-md-11">
+      <div class="col-lg-11">
         <NoticiaDeck :noticias="noticias" />
       </div>
     </div>

@@ -521,8 +521,7 @@ export default {
       this.send(token);
     },
   },
-  async mounted() {
-    await this.$recaptcha.init();
+  mounted() {
     const mapboxgl = require("mapbox-gl");
 
     let map = this.map;
@@ -567,6 +566,10 @@ export default {
         curve: 2,
       });
     });
+
+    if (process.client) {
+      this.$recaptcha.init();
+    }
   },
 };
 </script>
