@@ -87,8 +87,8 @@
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  width: 1.5rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
 }
 
 .carousel-item img {

@@ -3,12 +3,14 @@
     <div class="col-md-3 align-self-center">
       <img :src="logoPET(pet.logo)" class="pet-img" />
     </div>
-    <div class="col-md-4">
-      <nuxt-link :to="'/pets/' + pet.id">
-        <h4>{{ pet.nome }}</h4>
-      </nuxt-link>
+    <div class="col-md-8">
+      <h4>
+        <nuxt-link :to="'/pets/' + pet.id">
+          {{ pet.nome }}
+        </nuxt-link>
+      </h4>
       <p class="mt-2">
-        {{ pet.campus.universidade.sigla }} - {{ pet.campus.nome }}
+        <b>{{ pet.campus.universidade.sigla }}</b> - Campus {{ pet.campus.nome }}
       </p>
       <p>{{ pet.campus.cidade }} - {{ pet.campus.universidade.estado }}</p>
       <p><b>Eixo:</b> {{ pet.eixo }}</p>
@@ -38,6 +40,10 @@ h4 {
   -webkit-line-clamp: 4; /* number of lines to show */
   line-height: 1.7rem; /* fallback */
   max-height: calc(1.7rem * 4); /* fallback */
+}
+
+h4:hover {
+  color: var(--deep-purple);
 }
 
 p {

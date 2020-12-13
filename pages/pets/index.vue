@@ -113,7 +113,7 @@
         </div>
         <div class="col-md-6 pt-5">
           <PETCard
-            class="pt-5 pb-3"
+            class="py-4"
             v-for="pet in pets_filter"
             :key="pet.id"
             :pet="pet"

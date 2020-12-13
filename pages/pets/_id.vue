@@ -11,7 +11,7 @@
           <div class="header">
             <h2>{{ pet.nome }}</h2>
             <p>{{ pet.campus.universidade.nome }}</p>
-            <p>{{ pet.campus.nome }}</p>
+            <p>Campus {{ pet.campus.nome }}</p>
           </div>
         </div>
       </div>
@@ -168,7 +168,7 @@ export default {
       link: [
         {
           rel: "stylesheet",
-          href: `https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css`,
+          href: `https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css`,
         },
       ],
     };
