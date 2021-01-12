@@ -1,10 +1,10 @@
 const webpack = require("webpack");
-import path from 'path'
-import fs from 'fs'
-import axios from 'axios'
+import path from "path"
+import fs from "fs"
+import axios from "axios"
 
 export default {
-  target: 'static',
+  target: "static",
   server: {
     /*port: 8000, // default: 3000
     host: "0.0.0.0" // default: localhost
@@ -17,10 +17,10 @@ export default {
     interval: 50,
     routes(callback) {
       axios
-        .get('https://strapi.cenapet.org/pets')
+        .get("https://strapi.cenapet.org/pets")
         .then(res => {
           const routes = res.data.map(pet => {
-            return '/pets/' + pet.id
+            return "/pets/" + pet.id
           })
           callback(null, routes)
         })
@@ -61,7 +61,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxtjs/fontawesome',
+    "@nuxtjs/fontawesome",
   ],
   /*
   ** Nuxt.js modules
@@ -72,11 +72,29 @@ export default {
     "@nuxtjs/proxy",
     "@nuxtjs/recaptcha",
     [
-      'nuxt-image-extractor',
+      "nuxt-image-extractor",
       {
         baseUrl: "https://strapi.cenapet.org",
-        path: '/_images',
-        extensions: ['jpg', 'jpeg', 'gif', 'png', 'webp', 'svg'],
+        path: "/_images",
+        extensions: ["jpg", "jpeg", "gif", "png", "webp", "svg"],
+      }
+    ],
+    [
+      "@nuxtjs/firebase",
+      {
+        config: {
+          apiKey: "<apiKey>",
+          authDomain: "<authDomain>",
+          databaseURL: "<databaseURL>",
+          projectId: "<projectId>",
+          storageBucket: "<storageBucket>",
+          messagingSenderId: "<messagingSenderId>",
+          appId: "<appId>",
+          measurementId: "<measurementId>"
+        },
+        services: {
+          analytics: true
+        }
       }
     ]
   ],
@@ -85,6 +103,10 @@ export default {
     baseURL: "https://strapi.cenapet.org",
     mbToken: ""
   },
+  analytics: {
+    static: true,
+    collectionEnabled: true
+  },  
   recaptcha: {
     siteKey: "",
     version: 2,
