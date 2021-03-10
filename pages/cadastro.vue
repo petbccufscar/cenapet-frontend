@@ -55,8 +55,10 @@
                 class="form-control"
                 id="email_pet"
                 placeholder="Ex: petbcc@ufscar.br"
+                @change="validaEmail()"
                 required
               />
+              <p class="text-right mt-2" v-if="this.pet_existente">Este email já está cadastrado <a :href="'/pets/' + this.pet_existente" target="_blank">aqui</a>!</p>
             </div>
 
             <div class="form-check my-2">
@@ -421,14 +423,34 @@ export default {
       campi: [],
       pet_uni: [],
       pet_campus: [],
+      pet_existente: null,
       api_response: {},
       map: {},
     };
   },
   methods: {
-    async updateCampi() {
+    validaEmail() {
+      const email_form = document.getElementById("email_pet");
+
+      axios
+        .get(process.env.baseURL + `/pets?email_pet=${email_form.value}`)
+        .then(res => {
+          if (res.data[0]) {
+            email_form.setCustomValidity("Email já cadastrado!");
+            this.pet_existente = res.data[0].id;
+          }
+          else {
+            email_form.setCustomValidity("");
+            this.pet_existente = null;
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    updateCampi() {
       this.pet_campus = [];
-      await axios
+      axios
         .get(process.env.baseURL + "/campi?universidade.id=" + this.pet_uni.id + "&latitude_ne=0&_sort=nome:ASC")
         .then((res) => {
           this.campi = [...res.data];
