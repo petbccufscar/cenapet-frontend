@@ -1,12 +1,12 @@
 <template>
   <div class="card-deck">
     <div class="card" v-for="noticia in noticias" :key="noticia.id">
-      <img class="card-img-top" v-if="noticia.img_fundo" :src="backgroundURL(noticia.img_fundo)" aria-hidden="true" />
+      <img class="card-img-top" v-if="noticia.img_miniatura" :src="backgroundURL(noticia.img_miniatura)" aria-hidden="true" />
       <div class="card-body">
         <h5 class="card-title">
           <nuxt-link :to="'/noticias/' + noticia.id">{{ noticia.titulo }}</nuxt-link>
         </h5>
-        <div class="card-text" :class="noticia.img_fundo ? 'overflow-three-lines' : 'overflow-ten-lines'"><p>{{ unformat(findPrimeiroTexto(noticia.conteudo)) }}</p></div>
+        <div class="card-text" :class="noticia.img_miniatura ? 'overflow-three-lines' : 'overflow-ten-lines'"><p>{{ unformat(findPrimeiroTexto(noticia.conteudo)) }}</p></div>
       </div>
       <div class="ver-mais">
         <nuxt-link :to="'/noticias/' + noticia.id">Ver mais</nuxt-link>
@@ -112,9 +112,20 @@ export default {
       return removeMd(text);
     },
     backgroundURL: function(image) {
-      return image
-        ? process.env.baseURL + image.formats.small.url
-        : require("@/assets/images/fundo.png");
+      if (image) {
+        if (image.formats) {
+          if (image.formats.small) {
+            return process.env.baseURL + image.formats.small.url;
+          } else if (image.formats.thumbnail) {
+            return process.env.baseURL + image.formats.thumbnail.url;
+          }
+        } else {
+          return process.env.baseURL + image.url;
+        }
+      }
+      else {
+        return  require("@/assets/images/fundo.png");
+      }
     },
     findPrimeiroTexto: function(conteudo) {
       const texto = conteudo.find(c => c.__component === "conteudo.conteudo");
