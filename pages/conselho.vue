@@ -55,6 +55,7 @@
                   :universidadeCampus="pessoa.universidadeCampus"
                   :email="pessoa.email"
                   :nomePet="pessoa.nomePet"
+                  :categoria="pessoa.Categoria"
                 />
               </div>
             </div>
