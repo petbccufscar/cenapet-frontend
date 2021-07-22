@@ -14,7 +14,7 @@ export default {
   },
   generate: {
     fallback: true,
-    interval: 50,
+    interval: 500,
     routes(callback) {
       axios
         .get("https://strapi.cenapet.org/pets")
@@ -83,14 +83,14 @@ export default {
       "@nuxtjs/firebase",
       {
         config: {
-          apiKey: "<apiKey>",
-          authDomain: "<authDomain>",
-          databaseURL: "<databaseURL>",
-          projectId: "<projectId>",
-          storageBucket: "<storageBucket>",
-          messagingSenderId: "<messagingSenderId>",
-          appId: "<appId>",
-          measurementId: "<measurementId>"
+          apiKey: process.env.firebaseApiKey,
+          authDomain: process.env.firebaseAuthDomain,
+          databaseURL: process.env.firebaseDatabaseURL,
+          projectId: process.env.firebaseProjectId,
+          storageBucket: process.env.firebaseStorageBucket,
+          messagingSenderId: process.env.firebaseMessagingSenderId,
+          appId: process.env.firebaseAppId,
+          measurementId: process.env.firebaseMeasurementId
         },
         services: {
           analytics: true
@@ -101,14 +101,14 @@ export default {
   env: {
     //baseURL: "/api"
     baseURL: "https://strapi.cenapet.org",
-    mbToken: "pk.eyJ1IjoiaWdvcmxtZ3giLCJhIjoiY2tjZ3FwN2swMHVscDMzcDhwejVnaGpjYyJ9.9rfaUCaUfsteKZx_Zr7Bbg"
+    mbToken: process.env.mbToken
   },
   analytics: {
     static: true,
     collectionEnabled: true
   },  
   recaptcha: {
-    siteKey: "6LdPP8cZAAAAADrWHJVlnztTIU9CYl-rQvP6mhVU",
+    siteKey: process.env.recaptchaSiteKey,
     version: 2,
     size: "invisible",
     hideBadge: true,
@@ -119,35 +119,16 @@ export default {
       regular: ["faFrownOpen", "faMeh", "faSadCry"],
       brands: ["faFacebookF", "faYoutube", "faInstagram", "faTwitter","faGithub"]
     }
-  },/*
-  axios: {
-    proxy: true,
-    proxyHeaders: false,
-    credentials: false,
-    debug: true,
-    retry: { retries: 3 }
   },
-  proxy: {
-    "/api/": {
-      target: "http://localhost:1337", pathRewrite: { "^/api/": "" },
-      changeOrigin: true
-    }
-  },*/
   markdownit: {
     preset: "default",
     linkify: true,
     breaks: true,
     injected: true
   },
-  /*
-  ** Build configuration
-  */
   build: {
     //analyze: true,
     vendor: ["bootstrap", "axios"],
-    /*
-    ** You can extend webpack config here
-    */
     extend(config, ctx) {
     }
   }
