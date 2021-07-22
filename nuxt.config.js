@@ -14,7 +14,7 @@ export default {
   },
   generate: {
     fallback: true,
-    interval: 300,
+    interval: 50,
     routes(callback) {
       axios
         .get("https://strapi.cenapet.org/pets")
@@ -101,14 +101,14 @@ export default {
   env: {
     //baseURL: "/api"
     baseURL: "https://strapi.cenapet.org",
-    mbToken: ""
+    mbToken: "pk.eyJ1IjoiaWdvcmxtZ3giLCJhIjoiY2tjZ3FwN2swMHVscDMzcDhwejVnaGpjYyJ9.9rfaUCaUfsteKZx_Zr7Bbg"
   },
   analytics: {
     static: true,
     collectionEnabled: true
   },  
   recaptcha: {
-    siteKey: "",
+    siteKey: "6LdPP8cZAAAAADrWHJVlnztTIU9CYl-rQvP6mhVU",
     version: 2,
     size: "invisible",
     hideBadge: true,
@@ -117,7 +117,7 @@ export default {
     icons: {
       solid: ["faEnvelope", "faFile", "faSearch", "faChevronUp", "faChevronRight", "faChevronDown", "faChevronLeft", "faCheckCircle", "faExclamationTriangle", "faArrowLeft", "faExternalLinkAlt", "faPaintRoller"],
       regular: ["faFrownOpen", "faMeh", "faSadCry"],
-      brands: ["faFacebookF", "faYoutube", "faInstagram", "faTwitter"]
+      brands: ["faFacebookF", "faYoutube", "faInstagram", "faTwitter","faGithub"]
     }
   },/*
   axios: {

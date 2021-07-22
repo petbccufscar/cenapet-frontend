@@ -16,40 +16,44 @@
                     </div>
                     <div class="redes">
                         <p>Nos siga e acompanhe nossas Redes Sociais!</p>
-                        <a href="https://www.facebook.com/petbcc"  target="_blank">Facebook</a> - <a href="https://www.instagram.com/petbcc.ufscar/"  target="_blank">Instagram</a> - <a href="https://github.com/petbccufscar" target="_blank">Github</a>
+                        <div class="icons">
+                            <a href="https://www.facebook.com/petbcc"  target="_blank"> <font-awesome-icon :icon="['fab', 'facebook-f']" class="fa-3x" /></a> 
+                            <a href="https://www.instagram.com/petbcc.ufscar/"  target="_blank"><font-awesome-icon :icon="['fab', 'instagram']" class="fa-3x" /></a> 
+                            <a href="https://github.com/petbccufscar" target="_blank"><font-awesome-icon :icon="['fab', 'github']" class="fa-3x" /></a>
+                        </div>
                     </div>   
                 </div>
                 
                 
                 <p class="devs-start">Conheça nossos devs!</p>
                 <div class="devs">
-                    <div>
-                        <a href="https://github.com/igorlmgx" target="_blank">
-                            <img class="dev" src="https://avatars.githubusercontent.com/u/40547661?v=4" alt="Igor Lucio"> 
+                    <div class="dev">
+                        <a  href="https://github.com/igorlmgx" target="_blank">
+                            <img class="img-dev" src="https://avatars.githubusercontent.com/u/40547661?v=4" alt="Igor Lucio"> 
                             <p>Igor Lucio</p>
                         </a>
                     </div>
-                    <div>
-                        <a href="https://github.com/amandapmn" target="_blank">
-                            <img class="dev" src="https://avatars.githubusercontent.com/u/40667726?v=4" alt="Amanda Manso">
+                    <div class="dev">
+                        <a  href="https://github.com/amandapmn" target="_blank">
+                            <img class="img-dev" src="https://avatars.githubusercontent.com/u/40667726?v=4" alt="Amanda Manso">
                             <p>Amanda Manso</p>
                         </a>
                     </div>
-                    <div>
-                        <a href="https://github.com/Donderileo" target="_blank">
-                            <img class="dev" src="https://avatars.githubusercontent.com/u/33060591?v=4" alt="Leonardo Rodrigues">
+                    <div class="dev">
+                        <a  href="https://github.com/Donderileo" target="_blank">
+                            <img class="img-dev" src="https://avatars.githubusercontent.com/u/33060591?v=4" alt="Leonardo Rodrigues">
                             <p>Leonardo Rodrigues</p>
                         </a>
                     </div>
-                    <div>
-                        <a href="https://github.com/mayktu  " target="_blank">
-                            <img class="dev" src="https://avatars.githubusercontent.com/u/38228656?v=4" alt="Mayk Bezerra">
+                    <div class="dev">
+                        <a  href="https://github.com/mayktu  " target="_blank">
+                            <img class="img-dev" src="https://avatars.githubusercontent.com/u/38228656?v=4" alt="Mayk Bezerra">
                             <p>Mayk Bezerra</p>
                         </a>
                     </div>
-                    <div>
-                        <a href="https://github.com/reynold125" target="_blank">
-                            <img class="dev" src="https://avatars.githubusercontent.com/u/37456066?v=4" alt="Reynold Mazo">
+                    <div class="dev">
+                        <a  href="https://github.com/reynold125" target="_blank">
+                            <img class="img-dev" src="https://avatars.githubusercontent.com/u/37456066?v=4" alt="Reynold Mazo">
                             <p>Reynold Mazo</p>
                         </a>
                     </div>
@@ -99,6 +103,11 @@
 .ativos{
     margin-top:2rem;
 }
+.icons{
+    display:flex;
+    gap:2rem;
+}
+
 .devs-start{
  margin-top:5rem;
 }
@@ -110,7 +119,7 @@
     align-items: center;
     justify-content: left;
 }
-.dev{
+.img-dev{
     width:60%;
     height:60%;
     border-radius:50%;
@@ -120,6 +129,16 @@
     text-align:center;
     justify-content:center;
 }
+
+.dev{
+    margin-top:1rem;
+    transition: all .2s ease-in-out;
+}
+
+.dev:hover{
+    transform: translatey(-10%);
+}
+
 
 @media (max-width:650px) {
     .grid{
