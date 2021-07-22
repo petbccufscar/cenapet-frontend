@@ -65,7 +65,7 @@ export default {
     map.on("load", function () {
       map.addSource("grupos", {
         type: "geojson",
-        data: process.env.baseURL + `/geojson`, // backend
+        data: process.env.baseURL + `/geojson?_limit=-1`, // backend
         cluster: true,
         clusterMaxZoom: 14,
         clusterRadius: 50,

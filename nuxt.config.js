@@ -14,7 +14,7 @@ export default {
   },
   generate: {
     fallback: true,
-    interval: 50,
+    interval: 300,
     routes(callback) {
       axios
         .get("https://strapi.cenapet.org/pets")

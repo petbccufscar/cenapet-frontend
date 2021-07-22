@@ -150,7 +150,7 @@ export default {
       process.env.baseURL + "/pets?_limit=10&_sort=created_at:DESC"
     );
     const universidades = await axios.get(
-      process.env.baseURL + "/universidades?_sort=sigla:ASC&_limit=150"
+      process.env.baseURL + "/universidades?_sort=sigla:ASC&_limit=-1"
     );
     return {
       pets: pets.data,
@@ -193,7 +193,7 @@ export default {
 
       if (filtro) {
         result = await axios.get(
-          process.env.baseURL + "/pets?_limit=80&" + filtro
+          process.env.baseURL + "/pets?_limit=-1&" + filtro
         );
       } else {
         result.data = this.pets;

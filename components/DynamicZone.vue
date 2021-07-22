@@ -5,13 +5,13 @@
         class="col-12 citacao"
         v-if="content.__component === 'conteudo.citacao'"
       >
-        <p v-if="content.texto" class="citacao-texto">{{ content.texto }}</p>
+        <div v-if="content.texto" class="citacao-texto" v-html="$md.render(content.texto)"></div>
         <p v-if="content.autor" class="citacao-autor">— {{ content.autor }}</p>
       </div>
     </div>
 
     <div class="col-12" v-if="content.__component === 'conteudo.conteudo'">
-      <div class="conteudo" v-html="$md.render(content.conteudo)"></div>
+      <div class="text-justify" v-html="$md.render(content.conteudo)"></div>
     </div>
 
     <div class="col-12" v-if="content.__component === 'conteudo.documentos'">
@@ -94,11 +94,12 @@
 }
 
 .citacao-texto {
-  color: var(--text-grey-darker);
+  text-align: justify;
+  padding-right: 1rem;
 }
 
 .citacao-autor {
-  color: var(--text-grey);
+  color: #666;
   margin-bottom: 0;
 }
 
