@@ -14,13 +14,14 @@
       </a>
     </div>
     <div class="text-center footer-end">
-      <p>Gestão 2018-2020</p>
+      <a href="/devs">Desenvolvido por: PET BCC - UFSCar</a>
       <p>Todos os direitos reservados</p>
     </div>
   </footer>
 </template>
 
 <style scoped>
+
 .footer-dark {
   background-color: var(--footer-dark);
   color: var(--text-light2);
