@@ -368,9 +368,9 @@
           <h1>
             <font-awesome-icon class="mr-2" :icon="['fas', 'check-circle']" />Sucesso!
           </h1>
-          <h5 class="mt-4">O grupo {{this.api_response.nome}} foi cadastrado!</h5>
+          <h5 class="mt-5">O grupo {{this.api_response.nome}} foi enviado para aprovação!</h5>
           <h5 class="mt-4">
-            Os dados estarão disponíveis <nuxt-link class="mr-1" :to="'/grupos/' + this.api_response.id">neste link</nuxt-link>assim que forem verificados! (:
+            Os dados estarão disponíveis na página de grupos assim que forem verificados! (:
           </h5>
         </div>
       </div>

@@ -213,7 +213,7 @@ export default {
   asyncData({ params }) {
     axios.defaults.headers.post["Content-Type"] =
       "application/x-www-form-urlencoded";
-    return axios.get(process.env.baseURL + `/grupos/${params.id}`).then((res) => {
+    return axios.get(process.env.baseURL + `/pets/${params.id}`).then((res) => {
       return { pet: res.data };
     });
   },
