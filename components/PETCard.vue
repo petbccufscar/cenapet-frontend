@@ -1,7 +1,7 @@
 <template>
   <div class="row no-gutters b-down p-2">
     <div class="col-md-3 align-self-center">
-      <img :src="logoPET(pet.logo)" class="pet-img" />
+      <img :src="logoPET(pet.logo)" class="pet-img" loading="lazy"/>
     </div>
     <div class="col-md-8">
       <h4>
