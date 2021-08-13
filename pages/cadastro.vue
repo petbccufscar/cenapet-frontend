@@ -58,7 +58,7 @@
                 @change="validaEmail()"
                 required
               />
-              <p class="text-right mt-2" v-if="this.pet_existente">Este email já está cadastrado <a :href="'/pets/' + this.pet_existente" target="_blank">aqui</a>!</p>
+              <p class="text-right mt-2" v-if="this.pet_existente">Este email já está cadastrado <a :href="'/grupos/' + this.pet_existente" target="_blank">aqui</a>!</p>
             </div>
 
             <div class="form-check my-2">
@@ -370,7 +370,7 @@
           </h1>
           <h5 class="mt-4">O grupo {{this.api_response.nome}} foi cadastrado!</h5>
           <h5 class="mt-4">
-            Os dados estarão disponíveis <nuxt-link class="mr-1" :to="'/pets/' + this.api_response.id">neste link</nuxt-link>assim que forem verificados! (:
+            Os dados estarão disponíveis <nuxt-link class="mr-1" :to="'/grupos/' + this.api_response.id">neste link</nuxt-link>assim que forem verificados! (:
           </h5>
         </div>
       </div>
@@ -433,7 +433,7 @@ export default {
       const email_form = document.getElementById("email_pet");
 
       axios
-        .get(process.env.baseURL + `/pets?email_pet=${email_form.value}`)
+        .get(process.env.baseURL + `/grupos?email_pet=${email_form.value}`)
         .then(res => {
           if (res.data[0]) {
             email_form.setCustomValidity("Email já cadastrado!");
@@ -519,7 +519,7 @@ export default {
       };
 
       formData.append("data", JSON.stringify(data));
-      request.open("POST", process.env.baseURL + `/pets`);
+      request.open("POST", process.env.baseURL + `/grupos`);
       request.send(formData);
     },
     showResponse(res) {

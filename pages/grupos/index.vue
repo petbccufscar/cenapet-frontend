@@ -2,7 +2,7 @@
   <div class="container-fluid min-75 mb-4">
     <div class="row no-gutters page-title align-content-center">
       <div class="col">
-        <h1 class="text-center">Pesquisa</h1>
+        <h1 class="text-center">Grupos</h1>
       </div>
     </div>
 
@@ -209,7 +209,7 @@ export default {
   },
   head() {
     return {
-      title: "PETs",
+      title: "Grupos",
     };
   },
   components: {
@@ -217,7 +217,7 @@ export default {
   },
   async asyncData({ params }) {
     const pets = await axios.get(
-      process.env.baseURL + "/pets?_limit=-1&_sort=nome"
+      process.env.baseURL + "/grupos?_limit=-1&_sort=nome"
     );
     const universidades = await axios.get(
       process.env.baseURL + "/universidades?_sort=sigla:ASC&_limit=-1"
@@ -262,7 +262,7 @@ export default {
 
       if (filtro) {
         result = await axios.get(
-          process.env.baseURL + "/pets?_limit=-1&" + filtro
+          process.env.baseURL + "/grupos?_limit=-1&" + filtro
         );
       } else {
         result.data = this.pets;

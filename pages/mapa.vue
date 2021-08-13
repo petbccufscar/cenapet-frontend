@@ -141,7 +141,7 @@ export default {
           coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
 
-        const nomePet = `<a href="/pets/${e.features[0].properties.id}" target="_blank">${e.features[0].properties.nome}</a>`;
+        const nomePet = `<a href="/grupos/${e.features[0].properties.id}" target="_blank">${e.features[0].properties.nome}</a>`;
 
         new mapboxgl.Popup()
           .setLngLat(coordinates)

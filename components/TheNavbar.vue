@@ -100,7 +100,7 @@
           >
           <div class="dropdown-menu" aria-labelledby="Menu PET">
             <nuxt-link class="dropdown-item" to="/sobre-pet">O que é</nuxt-link>
-            <nuxt-link class="dropdown-item" to="/pets">Grupos</nuxt-link>
+            <nuxt-link class="dropdown-item" to="/grupos">Grupos</nuxt-link>
             <nuxt-link class="dropdown-item" to="/mapa">Mapa</nuxt-link>
 
             <!--SUBMENU COMISSÕES NACIONAIS -->

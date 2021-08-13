@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-8">
       <h4>
-        <nuxt-link :to="'/pets/' + pet.id">
+        <nuxt-link :to="'/grupos/' + pet.id">
           {{ pet.nome }}
         </nuxt-link>
       </h4>
