@@ -433,7 +433,7 @@ export default {
       const email_form = document.getElementById("email_pet");
 
       axios
-        .get(process.env.baseURL + `/grupos?email_pet=${email_form.value}`)
+        .get(process.env.baseURL + `/pets?email_pet=${email_form.value}`)
         .then(res => {
           if (res.data[0]) {
             email_form.setCustomValidity("Email já cadastrado!");
@@ -519,7 +519,7 @@ export default {
       };
 
       formData.append("data", JSON.stringify(data));
-      request.open("POST", process.env.baseURL + `/grupos`);
+      request.open("POST", process.env.baseURL + `/pets`);
       request.send(formData);
     },
     showResponse(res) {

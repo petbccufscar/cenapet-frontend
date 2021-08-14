@@ -20,7 +20,7 @@ export default {
         .get("https://strapi.cenapet.org/pets")
         .then(res => {
           const routes = res.data.map(pet => {
-            return "/pets/" + pet.id
+            return "/grupos/" + pet.id
           })
           callback(null, routes)
         })
