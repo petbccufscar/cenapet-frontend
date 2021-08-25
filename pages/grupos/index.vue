@@ -253,8 +253,10 @@ export default {
       if (eixo.value) {
         filtro += "eixo=" + eixo.value + "&";
       }
+      
+      filtro += "_sort=nome";
 
-      return filtro.substring(0, filtro.length - 1);
+      return filtro;
     },
     async atualizaPETs() {
       const filtro = this.montaFiltro();
@@ -300,12 +302,14 @@ export default {
       }
     },
     changePage(pagina) {
-      document.getElementById("page-" + this.pagina_atual).style.display =
+      if (document.getElementById("page-" + this.pagina_atual)) {
+        document.getElementById("page-" + this.pagina_atual).style.display =
         "none";
 
-      this.pagina_atual = pagina;
+        this.pagina_atual = pagina;
 
-      document.getElementById("page-" + pagina).style.display = "block";
+        document.getElementById("page-" + pagina).style.display = "block";
+      }
 
       if (pagina == 0) {
         document
@@ -317,7 +321,7 @@ export default {
           .parentElement.classList.remove("disabled");
       }
 
-      if (pagina >= Math.floor(this.pets_filter.length / 10) - 1) {
+      if (pagina >= Math.ceil(this.pets_filter.length / 10) - 1) {
         document
           .getElementById("pagination-next")
           .parentElement.classList.add("disabled");
