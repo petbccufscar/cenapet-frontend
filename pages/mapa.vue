@@ -45,7 +45,7 @@ export default {
   asyncData({ params }) {
     axios.defaults.headers.post["Content-Type"] =
       "application/x-www-form-urlencoded";
-    return axios.get(process.env.baseURL + `/pets`).then((res) => {
+    return axios.get(process.env.baseURL + `/grupos`).then((res) => {
       return { grupos: res.data };
     });
   },
